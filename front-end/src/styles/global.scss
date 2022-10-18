@@ -1,0 +1,11 @@
+@import '/src/styles/variaveis.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Poppins:wght@500;700&display=swap');
+
+
+body{
+    background-color: $cor-de-fundo;
+    font-family: $fonte-primaria;
+    font-size: 16px;
+    font-weight: 400;
+}

@@ -1,6 +1,4 @@
 @import '/src/styles/variaveis.scss';
-
-
 .banner {
     background: $preto;
     color: $branco;
@@ -35,6 +33,11 @@
     background-position: em;
 }
 
+.banner__pesquisa::placeholder :focus {
+    background: none;
+    color: black;
+}
+
 @media screen and (min-width: 1024px) {
     .banner {
         font-size: 36px;
@@ -58,6 +61,3 @@
         padding: 6em 0;
     }
 }
-
-
-

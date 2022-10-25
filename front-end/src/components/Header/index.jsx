@@ -1,16 +1,22 @@
-
 import style from './Header.module.scss'
+import { NavLink } from "react-router-dom";
 
 
 const Header = () => {
 
+    //1° div menu hamburguer + logo
+    //2° div menu "CATEGORIAS"
+    //3° div icones laterais
+
+    //Linha 70 - NavLink, funciona como a tag "a" do html, siga o padrão e
+    //conseguirá viajar entre as páginas
 
     return (
         <>  
             <header className = {style.cabeçalho}>
 
                 <div className= {style.container}>
-
+        
                     <input type="checkbox" id="menu" className={style.container__botao}/>
 
                         <label htmlFor='menu' className={style.container__rotulo}>
@@ -63,9 +69,9 @@ const Header = () => {
                         </label>
                         <ul className={style.lista_menu}>     
                             <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Programação
-                                </a>
+                                <NavLink className={style.lista_menu__link}
+                                to='/Livro' >Programação</NavLink>
+                                
                             </li>
                             <li className={style.lista_menu__item}>
                                 <a href="#" className={style.lista_menu__link}>
@@ -99,7 +105,7 @@ const Header = () => {
                 
                 <div className={style.container}>           
                     <a href="#">
-                        <img src="/public/assets/imagens/favorito.png" alt="Meus favoritos" className={style.container__imagem}/>
+                        <img src="/public/assets/imagens/favorito.png" alt="Meus favoritos" className={style.container__imagem_transparente}/>
                     </a>
                     <a href="#" className={style.container__link}>
                         <img src="/public/assets/imagens/carrinho.png" alt="Carrinhos de compras" className={style.container__imagem} />

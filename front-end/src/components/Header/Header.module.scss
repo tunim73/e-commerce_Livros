@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.container__botao:checked~.container__rotulo>.cabeçalho__menu-hamburguer{
+.container__botao:checked~.container__rotulo>.cabeçalho__menu_hamburguer{
     background-image: url('/public/assets/imagens/Menu-Aberto.png');
 }
 
@@ -81,8 +81,10 @@
     text-align: center   ;
 }
 
-.container__imagem-transparente{
+.container__imagem_transparente{
     display: inline-block;
+    padding: 1em;
+    width: 5vh;
 }
 
 .opções{
@@ -140,7 +142,7 @@
         display: none;
     }
     
-    .container__imagem-transparente{
+    .container__imagem_transparente{
         display: none;
     }
 

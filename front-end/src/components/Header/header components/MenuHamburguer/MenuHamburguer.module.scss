@@ -1,13 +1,22 @@
 @import '/src/styles/variaveis.scss';
 
 
-.cabeçalho{
-    background-color: $branco;
+
+.container{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    position: relative;
-    text-align: center;
+}
+
+.container__botao{
+    display: none;
+}
+.container__botao:checked~.container__rotulo>.cabeçalho__menu_hamburguer{
+    background-image: url('/public/assets/imagens/Menu-Aberto.png');
+    
+}
+
+.container__botao:checked~.container__rotulo{
+    background: $preto;
 }
 
 .cabeçalho__menu_hamburguer{
@@ -21,28 +30,7 @@
     //container__imagem
     padding: 1em; 
     width: 5vh;
-}
 
-.container{
-    display: flex;
-    align-items: center;
-}
-
-.container__botao:checked~.container__rotulo>.cabeçalho__menu_hamburguer{
-    background-image: url('/public/assets/imagens/Menu-Aberto.png');
-}
-
-.container__botao:checked~.container__rotulo{
-    background: $preto;
-}
-
-.container__titulo{
-    display: none;
-}
-
-.container__imagem{
-    padding: 1em;
-    width: 5vh;
 }
 
 .lista_menu{
@@ -52,9 +40,6 @@
     width: auto;
 }
 
-.container__botao{
-    display: none;
-}
 .container__botao:checked~.lista_menu{
     display: block;
 }
@@ -77,83 +62,10 @@
     background-clip: text;
 }
 
-.botões__ancora{
-    text-align: center   ;
-}
-
-.container__imagem_transparente{
-    display: inline-block;
-    padding: 1em;
-    width: 5vh;
-}
-
-.opções{
-    display: none;
-}
-
-.container__texto{
-    display: none;
-}
-
-
-
 @media screen  and (min-width: 1024px){
-    .container__titulo, .container__titulo_negrito{
-        font-family: $fonte-secundario;
-        font-size: 30px;
-    }
-    .container__titulo{
-        display: block;
-        font-weight: 400;
-    } 
-    .container__titulo_negrito{
-        font-weight: 700;
-    }
-
+    
     .cabeçalho__menu_hamburguer{
         display: none;
-    }
-
-    .opções{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        
-    }
-
-    .opções__item{
-        padding: 0 1em;
-        text-transform: uppercase;
-    }
-
-    .opções__link{
-        text-decoration: none;
-        color: $preto;
-    }
-
-    .opções__botao:checked ~ .lista_menu{
-        display: block;
-        width: auto;
-        left: 0%;
-    }
-
-    .opções__botao{
-        display: none;
-    }
-    
-    .container__imagem_transparente{
-        display: none;
-    }
-
-
-    .opções__botao:checked~.opcões__rotulo>.opções__item{
-        background: $preto;
-        color: $branco;
-    }
-
-    .opções__item{
-        padding: 2em 1em;
     }
 
     .lista-menu__item:hover{
@@ -168,17 +80,6 @@
 
 
 @media screen  and (min-width: 1728px){
-
-    .container__texto{
-        display: inline-block;
-    }
-
-    .container__link{
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: $preto;
-    }
 
     .cabeçalho{
         padding: 0 2em;

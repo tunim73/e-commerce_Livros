@@ -1,7 +1,5 @@
 import style from './LogoPrincipal.module.scss'
 
-import { NavLink } from "react-router-dom";
-
 
 const LogoPrincipal = () => {
 

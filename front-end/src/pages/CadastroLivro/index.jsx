@@ -8,7 +8,7 @@ const CadastroLivro = () => {
     return ( 
     <>
         <Header/>
-        <Form />
+        <Form formNome = 'Cadastro de Livros'/>
         <Footer/>
     </>
     )

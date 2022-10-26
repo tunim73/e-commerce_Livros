@@ -6,12 +6,12 @@ import Form from '../../components/Formulario'
 
 const Home = () => {
 
-    
+
     return (
     <>
         <Header/>
         <Banner/>
-        <Form/>
+        <Form formNome = 'Cadastro de Livro'/>
         <Footer/>
     </>
     )

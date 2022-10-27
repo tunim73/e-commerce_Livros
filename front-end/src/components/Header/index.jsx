@@ -1,120 +1,67 @@
-
 import style from './Header.module.scss'
+import MenuHamburguer from './headerComponents/MenuHamburguer';
+import IconeDeNavegar from './headerComponents/IconeDeNavegar';
+import ListaDoMenu from './headerComponents/ListaDoMenu';
+import LogoPrincipal from './headerComponents/LogoPrincipal';
 
 
 const Header = () => {
+
+
+    const listCategoria = [
+        {nome: 'Programação', link: '/livro'},
+        {nome: 'Front-end', link: '/livro'},
+        {nome: 'Infraestrutura', link: '/livro'},
+        {nome: 'Business', link: '/livro'},
+        {nome: 'Design e UX', link: '/livro'},
+    ]
+
+    const listAutores = [
+        {nome: 'Verônica Roth', link: '/livro'},
+        {nome: 'Zibia Gasparetto', link: '/livro'},
+        {nome: 'Marcelo Cézar', link: '/livro'},
+        {nome: 'Dan Brown', link: '/livro'},
+    ]
+
+    const listIconesDeNavegar = [
+        {
+            nome:'Meu Carrinho',
+            imagem: '/public/assets/imagens/carrinho.png',
+            alt: "Carrinhos de compras",
+            link:'/livro'
+        },
+        {
+            nome:'Meu Perfil',
+            imagem: '/public/assets/imagens/user.png',
+            alt: "Meu Perfil",
+            link:'/livro'
+        }
+
+    ]
+
+
 
 
     return (
         <>  
             <header className = {style.cabeçalho}>
 
-                <div className= {style.container}>
-
-                    <input type="checkbox" id="menu" className={style.container__botao}/>
-
-                        <label htmlFor='menu' className={style.container__rotulo}>
-                            <span className={style.cabeçalho__menu_hamburguer} ></span>
-                        </label>
-                        
-                        <ul className={style.lista_menu}>
-                            <li className={style.lista_menu__titulo}>
-                                Categorias
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Entrar/Cadastra-se
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Home
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Categorias
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Autores de Destaque
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Carrinho de compras
-                                </a>
-                            </li>
-                        </ul>
-
-                        <img src="/public/assets/imagens/logo.png" alt="Logo da Crônicas e Papel" className={style.container__imagem}/>
-                        <h1 className={style.container__titulo}>
-                            <b className={style.container__titulo_negrito }>Crônicas&</b>Papel
-                        </h1>
-                        
+                <div className={style.container}>
+                    <MenuHamburguer/>
+                    <LogoPrincipal/>
+                </div>
+                
+                <div className={style.container}>
+                    <ListaDoMenu list={listCategoria} listName='Categorias'/>  
+                    <ListaDoMenu list={listAutores} listName='Autores Destque'/>   
                 </div>
 
                 <div className={style.container}>
-                    <ul className={style.opções}>
-                        <input type="checkbox" id="opcões_menu" className={style.opções__botao}/>
-                        <label htmlFor="opcões_menu" className={style.opcões__rotulo}>
-                            <li className={style.opções__item}>Categorias</li>
-                        </label>
-                        <ul className={style.lista_menu}>     
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Programação
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Front_End
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Infraestrutura
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Business
-                                </a>
-                            </li>
-                            <li className={style.lista_menu__item}>
-                                <a href="#" className={style.lista_menu__link}>
-                                    Design e UX
-                                </a>
-                            </li>
-                        </ul>
-
-                        <li className={style.opções__item}>
-                        <a href="#" className={style.opções__link}>
-                            Favoritos
-                        </a>
-                    </li>
-                </ul>
+                    <IconeDeNavegar icon ={listIconesDeNavegar[0]}/>
+                    <IconeDeNavegar icon ={listIconesDeNavegar[1]}/>
                 </div>
                 
-                <div className={style.container}>           
-                    <a href="#">
-                        <img src="/public/assets/imagens/favorito.png" alt="Meus favoritos" className={style.container__imagem}/>
-                    </a>
-                    <a href="#" className={style.container__link}>
-                        <img src="/public/assets/imagens/carrinho.png" alt="Carrinhos de compras" className={style.container__imagem} />
-                        <p className={style.container__texto}>
-                            Minha sacola
-                        </p>
-                    </a>
-                    <a href="#" className={style.container__link}>
-                        <img src="/public/assets/imagens/user.png" alt="Meu Perfil" className={style.container__imagem}/>
-                        <p className={style.container__texto}>
-                            Meu Perfil
-                        </p>
-                    </a>
-                </div>
-
+                
             </header>
         </>
     )

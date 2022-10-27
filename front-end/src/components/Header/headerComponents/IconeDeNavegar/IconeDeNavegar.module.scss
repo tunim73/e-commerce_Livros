@@ -1,0 +1,55 @@
+@import '/src/styles/variaveis.scss';
+
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.container__titulo{
+    display: none;
+}
+
+.container__imagem{
+    padding: 1em;
+    width: 5vh;
+}
+
+.container__imagem_transparente{
+    display: inline-block;
+    padding: 1em;
+    width: 5vh;
+}
+.container__texto{
+    display: none;
+}
+
+
+@media screen  and (min-width: 1024px){
+    .container__titulo{
+        font-family: $fonte-secundario;
+        font-size: 30px;
+        display: block;
+        font-weight: 400;
+    } 
+    .container__imagem_transparente{
+        display: none;
+    }
+}
+
+
+@media screen  and (min-width: 1728px){
+
+    .container__texto{
+        display: inline-block;
+    }
+
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $preto;
+    }
+
+}
+

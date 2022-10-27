@@ -2,19 +2,44 @@ import style from './Form.module.scss'
 import {CampoTexto} from '../CampoTexto'
 import { Botao } from '../Botao'
 
-const Form = (props) => {
+const Formulario = (props) => {
+
+
+    const listForms = [
+        {
+            label:'nome',
+            id:'nome',
+            type: 'text',
+            placeholder:'Digite o nome do livro'
+        },
+        {
+            label:'Categoria',
+            id:'categoria',
+            type: 'text',
+            placeholder:'Insira as categorias pertencentes'
+        },
+        {
+            label:'nome do livro',
+            id:'fotoLivro',
+            type: 'text',
+            placeholder:'Insira a foto do livro'
+        },
+    ]
+ 
 
 
     return ( 
         <div className = { style.container } >
             <form className = { style.container }> 
                 <h1>{props.formNome}</h1>
-                <CampoTexto campoNome = 'Digite o nome do Livro'/>
-                <CampoTexto campoNome = 'Digite a edição do Livro'/>
+                <div>
+                    {listForms.map(item => <CampoTexto item={item}/> )}
+                </div>
+               
                 <Botao botao = 'Cadastrar' />
             </form> 
         </div> 
         )
 }
 
-export default Form
+export default Formulario

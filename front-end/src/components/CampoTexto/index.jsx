@@ -1,18 +1,14 @@
 import style from './CampoTexto.module.scss'
 
 
-export const CampoTexto = (props) => {
-
+export const CampoTexto = ({item}) => {
 
     return ( 
-        <div className = { style.container }>
-                <div className='campoTexto'>
-                        <label className='campoTexto'>{props.campoNome}</label> 
-                        <input type = "text" name = "#" 
-                        placeholder = {props.campoNome} /> 
-                </div>
-                
-        </div> 
+        <div className={style.campoTexto}>
+                <label className={style.campoTexto}>{item.label}</label> 
+                <input type = {item.type} name = {item.id} 
+                placeholder = {item.placeholder} /> 
+        </div>
         )
 }
 

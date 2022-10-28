@@ -6,3 +6,5 @@
 - No terminal: npm run dev 
     - O comando acima será para enfim rodar a aplicação
     - após rodar, clique em cima do link "http://localhost..." que ficará disponível no terminal 
+
+    Teste com Editor merge 05

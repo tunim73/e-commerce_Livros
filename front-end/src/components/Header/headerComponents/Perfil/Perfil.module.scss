@@ -1,0 +1,113 @@
+@import '/src/styles/variaveis.scss';
+
+
+.perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &__input {
+        display:none;
+
+        &:checked ~ .perfil__opções{
+            display: block;
+            width: auto;
+            right: 0%;
+        }
+
+        /*&:checked~.perfil__rotulo{ 
+            background: $preto;
+            color: $branco;
+        }*/
+    }
+    &__imagem {
+        padding: 1em;
+        width: 5vh;
+    }
+    &__texto{
+        display: none;
+    }
+    &__opções{
+        display: none;
+        position: absolute;
+        top: 100%;
+        width: auto;
+
+        &__item{
+            background-color: $branco;
+            padding: 1em;
+            text-transform: uppercase; 
+        }
+        
+        &__link{
+            background: $preto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+    }
+    
+}
+
+
+@media screen  and (min-width: 1024px){
+    
+
+    .perfil {
+
+        &__input{
+            display: none;
+        }
+
+        &__opções{
+
+            &__item{
+                padding: 2em 1em;
+                text-transform: uppercase;
+
+                &:hover{
+                    background: $preto;
+
+                    &>.perfil__opções__link{
+                        -webkit-text-fill-color: $branco;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen  and (min-width: 1728px){
+
+    .perfil {
+
+        &__input{
+            display: none;
+
+            &:checked ~ .perfil__opções{
+                display: block;
+                width: auto;
+                left: 0%;
+            }
+        }
+
+
+        &__texto {
+            display: inline-block;
+        }
+        &__rotulo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $preto;
+        }
+    }
+    
+}
+
+
+

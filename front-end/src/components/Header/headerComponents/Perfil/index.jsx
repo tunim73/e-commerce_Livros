@@ -1,12 +1,18 @@
 import style from './Perfil.module.scss'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import ModalLogin from '../../../ModalLogin'
+
 
 const Perfil = () =>{
 
 
     const [logado, setLogado] = useState(false);
+    const [modalAberto, setModalAberto] = useState(false);
 
+
+    const aoAbrirModal = () => setModalAberto(true);
+    
 
     return (
         
@@ -24,7 +30,15 @@ const Perfil = () =>{
                 { (logado === false) ? 
                     <>
                         <li className={style.perfil__opções__item}>
-                        <NavLink className={style.perfil__opções__link} to= '/livro'>Entrar</NavLink>
+                            <label type ='text'className={style.perfil__opções__link}
+                            onClick={aoAbrirModal}
+                            >Entre</label>
+
+                            <ModalLogin 
+                            aberto= {modalAberto}
+                            aoFechar={() => setModalAberto(false)}
+                            />
+
                         </li>
                         <li className={style.perfil__opções__item}>
                         <NavLink className={style.perfil__opções__link} to= '/livro'>Cadastre-se</NavLink>

@@ -1,0 +1,29 @@
+@import '/src/styles/variaveis.scss';
+
+
+.container {
+
+    width: 200px;
+    height: 100px;
+}
+
+.campoTextoInput{
+
+    height: 30px;
+    max-width: 100%;
+}
+.corpoModalCadastro {
+    display: flex;
+    align-items: center;
+    padding-top: 32px;
+}
+
+.corpoModalCadastro form {
+    width: 500px;
+    max-width: 100%;
+}
+
+.corpoModalCadastro form .acoes {
+    margin-top: 48px;
+    text-align: center;
+}

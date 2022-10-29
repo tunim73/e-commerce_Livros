@@ -1,0 +1,47 @@
+@import '/src/styles/variaveis.scss';
+
+.modal{
+
+    &_fundo {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        background: $fundo-modal
+    }
+
+    &_janela {
+        position: fixed;
+        padding: 64px;
+        background: $branco;
+        box-shadow: 4px 4px 24px -4px rgba(0, 0, 0, 0.15);
+        border-radius: 24px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &_containerTitulo {
+        display: flex;
+        justify-content: space-between;
+        font-family: sans-serif;
+        align-items: center;
+    }
+
+    &_titulo {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 48px;
+        color: $laranja;
+        margin: 0;
+    }
+
+    &_btnFechar {
+        background-color: $cinza;
+        border: none;
+        cursor: pointer;
+        color: $branco;
+    }
+}
+

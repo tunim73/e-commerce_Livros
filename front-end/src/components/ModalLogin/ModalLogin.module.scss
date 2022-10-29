@@ -16,14 +16,29 @@
     display: flex;
     align-items: center;
     padding-top: 32px;
+
+    & form {
+        width: 500px;
+        max-width: 100%;
+
+        & .acoes {
+            margin-top: 48px;
+            text-align: center;
+        }
+    }
+    img {
+        display: none;
+    }
+
 }
 
-.corpoModalCadastro form {
-    width: 500px;
-    max-width: 100%;
-}
+@media screen  and (min-width: 1024px){
 
-.corpoModalCadastro form .acoes {
-    margin-top: 48px;
-    text-align: center;
+    .corpoModalCadastro {
+        
+        img {
+            display: flex;
+        }
+    
+    }
 }

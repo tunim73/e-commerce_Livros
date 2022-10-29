@@ -1,20 +1,29 @@
 @import '/src/styles/variaveis.scss';
 
+
+
+.fundo {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background: $fundo-modal
+}
+
 .modal{
-
-    &_fundo {
-        position: fixed;
-        left: 0px;
-        right: 0px;
-        top: 0px;
-        bottom: 0px;
-        background: $fundo-modal
-    }
-
+    
     &_janela {
+        border: 2px solid red;
         position: fixed;
-        padding: 64px;
+        padding: 32px;
+        max-width: 700px;
+        width: auto;
+        max-height: 600px;
+        height: auto;
         background: $branco;
+        margin-left: 10px;
+        margin-right: 40px;
         box-shadow: 4px 4px 24px -4px rgba(0, 0, 0, 0.15);
         border-radius: 24px;
         top: 50%;
@@ -24,7 +33,7 @@
 
     &_containerTitulo {
         display: flex;
-        justify-content: space-between;
+        justify-content:center;
         font-family: sans-serif;
         align-items: center;
     }
@@ -38,10 +47,55 @@
     }
 
     &_btnFechar {
-        background-color: $cinza;
-        border: none;
-        cursor: pointer;
-        color: $branco;
+        display:none;
     }
 }
 
+@media screen  and (min-width: 1024px){
+
+    .modal{
+
+        &_janela {
+            border: 2px solid red;
+                position: fixed;
+                padding: 64px;
+                max-width: 700px;
+                width: auto;
+                max-height: 600px;
+                height: auto;
+                background: $branco;
+                margin-left: 10px;
+                margin-right: 40px;
+                box-shadow: 4px 4px 24px -4px rgba(0, 0, 0, 0.15);
+                border-radius: 24px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            
+        }
+    
+        &_containerTitulo {
+            display: flex;
+            justify-content: space-between;
+            font-family: sans-serif;
+            align-items: center;
+        }
+
+        &_titulo {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 48px;
+            color: $laranja;
+            margin: 0;
+        }
+
+        &_btnFechar {
+            display:flex;
+            background-color: $cinza;
+            border: none;
+            cursor: pointer;
+            color: $branco;
+        }
+    }
+
+}

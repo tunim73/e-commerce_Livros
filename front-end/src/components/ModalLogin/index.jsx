@@ -13,11 +13,13 @@ const ModalLogin = ({ aberto, aoFechar }) => {
 
         <section className={style.corpoModalCadastro}>
             <figure>
-                <img src={imagemPrincipal} alt="pessoa segurando uma chave" />
+                <img className src={imagemPrincipal} alt="pessoa segurando uma chave" />
             </figure>
             <div className={style.container}>
+                
+                
                 <label>Opa Funcionou </label>
-                <input className ={ style.campoTextoInput}typy='text'></input>
+                <input className ={style.campoTextoInput}typy='text'></input>
             </div>
             
         </section>

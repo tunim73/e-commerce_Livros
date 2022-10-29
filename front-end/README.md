@@ -1,10 +1,6 @@
 ## Após dar git clone ...
 #
 
-
-*Teste com merge editor*
-
-
 - No terminal: npm i ou npm install  
     - O Comando acima vai instalar os pacotes necessários para rodar a aplicação, de acordo com o package.json, os pacotes ficarão na pasta node_modules
 #

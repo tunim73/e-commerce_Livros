@@ -1,0 +1,32 @@
+    @import '/src/styles/variaveis.scss';
+    .wrap {
+        background: $branco;
+    }
+    
+    input {
+        margin: 2% 42%;
+        width: 100%;
+    }
+    
+    .preco {
+        background: $branco;
+        display: block;
+        height: 5%;
+        font-size: 25px;
+        padding: 1% 0;
+        width: 100%;
+    }
+    
+    @media screen and (min-width: 1024px) {
+        .preco {
+            background: $branco;
+            display: inline-block;
+            height: 5%;
+            font-size: 30px;
+            width: 50%;
+            vertical-align: middle;
+        }
+        input {
+            margin: 0% 40%;
+        }
+    }

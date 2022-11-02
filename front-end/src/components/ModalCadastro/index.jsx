@@ -1,25 +1,35 @@
 import imagemPrincipal from './assets/login.png'
-import style from './ModalLogin.module.scss'
+import style from './ModalCadastro.module.scss'
 import { ModalBase } from "../ModalBase"
 import Formulario from '../Formulario'
 
 
-const ModalLogin = ({ aberto, aoFechar }) => {
+const ModalCadastro = ({ aberto, aoFechar }) => {
 
     const listLogin = [
         {
+            label:'nome',
+            id:'nome',
+            type: 'text',
+            placeholder:'Digite seu nome',
+        },
+        {
             label:'email',
             id:'email',
-            type: 'text',
-            placeholder:'Digite seu e-mail',
-            
+            type: 'email',
+            placeholder:'Digite seu email',
         },
         {
             label:'senha',
             id:'senha',
             type: 'password',
             placeholder:'Digite sua senha',
-            
+        },
+        {
+            label:'Confirme sua senha',
+            id:'confrimaSenha',
+            type: 'password',
+            placeholder:'Confirme sua senha novamente',
         }
     ]
 
@@ -34,7 +44,7 @@ const ModalLogin = ({ aberto, aoFechar }) => {
                 <img className src={imagemPrincipal} alt="pessoa segurando uma chave" />
             </figure>
             <div className={style.container}>
-            <Formulario list ={listLogin} nomeBotao="Login" titulo="Login"/>
+                <Formulario list ={listLogin} nomeBotao="Cadastrar" titulo ="Cadastro de Login"/>
     
             </div>
             
@@ -46,4 +56,4 @@ const ModalLogin = ({ aberto, aoFechar }) => {
     
 }
 
-export default ModalLogin
+export default ModalCadastro

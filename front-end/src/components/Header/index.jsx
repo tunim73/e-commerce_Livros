@@ -11,7 +11,7 @@ const Header = () => {
 
     const listCategoria = [
         {nome: 'Programação', link: '/livro'},
-        {nome: 'Front-end', link: '/livro'},
+        {nome: 'Front-end', link: '/detalhesAutor'},
         {nome: 'Infraestrutura', link: '/Livrod'},
         {nome: 'Business', link: '/livro'},
         {nome: 'Design e UX', link: '/livro'},

@@ -1,4 +1,12 @@
 @import '/src/styles/variaveis.scss';
-label {
+.contaniner {}
+
+.label {
     margin: 10px;
+}
+
+.campo {
+    margin-bottom: 2%;
+    height: auto;
+    width: 30%;
 }

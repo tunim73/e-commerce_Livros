@@ -1,19 +1,10 @@
 @import '/src/styles/variaveis.scss';
-h1 {
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-}
-
-form {
+.formulario {
     background-color: $branco;
     width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin: 5% 20%;
     padding-top: 5%;
     padding-bottom: 5%;
     text-align: center;
-    
+    bottom: 0;
 }

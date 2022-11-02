@@ -42,7 +42,7 @@
     }
 
     .opções__item{
-        padding: 0 1em;
+        padding: 2em 1em;
         text-transform: uppercase;
     }
 
@@ -63,9 +63,6 @@
         color: $branco;
     }
 
-    .opções__item{
-        padding: 2em 1em;
-    }
 
     .lista_menu__item:hover{
         background: $preto;

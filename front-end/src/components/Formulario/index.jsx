@@ -16,13 +16,49 @@ const Formulario = (props) => {
             label:'Categoria',
             id:'categoria',
             type: 'text',
-            placeholder:'Insira as categorias pertencentes'
+            placeholder:'Insira as categorias do livro'
         },
         {
-            label:'nome do livro',
+            label:'Foto do livro',
             id:'fotoLivro',
+            type: 'file',
+            placeholder:'Insira a imagem do livro'
+        },
+        {
+            label:'Preço',
+            id:'preco',
             type: 'text',
-            placeholder:'Insira a foto do livro'
+            placeholder:'Digite o preço'
+        },
+        {
+            label:'Sinopse',
+            id:'sinopse',
+            type: 'text',
+            placeholder:'Digite a sinopse do livro'
+        },
+        {
+            label:'Autor',
+            id:'autor',
+            type: 'text',
+            placeholder:'Digite o autor'
+        },
+        {
+            label:'Edição',
+            id:'edicao',
+            type: 'text',
+            placeholder:'Digite a edição'
+        },
+        {
+            label:'Editora',
+            id:'editora',
+            type: 'text',
+            placeholder:'Digite a editora'
+        },
+        {
+            label:'Ano de lançamento',
+            id:'preco',
+            type: 'text',
+            placeholder:'Digite o ano de lançamento do livro'
         },
     ]
  
@@ -32,7 +68,7 @@ const Formulario = (props) => {
         <div className = { style.container } >
             <form className = { style.container }> 
                 <h1>{props.formNome}</h1>
-                <div>
+                <div className='formulario'>
                     {listForms.map(item => <CampoTexto item={item}/> )}
                 </div>
                

@@ -3,6 +3,7 @@ import MenuHamburguer from './headerComponents/MenuHamburguer';
 import IconeDeNavegar from './headerComponents/IconeDeNavegar';
 import ListaDoMenu from './headerComponents/ListaDoMenu';
 import LogoPrincipal from './headerComponents/LogoPrincipal';
+import Perfil from './headerComponents/Perfil';
 
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
     const listCategoria = [
         {nome: 'Programação', link: '/livro'},
         {nome: 'Front-end', link: '/livro'},
-        {nome: 'Infraestrutura', link: '/livro'},
+        {nome: 'Infraestrutura', link: '/Livrod'},
         {nome: 'Business', link: '/livro'},
         {nome: 'Design e UX', link: '/livro'},
     ]
@@ -58,7 +59,7 @@ const Header = () => {
 
                 <div className={style.container}>
                     <IconeDeNavegar icon ={listIconesDeNavegar[0]}/>
-                    <IconeDeNavegar icon ={listIconesDeNavegar[1]}/>
+                    <Perfil/>
                 </div>
                 
                 
@@ -69,19 +70,3 @@ const Header = () => {
 
 
 export default Header
-
-
-
-
-
-
- /*
- 
-
-
-
-
-
-            
- 
- */

@@ -1,11 +1,11 @@
     @import '/src/styles/variaveis.scss';
     .wrap {
         background: $branco;
+        width: 100%;
     }
     
-    input {
+    .wrap input {
         margin: 2% 42%;
-        width: 100%;
     }
     
     .preco {
@@ -26,7 +26,7 @@
             width: 50%;
             vertical-align: middle;
         }
-        input {
+        .wrap input {
             margin: 0% 40%;
         }
     }

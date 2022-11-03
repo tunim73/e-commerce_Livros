@@ -54,7 +54,7 @@ const Header = () => {
                 
                 <div className={style.container}>
                     <ListaDoMenu list={listCategoria} listName='Categorias'/>  
-                    <ListaDoMenu list={listAutores} listName='Autores Destque'/>   
+                    <ListaDoMenu list={listAutores} listName='Autores Destaque'/>   
                 </div>
 
                 <div className={style.container}>

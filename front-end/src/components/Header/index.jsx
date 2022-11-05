@@ -13,7 +13,7 @@ const Header = () => {
         {nome: 'Programação', link: '/livro'},
         {nome: 'Front-end', link: '/detalhesAutor'},
         {nome: 'Infraestrutura', link: '/Livrod'},
-        {nome: 'Business', link: '/livro'},
+        {nome: 'Business', link: '/'},
         {nome: 'Design e UX', link: '/livro'},
     ]
 

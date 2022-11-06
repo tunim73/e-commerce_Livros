@@ -12,6 +12,7 @@
     background-color: $branco;
     padding: 1em;
     text-transform: uppercase; 
+    width: 160px;
 }
 
 .lista_menu__link{
@@ -44,12 +45,13 @@
     .opções__item{
         padding: 2em 1em;
         text-transform: uppercase;
+        width: 160px;
     }
-
+    
 
     .opções__botao:checked ~ .lista_menu{
         display: block;
-        width: auto;
+        width: 160px;
         left: 0%;
     }
 
@@ -62,7 +64,7 @@
         background: $preto;
         color: $branco;
     }
-
+    
 
     .lista_menu__item:hover{
         background: $preto;

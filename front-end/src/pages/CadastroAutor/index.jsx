@@ -44,7 +44,7 @@ const CadastroAutor = () => {
 return ( 
 <>
     <Header/>
-    <Formulario list={listForms} botao="Cadastrar" />
+    <Formulario list={listForms} botao="Cadastrar" titulo='Cadastro de Autores'/>
     <Footer/>
 </>
 )

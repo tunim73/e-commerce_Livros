@@ -13,14 +13,16 @@
 
 .modal{
     
-    &_janela {
+    &_janela *{
         border: 2px solid red;
+    }
+    &_janela {
         position: fixed;
         padding: 32px;
         max-width: 700px;
-        width: auto;
+        width: 70%;
         max-height: 600px;
-        height: auto;
+        height: 60%;
         background: $branco;
         margin-left: 10px;
         margin-right: 40px;
@@ -30,7 +32,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
+/*
     &_containerTitulo {
         display: flex;
         justify-content:center;
@@ -45,7 +47,7 @@
         color: $laranja;
         margin: 0;
     }
-
+*/
     &_btnFechar {
         display:none;
     }
@@ -56,24 +58,9 @@
     .modal{
 
         &_janela {
-            border: 2px solid red;
-                position: fixed;
-                padding: 64px;
-                max-width: 700px;
-                width: auto;
-                max-height: 600px;
-                height: auto;
-                background: $branco;
-                margin-left: 10px;
-                margin-right: 40px;
-                box-shadow: 4px 4px 24px -4px rgba(0, 0, 0, 0.15);
-                border-radius: 24px;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            
+
         }
-    
+/*
         &_containerTitulo {
             display: flex;
             justify-content: space-between;
@@ -88,7 +75,7 @@
             color: $laranja;
             margin: 0;
         }
-
+*/
         &_btnFechar {
             display:flex;
             background-color: $cinza;

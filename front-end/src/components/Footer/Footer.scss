@@ -1,9 +1,9 @@
 @import '/src/styles/variaveis.scss';
 .container {
     width: 100%;
-    display: block;
-    position: absolute;
+    display: fixed;
     bottom: 0;
+    left: 0;
 }
 
 hr {
@@ -23,10 +23,6 @@ hr {
 }
 
 @media screen and (min-width: 1200px) {
-    .container {
-        position: relative;
-        bottom: 0;
-    }
     .rodapé {
         display: flex;
         justify-content: space-around;

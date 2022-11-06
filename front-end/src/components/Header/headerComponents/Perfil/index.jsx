@@ -2,18 +2,29 @@ import style from './Perfil.module.scss'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
+import { listLogin,listCadastro, forForm} from './modaisData'
 
 
-const Perfil = () =>{
+const Perfil = () =>{   
 
 
     const [logado, setLogado] = useState(false);
-    const [modalAberto, setModalAberto] = useState(false);
+    const [modalLoginAberto, setModalLoginAberto] = useState(false);
+    const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
+
+    const aoAbrirModalLogin = () => {
+        setModalCadastroAberto(false);
+        setModalLoginAberto(true);
+    }
 
 
-    const aoAbrirModal = () => setModalAberto(true);
+    const aoAbrirModalCadastro = () => {
+        setModalLoginAberto(false);
+        setModalCadastroAberto(true);
+    }
+
+
     
-
     return (
         
             <div className={style.perfil}>
@@ -31,18 +42,29 @@ const Perfil = () =>{
                     <>
                         <li className={style.perfil__opções__item}>
                             <label type ='text'className={style.perfil__opções__link}
-                            onClick={aoAbrirModal}
+                            onClick={aoAbrirModalLogin}
                             >Entre</label>
 
                             <ModalLogin 
-                            aberto= {modalAberto}
-                            aoFechar={() => setModalAberto(false)}
+                            aberto= {modalLoginAberto}
+                            aoFechar={() => setModalLoginAberto(false)}
+                            list={listLogin} forForm = {forForm[0]}
                             />
 
                         </li>
+
                         <li className={style.perfil__opções__item}>
-                        <NavLink className={style.perfil__opções__link} to= '/livro'>Cadastre-se</NavLink>
+                            <label type ='text'className={style.perfil__opções__link}
+                                onClick={aoAbrirModalCadastro}
+                                >Cadastre-se</label>
+                            <ModalLogin 
+                                aberto= {modalCadastroAberto}
+                                aoFechar={() => setModalCadastroAberto(false)}
+                                list={listCadastro} forForm = {forForm[1]}
+                            />
+
                         </li>
+
                     </>
                     :
                     <>

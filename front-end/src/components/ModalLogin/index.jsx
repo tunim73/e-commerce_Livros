@@ -1,27 +1,12 @@
 import imagemPrincipal from './assets/login.png'
 import style from './ModalLogin.module.scss'
-import { ModalBase } from "../ModalBase"
+import { ModalBase } from "./ModalBase"
 import Formulario from '../Formulario'
 
 
-const ModalLogin = ({ aberto, aoFechar }) => {
+const ModalLogin = ({ aberto, aoFechar, list, forForm }) => {
 
-    const listLogin = [
-        {
-            label:'email',
-            id:'email',
-            type: 'text',
-            placeholder:'Digite seu e-mail',
-            
-        },
-        {
-            label:'senha',
-            id:'senha',
-            type: 'password',
-            placeholder:'Digite sua senha',
-            
-        }
-    ]
+    
 
     return (
         <ModalBase 
@@ -29,13 +14,16 @@ const ModalLogin = ({ aberto, aoFechar }) => {
         aoFechar={aoFechar}
         > 
 
-        <section className={style.corpoModalCadastro}>
+        <section className={style.corpoModal}>
             <figure>
-                <img className src={imagemPrincipal} alt="pessoa segurando uma chave" />
+                <img src={imagemPrincipal} alt="pessoa segurando uma chave" />
             </figure>
-            <div className={style.container}>
-            <Formulario list ={listLogin} nomeBotao="Login" titulo="Login"/>
-    
+            <div className={style.containerForms}>
+                <Formulario 
+                list ={list} 
+                nomeBotao={forForm.nomeBotao} 
+                titulo={forForm.titulo}
+                />
             </div>
             
         </section>

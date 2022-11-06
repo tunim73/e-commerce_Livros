@@ -2,6 +2,8 @@
     .wrap {
         background: $branco;
         width: 100%;
+        text-align: center;
+        
     }
     
     .wrap input {
@@ -10,11 +12,19 @@
     
     .preco {
         background: $branco;
-        display: block;
+        display:inline;
         height: 5%;
         font-size: 25px;
         padding: 1% 0;
         width: 100%;
+    }
+
+    .img {
+        width: 10%;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        
     }
     
     @media screen and (min-width: 1024px) {

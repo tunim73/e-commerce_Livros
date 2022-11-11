@@ -6,10 +6,7 @@ const Titulo = (props) => {
 
     return ( 
         <div className = { style.container }>
-                <div >
-                        <h1 className={style.titulo}>{props.forNome}</h1>
-                </div>
-                
+                <h1 className={style.titulo}>{props.forNome}</h1>  
         </div> 
         )
 }

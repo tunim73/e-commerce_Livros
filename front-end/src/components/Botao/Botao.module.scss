@@ -1,13 +1,15 @@
 @import '/src/styles/variaveis.scss';
 .container {
     background: $branco;
-    width: 100%;
-    display: block;
+    width: 100%;    
+    display: block; 
+    padding: 0;
+    margin: 0;
 }
 
 .botaoConfirma {
     text-align: center;
-    width: 10%;
+    width: 40%;
     min-width: 100px;
     font-size: 20px;
 }

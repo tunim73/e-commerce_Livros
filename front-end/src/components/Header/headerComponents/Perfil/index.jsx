@@ -2,7 +2,7 @@ import style from './Perfil.module.scss'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
-import { listLogin,listCadastro, forForm} from './modaisData'
+import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms'
 
 
 const Perfil = () =>{   
@@ -48,7 +48,7 @@ const Perfil = () =>{
                             <ModalLogin 
                             aberto= {modalLoginAberto}
                             aoFechar={() => setModalLoginAberto(false)}
-                            list={listLogin} forForm = {forForm[0]}
+                            forForm={listForFormLogin}
                             />
 
                         </li>
@@ -60,7 +60,7 @@ const Perfil = () =>{
                             <ModalLogin 
                                 aberto= {modalCadastroAberto}
                                 aoFechar={() => setModalCadastroAberto(false)}
-                                list={listCadastro} forForm = {forForm[1]}
+                                forForm={listForFormCadastro}
                             />
 
                         </li>

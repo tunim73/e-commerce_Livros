@@ -8,16 +8,12 @@ const Formulario = (props) => {
 
 
     return ( 
-        <div className = { style.container } >
-            <form className = { style.container }> 
-                <div className={style.formulario}>
-                    <Titulo forNome={props.titulo} />
-                    {props.list.map(item => 
-                    <CampoTexto key={`#${item.label}#${props.titulo}`} item={item}/>)}
-                    <Botao botao = {props.nomeBotao}/>
-                </div>
+            <form className = {style.formulario}> 
+                <Titulo forNome={props.titulo} />
+                {props.list.map(item => 
+                <CampoTexto key={`#${item.label}#${props.titulo}`} item={item}/>)}
+                <Botao botao = {props.nomeBotao}/>
             </form> 
-        </div> 
         )
 }
 

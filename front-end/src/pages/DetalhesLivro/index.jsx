@@ -9,7 +9,7 @@ import {Botao} from '../../components/Botao'
 const DetalhesLivro = () => {
     return ( 
     <>
-        <Header/>
+        
         <Banner/>
         <Titulo forNome = "Livro"/>
         
@@ -21,7 +21,7 @@ const DetalhesLivro = () => {
         </div>
         
          
-        <Footer/>
+        
     </>
     )
 

@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
-import CadastroLivro from './pages/CadastroLivro'
 import DetalhesLivro from './pages/DetalhesLivro'
 import DetalhesAutor from './pages/DetalhesAutor'
+import PagCadastros from './pages/PagCadastros'
 import Home from "./pages/Home"
+import DefaultPage from './components/DefaultPage';
+import { listForPagCadastroAutor, listForPagCadastroCategoria } from './data/forForms';
 
 const AppRouter = () => {
 
@@ -10,10 +12,15 @@ const AppRouter = () => {
         <main>
             <Router>
                 <Routes>
-                    <Route path='/' element={<Home/>}/>
-                    <Route path='/Livro' element={<CadastroLivro/> }/>
-                    <Route path='/Livrod' element={<DetalhesLivro/> }/>
-                    <Route path='/detalhesAutor' element={<DetalhesAutor/>}/>
+                    <Route path='/' element={<DefaultPage/>}>
+                        <Route path='/' element={<Home/>}/>
+                        <Route path='Livrod' element={<DetalhesLivro/>}/>
+                        <Route path='autor' 
+                            element={ <PagCadastros infos = {listForPagCadastroAutor}/>}/>
+                        <Route path='livro' 
+                            element={ <PagCadastros infos = {listForPagCadastroCategoria}/>}/>
+                        <Route path='detalhesAutor' element={<DetalhesAutor/>}/>
+                    </Route>
                 </Routes>   
             </Router>
         </main>

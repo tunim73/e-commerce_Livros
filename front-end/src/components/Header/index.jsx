@@ -1,28 +1,12 @@
-import style from './Header.module.scss'
 import MenuHamburguer from './headerComponents/MenuHamburguer';
 import IconeDeNavegar from './headerComponents/IconeDeNavegar';
 import ListaDoMenu from './headerComponents/ListaDoMenu';
 import LogoPrincipal from './headerComponents/LogoPrincipal';
 import Perfil from './headerComponents/Perfil';
+import style from './Header.module.scss'
 
 
 const Header = () => {
-
-
-    const listCategoria = [
-        {nome: 'Programação', link: '/livro'},
-        {nome: 'Front-end', link: '/detalhesAutor'},
-        {nome: 'Infraestrutura', link: '/Livrod'},
-        {nome: 'Business', link: '/'},
-        {nome: 'Design e UX', link: '/livro'},
-    ]
-
-    const listAutores = [
-        {nome: 'Verônica Roth', link: '/livro'},
-        {nome: 'Zibia Gasparetto', link: '/livro'},
-        {nome: 'Marcelo Cézar', link: '/livro'},
-        {nome: 'Dan Brown', link: '/livro'},
-    ]
 
     const listIconesDeNavegar = [
         {
@@ -40,9 +24,6 @@ const Header = () => {
 
     ]
 
-
-
-
     return (
         <>  
             <header className = {style.cabeçalho}>
@@ -53,8 +34,7 @@ const Header = () => {
                 </div>
                 
                 <div className={style.container}>
-                    <ListaDoMenu list={listCategoria} listName='Categorias'/>  
-                    <ListaDoMenu list={listAutores} listName='Autores Destaque'/>   
+                    <ListaDoMenu />  
                 </div>
 
                 <div className={style.container}>

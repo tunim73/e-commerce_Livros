@@ -13,12 +13,10 @@
 
 .modal{
     
-    &_janela *{
-        border: 2px solid red;
-    }
+
     &_janela {
         position: fixed;
-        padding: 32px;
+        padding: 24px;
         max-width: 700px;
         width: 70%;
         max-height: 600px;
@@ -58,7 +56,7 @@
     .modal{
 
         &_janela {
-
+            padding: 32px;
         }
 /*
         &_containerTitulo {

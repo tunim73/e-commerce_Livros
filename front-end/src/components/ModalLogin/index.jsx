@@ -4,7 +4,7 @@ import { ModalBase } from "./ModalBase"
 import Formulario from '../Formulario'
 
 
-const ModalLogin = ({ aberto, aoFechar, list, forForm }) => {
+const ModalLogin = ({ forForm, aberto, aoFechar }) => {
 
     
 
@@ -20,7 +20,7 @@ const ModalLogin = ({ aberto, aoFechar, list, forForm }) => {
             </figure>
             <div className={style.containerForms}>
                 <Formulario 
-                list ={list} 
+                list ={forForm.list} 
                 nomeBotao={forForm.nomeBotao} 
                 titulo={forForm.titulo}
                 />

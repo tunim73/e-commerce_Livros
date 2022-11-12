@@ -13,7 +13,7 @@ const Header = () => {
             nome:'Meu Carrinho',
             imagem: '/public/assets/imagens/carrinho.png',
             alt: "Carrinhos de compras",
-            link:'/livro'
+            link:'/carrinho'
         },
         {
             nome:'Meu Perfil',

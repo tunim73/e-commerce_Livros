@@ -1,0 +1,58 @@
+@import '/src/styles/variaveis.scss';
+.container {
+    width: 100%;
+    background: $branco;
+}
+
+.container hr {
+    margin: 0;
+}
+
+.grid1 {
+    display: inline-block;
+    width: 20%;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+}
+
+.grid2 {
+    display: inline-block;
+    width: 70%;
+    margin: 0 10%;
+}
+
+.preco {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 25px;
+    width: 25%;
+}
+
+.botaoadd {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin: 1%;
+    background: green;
+}
+
+.botaorem {
+    width: 20px;
+    height: 20px;
+    margin: 1%;
+    background: red;
+}
+
+@media screen and (min-width: 1024px) {
+    .grid2 {
+        display: inline-block;
+        width: 70%;
+        margin: 0 10%;
+        position: absolute;
+        top: 50%;
+    }
+}

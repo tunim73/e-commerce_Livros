@@ -3,6 +3,7 @@ import DetalhesLivro from './pages/DetalhesLivro'
 import DetalhesAutor from './pages/DetalhesAutor'
 import PagCadastros from './pages/PagCadastros'
 import Home from "./pages/Home"
+import Carrinho from "./pages/Carrinho"
 import DefaultPage from './components/DefaultPage';
 import { listForPagCadastroAutor, listForPagCadastroCategoria } from './data/forForms';
 
@@ -14,12 +15,11 @@ const AppRouter = () => {
                 <Routes>
                     <Route path='/' element={<DefaultPage/>}>
                         <Route path='/' element={<Home/>}/>
-                        <Route path='Livrod' element={<DetalhesLivro/>}/>
-                        <Route path='autor' 
-                            element={ <PagCadastros infos = {listForPagCadastroAutor}/>}/>
-                        <Route path='livro' 
-                            element={ <PagCadastros infos = {listForPagCadastroCategoria}/>}/>
+                        <Route path='detalhesLivro' element={<DetalhesLivro/>}/>
+                        <Route path='autor' element={ <PagCadastros infos = {listForPagCadastroAutor}/>}/>
+                        <Route path='livro' element={ <PagCadastros infos = {listForPagCadastroCategoria}/>}/>
                         <Route path='detalhesAutor' element={<DetalhesAutor/>}/>
+                        <Route path='carrinho' element={<Carrinho/>}/>
                     </Route>
                 </Routes>   
             </Router>

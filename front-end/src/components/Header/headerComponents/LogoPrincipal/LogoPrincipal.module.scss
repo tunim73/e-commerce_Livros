@@ -1,10 +1,9 @@
 @import '/src/styles/variaveis.scss';
-
-
-.container{
+.container {
     display: flex;
     align-items: center;
-
+    text-decoration: none;
+    color: $preto;
     &__titulo {
         display: none;
     }
@@ -14,25 +13,18 @@
     }
 }
 
-
-@media screen  and (min-width: 1024px){
-
-
-    .container{
-    
+@media screen and (min-width: 1024px) {
+    .container {
         &__titulo {
             font-family: $fonte-secundario;
             font-size: 30px;
             display: block;
             font-weight: 400;
-
             &_negrito {
                 //da forma anterior havia um display flex aqui, mas deu B.O,
                 //quando eu fiz em cascata
                 font-weight: 700;
             }
         }
-        
     }
-    
 }

@@ -1,17 +1,16 @@
 @import '/src/styles/variaveis.scss';
 .container {
-    padding: 0px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+    background: $branco;
 }
+
 .titulo {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
 }
 
-
-@media screen  and (min-width: 1024px){
-
+@media screen and (min-width: 1024px) {
     .titulo {
         font-size: 40px;
     }

@@ -11,13 +11,14 @@ const Carrinho = () => {
         <div className={style.container}>
             <Titulo forNome = "Carrinho de Compras :"/>
             <Item/>
+            <Item/>
             <CampoTotal/>
-            <NavLink to='/'>
+            <NavLink to='/catalogo'>
                 <div className={style.Botao} >
-                    <Botao botao="Volta as Compras"/>
+                    <Botao botao="Adicionar outros produtos"/>
                 </div>
             </NavLink>
-            <NavLink to='/' className= {style.container}>
+            <NavLink to='/'>
                 <div className={style.Botao} >
                     <Botao className={style.Botao.forBotao} botao="Finalizar Compra"/>
                 </div>

@@ -1,8 +1,8 @@
 export const listCategoria = [
-    { nome: 'Programação', link: '/livro' },
-    { nome: 'Front-end', link: '/detalhesLivro' },
+    { nome: 'Programação', link: '/catalogo' },
+    { nome: 'Front-end', link: '/catalogo' },
     { nome: 'Infraestrutura', link: '/detalhesLivro' },
-    { nome: 'Business', link: '/detalhesLivro' },
+    { nome: 'Business', link: '/Livro' },
     { nome: 'Design e UX', link: '/autor' },
 ]
 

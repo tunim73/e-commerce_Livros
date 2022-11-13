@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import Carrinho from "./pages/Carrinho"
 import DefaultPage from './components/DefaultPage';
 import { listForPagCadastroAutor, listForPagCadastroCategoria } from './data/forForms';
+import Catalogo from "./pages/Catalogo"
 
 const AppRouter = () => {
 
@@ -20,6 +21,7 @@ const AppRouter = () => {
                         <Route path='livro' element={ <PagCadastros infos = {listForPagCadastroCategoria}/>}/>
                         <Route path='detalhesAutor' element={<DetalhesAutor/>}/>
                         <Route path='carrinho' element={<Carrinho/>}/>
+                        <Route path='catalogo' element={<Catalogo/>}/>
                     </Route>
                 </Routes>   
             </Router>

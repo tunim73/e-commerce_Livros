@@ -1,7 +1,6 @@
 import style from './DetalhesLivro.module.scss'
 import Header from "../../components/Header";
 import Banner from '../../components/Banner'
-import Footer from '../../components/Footer'
 import Titulo from '../../components/Titulo'
 import Sinopse from '../../components/Sinopse'
 import {Botao} from '../../components/Botao'

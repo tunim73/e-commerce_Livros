@@ -1,8 +1,7 @@
 import style from './Carrinho.module.scss'
-
 import Titulo from '../../components/Titulo'
-import {Item} from '../../components/itemCarrinho'
-
+import {Item} from '../../components/ItemCarrinho'
+import {CampoTotal} from '../../components/CampoTotal'
 
 const Carrinho = () => {
     return ( 
@@ -10,7 +9,9 @@ const Carrinho = () => {
 
         <Titulo forNome = "Carrinho de Compras :"/>
         <Item/>
-        
+        <Item/>
+        <Item/>
+        <CampoTotal/>
     </>
     )
 }

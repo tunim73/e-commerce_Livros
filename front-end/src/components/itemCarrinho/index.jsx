@@ -11,9 +11,9 @@ export const Item = ({item}) => {
             </div>
             
             <div className={style.grid2}>
-                <h1 className={style.preco}>Nome do Livro</h1>
-                <h1 className={style.preco}>Preço : R$20,00</h1>
-                <h1 className={style.preco}>Qtd: 0</h1>
+                <h1 className={style.info}>Nome do Livro</h1>
+                <h1 className={style.info}>Preço : R$20,00</h1>
+                <h1 className={style.info}>Qtd: 1</h1>
                 <input className={style.botaoadd} type="button" value = "+" />
                 <input className={style.botaorem} type="button" value = "-" />
             </div>

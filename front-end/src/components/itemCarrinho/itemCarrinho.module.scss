@@ -9,8 +9,8 @@
 }
 
 .grid1 {
-    display: inline-block;
-    width: 20%;
+    display: flex;
+    width: 15%;
 }
 
 .img {
@@ -19,40 +19,44 @@
 }
 
 .grid2 {
-    display: inline-block;
-    width: 70%;
-    margin: 0 10%;
+    display: flex;
+    width: 75%;
+    margin-left: 16%;
+    margin-top: -10%;
+    padding-bottom: 7%;
 }
 
-.preco {
+.info {
     text-align: center;
     vertical-align: middle;
     display: inline-block;
-    font-size: 25px;
-    width: 25%;
+    font-size: 14px;
+    width: 30%;
 }
 
 .botaoadd {
     vertical-align: middle;
     width: 20px;
     height: 20px;
-    margin: 1%;
+    margin: 0 1%;
     background: green;
 }
 
 .botaorem {
     width: 20px;
     height: 20px;
-    margin: 1%;
+    margin: 0 1%;
     background: red;
 }
 
 @media screen and (min-width: 1024px) {
     .grid2 {
-        display: inline-block;
+        display: flex;
         width: 70%;
-        margin: 0 10%;
-        position: absolute;
-        top: 50%;
+        margin-left: 20%;
+        padding-bottom: 8%;
+    }
+    .info {
+        font-size: 25px;
     }
 }

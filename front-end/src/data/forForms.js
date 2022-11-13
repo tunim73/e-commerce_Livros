@@ -1,150 +1,152 @@
 export const listForFormCadastro = {
-    nomeBotao:"Cadastrar",
+    nomeBotao: "Cadastrar",
     titulo: "Cadastra-se",
-    list: 
-    [
-        {
-            label:'nome',
-            id:'nome',
+    list: [{
+            label: 'nome',
+            id: 'nome',
             type: 'text',
-            placeholder:'Digite seu nome',
+            placeholder: 'Digite seu nome',
+            required: false
         },
         {
-            label:'email',
-            id:'email',
+            label: 'email',
+            id: 'email',
             type: 'email',
-            placeholder:'Digite seu email',
+            placeholder: 'Digite seu email',
+            required: false
         },
         {
-            label:'senha',
-            id:'senha',
+            label: 'senha',
+            id: 'senha',
             type: 'password',
-            placeholder:'Digite sua senha',
+            placeholder: 'Digite sua senha',
+            required: false
         },
         {
-            label:'Confirme sua senha',
-            id:'confrimaSenha',
+            label: 'Confirme sua senha',
+            id: 'confrimaSenha',
             type: 'password',
-            placeholder:'Confirme sua senha novamente',
+            placeholder: 'Confirme sua senha novamente',
+            required: false
         }
     ]
 }
 
 export const listForFormLogin = {
-    
-    nomeBotao:"Login",
+
+    nomeBotao: "Login",
     titulo: "Login",
-    list: 
-    [
-        {
-            label:'email',
-            id:'email',
+    list: [{
+            label: 'email',
+            id: 'email',
             type: 'text',
-            placeholder:'Digite seu e-mail',
+            placeholder: 'Digite seu e-mail',
+            required: false
         },
         {
-            label:'senha',
-            id:'senha',
+            label: 'senha',
+            id: 'senha',
             type: 'password',
-            placeholder:'Digite sua senha',
+            placeholder: 'Digite sua senha',
+            required: false
+
         }
     ]
 }
 
 export const listForPagCadastroCategoria = {
-        titulo:"Cadastro de Categorias",
-        nomeBotao:'Cadastrar',
-        list: [
-            {
-                label:'Nome',
-                id:'nome',
-                type: 'text',
-                placeholder:'Digite o nome do livro'
-            },
-            {
-                label:'Categoria',
-                id:'categoria',
-                type: 'text',
-                placeholder:'Insira as categorias do livro'
-            },
-            {
-                label:'Foto do livro',
-                id:'fotoLivro',
-                type: 'file',
-                placeholder:'Insira a imagem do livro'
-            },
-            {
-                label:'Preço',
-                id:'preco',
-                type: 'text',
-                placeholder:'Digite o preço'
-            },
-            {
-                label:'Sinopse',
-                id:'sinopse',
-                type: 'text',
-                placeholder:'Digite a sinopse do livro'
-            },
-            {
-                label:'Autor',
-                id:'autor',
-                type: 'text',
-                placeholder:'Digite o autor'
-            },
-            {
-                label:'Edição',
-                id:'edicao',
-                type: 'text',
-                placeholder:'Digite a edição'
-            },
-            {
-                label:'Editora',
-                id:'editora',
-                type: 'text',
-                placeholder:'Digite a editora'
-            },
-            {
-                label:'Ano de lançamento',
-                id:'preco',
-                type: 'date',
-                placeholder:'Digite o ano de lançamento do livro'
-            },
-        ]
+    titulo: "Cadastro de Categorias",
+    nomeBotao: 'Cadastrar',
+    list: [{
+            label: 'Nome',
+            id: 'nome',
+            type: 'text',
+            placeholder: 'Digite o nome do livro'
+
+        },
+        {
+            label: 'Categoria',
+            id: 'categoria',
+            type: 'text',
+            placeholder: 'Insira as categorias do livro'
+        },
+        {
+            label: 'Foto do livro',
+            id: 'fotoLivro',
+            type: 'file',
+            placeholder: 'Insira a imagem do livro'
+        },
+        {
+            label: 'Preço',
+            id: 'preco',
+            type: 'text',
+            placeholder: 'Digite o preço'
+        },
+        {
+            label: 'Sinopse',
+            id: 'sinopse',
+            type: 'text',
+            placeholder: 'Digite a sinopse do livro'
+        },
+        {
+            label: 'Autor',
+            id: 'autor',
+            type: 'text',
+            placeholder: 'Digite o autor'
+        },
+        {
+            label: 'Edição',
+            id: 'edicao',
+            type: 'text',
+            placeholder: 'Digite a edição'
+        },
+        {
+            label: 'Editora',
+            id: 'editora',
+            type: 'text',
+            placeholder: 'Digite a editora'
+        },
+        {
+            label: 'Ano de lançamento',
+            id: 'preco',
+            type: 'date',
+            placeholder: 'Digite o ano de lançamento do livro'
+        },
+    ]
 }
 
 export const listForPagCadastroAutor = {
-    titulo:"Cadastro de Autores",
-    nomeBotao:'Cadastrar',
-    list: [
-        {
-            label:'Nome',
-            id:'nome',
+    titulo: "Cadastro de Autores",
+    nomeBotao: 'Cadastrar',
+    list: [{
+            label: 'Nome',
+            id: 'nome',
             type: 'text',
-            placeholder:'Digite o nome do livro'
+            placeholder: 'Digite o nome do livro'
         },
         {
-            label:'Autor',
-            id:'autor',
+            label: 'Autor',
+            id: 'autor',
             type: 'text',
-            placeholder:'Digite o autor'
+            placeholder: 'Digite o autor'
         },
         {
-            label:'Edição',
-            id:'edicao',
+            label: 'Edição',
+            id: 'edicao',
             type: 'text',
-            placeholder:'Digite a edição'
+            placeholder: 'Digite a edição'
         },
         {
-            label:'Editora',
-            id:'editora',
+            label: 'Editora',
+            id: 'editora',
             type: 'text',
-            placeholder:'Digite a editora'
+            placeholder: 'Digite a editora'
         },
         {
-            label:'Ano de lançamento',
-            id:'preco',
+            label: 'Ano de lançamento',
+            id: 'preco',
             type: 'date',
-            placeholder:'Digite o ano de lançamento do livro'
+            placeholder: 'Digite o ano de lançamento do livro'
         },
     ]
 }

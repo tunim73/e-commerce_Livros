@@ -11,12 +11,12 @@ export const itemCarrinho = [{
         imagem: "https://www.carochinhaeditora.com.br/wp-content/uploads/2021/01/Ah-nao_E01_CAPA-V1.png",
     },
     {
-        nome: "A arte de ligar o foda se",
+        nome: "A arte de ligar o foda-se",
         preco: "20,00",
         qtd: "1",
         imagem: "https://www.carochinhaeditora.com.br/wp-content/uploads/2021/01/Ah-nao_E01_CAPA-V1.png",
     }, {
-        nome: "Clean Cde",
+        nome: "Clean Code",
         preco: "20,00",
         qtd: "1",
         imagem: "https://www.carochinhaeditora.com.br/wp-content/uploads/2021/01/Ah-nao_E01_CAPA-V1.png",

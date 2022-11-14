@@ -20,5 +20,15 @@ export const itemCarrinho = [{
         preco: "20,00",
         qtd: "1",
         imagem: "https://www.carochinhaeditora.com.br/wp-content/uploads/2021/01/Ah-nao_E01_CAPA-V1.png",
+    }, {
+        nome: "Viagem ao centro da terra",
+        preco: "20,00",
+        qtd: "1",
+        imagem: "https://www.carochinhaeditora.com.br/wp-content/uploads/2021/01/Ah-nao_E01_CAPA-V1.png",
+    }, {
+        nome: "20 mil léguas submarinas",
+        preco: "20,00",
+        qtd: "1",
+        imagem: "https://www.carochinhaeditora.com.br/wp-content/uploads/2021/01/Ah-nao_E01_CAPA-V1.png",
     },
 ]

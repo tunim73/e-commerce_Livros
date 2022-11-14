@@ -6,6 +6,7 @@ import { Botao } from '../../components/Botao'
 import { NavLink } from 'react-router-dom';
 import { itemCarrinho } from '../../data/ItemCarrinho' 
 
+
 const Carrinho = () => {
     return ( 
     <>
@@ -14,7 +15,7 @@ const Carrinho = () => {
             {itemCarrinho.map(item =>
             <Item key={`${item.nome}+${item.edicao}`} item={item}/>
             )}
-            <CampoTotal/>
+            <CampoTotal valor = "120,00"/>
             <NavLink to='/catalogo'>
                 <div className={style.Botao} >
                     <Botao botao="Adicionar outros produtos"/>

@@ -1,12 +1,12 @@
 import style from './CampoTotal.module.scss'
 
 
-export const CampoTotal = () => {
+export const CampoTotal = (props) => {
 
     return ( 
         <div className={style.container}>
             <hr/>
-             <h1 className={style.total}>Total: R$ 60,00</h1>
+             <h1 className={style.total}>Total: R$ {props.valor}</h1>
         </div>
         )
 }

@@ -5,6 +5,10 @@
             background: $branco;
         }
         
+        .container hr {
+            margin: 0;
+        }
+        
         .grid1 {
             display: block;
             width: 100%;
@@ -19,7 +23,7 @@
         .grid2 {
             display: block;
             width: 100%;
-            padding-bottom: 10%;
+            padding-bottom: 5%;
         }
         
         .info {
@@ -43,10 +47,14 @@
                 border-radius: 30px;
                 margin: 0% 1% 2% 1%;
             }
+            .container hr {
+                display: none;
+            }
             .info {
                 margin-top: 3%;
             }
             .detalhes {
                 margin: 3% 40%;
+                margin-bottom: 0%;
             }
         }

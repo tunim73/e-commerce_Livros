@@ -5,7 +5,7 @@ export const Card = ({item}) => {
 
     return ( 
         <div className={style.container}>
-        
+            <hr/>
             <div className={style.grid1}>
                 <img className={style.img} src={item.imagem} />
             </div>

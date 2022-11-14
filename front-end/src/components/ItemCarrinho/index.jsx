@@ -1,7 +1,7 @@
 import style from './ItemCarrinho.module.scss'
 
 
-export const Item = ({item}) => {
+export const ItemCarrinho = ({item}) => {
 
 
     return (         

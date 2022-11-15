@@ -1,25 +1,16 @@
 import style from './ItemCatalogo.module.scss'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useSetRecoilState } from 'recoil'
+import { livroPrincipal } from '../../atom/livroPrincipal/livroPrincipal.atom'
 
 export const Card = ({item}) => {
 
-    const [livroPrincipal, setLivroPrincipal] = useState([])
-
-
-
-
+    const setLivroPrincipal = useSetRecoilState(livroPrincipal);
+    const navigate = useNavigate();
 
     const itemAoDetalhesDeLivro = () => {
-
-        setLivroPrincipal([...livroPrincipal, item]);
-        
-        /*
-            Pegar infos do item atual
-            e passar para 
-        */
-       //useNavigate
-
+        setLivroPrincipal(item);
+        navigate('/livro/detalhes')
     }
 
 

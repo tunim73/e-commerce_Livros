@@ -5,19 +5,18 @@ import { Botao } from '../../components/Botao'
 import { NavLink } from 'react-router-dom';
 import { ItemCarrinho } from '../../components/ItemCarrinho';
 import { useRecoilValue } from 'recoil';
-import { pCarrinho } from '../../atom/carrinho/selectors/selectorCarrinho';
+import { carrinho } from '../../atom/carrinho/carrinho.atom';
 
 const Carrinho = () => {
     
 
-    const a = useRecoilValue(pCarrinho);
-
+    const list = useRecoilValue(carrinho);
     
     return ( 
     <>
         <div className={style.container}>
             <Titulo forNome = "Carrinho de Compras :"/>
-            {a.map(item =>
+            {list.map(item =>
             <ItemCarrinho key={`${item.nome}+${item.edicao}`} item={item}/>
             )}
             <CampoTotal valor = "120,00"/>

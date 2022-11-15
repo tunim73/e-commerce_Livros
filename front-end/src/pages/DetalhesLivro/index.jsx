@@ -19,7 +19,7 @@ const DetalhesLivro = () => {
 
     const addAoCarrinho = () => {
         setItensCarrinho(item);
-        alert(`Livro ${item.nome} adicionado ao carrinho`);
+        alert(`O Livro "${item.nome}" foi adicionado ao carrinho`);
         //navigate('/carrinho');
     };
 

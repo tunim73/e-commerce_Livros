@@ -16,8 +16,7 @@ export const addItemCarrinho = selector({
 export const removeItemCarrinho = selector({
   key: 'removeItemCarrinho',
   get: ({get}) => get(carrinho),
-  set: ({set}, newItem) => {
-    
-    set(carrinho, oldList => [...oldList, newItem]);
+  set: ({set}, id) => {
+    set(carrinho, oldList =>  oldList.filter(item => item.id !=id));
   },
-});
+}); 

@@ -3,7 +3,8 @@ import {Card} from '../../components/ItemCatalogo'
 import Titulo from '../../components/Titulo'
 import Sinopse from '../../components/Sinopse'
 //import Vitrine from '../../components/VitrineDeLivros'
-import { itemCarrinho } from '../../data/ItemCarrinho' 
+import { itemCarrinho } from '../../data/itemCarrinho' 
+
 const Catalogo = () => {
     return ( 
     <>

@@ -125,10 +125,10 @@ export const listForPagCadastroAutor = {
             placeholder: 'Digite o nome do livro'
         },
         {
-            label: 'Autor',
-            id: 'autor',
+            label: 'Genero',
+            id: 'genero',
             type: 'text',
-            placeholder: 'Digite o autor'
+            placeholder: 'Digite o Genero Literario do autor'
         },
         {
             label: 'Edição',
@@ -147,6 +147,66 @@ export const listForPagCadastroAutor = {
             id: 'preco',
             type: 'date',
             placeholder: 'Digite o ano de lançamento do livro'
+        },
+    ]
+}
+
+export const listForPagPagamento = {
+    titulo: "Pagamento",
+    nomeBotao: 'Pagar',
+    list: [{
+            label: 'Estado',
+            id: 'estado',
+            type: 'text',
+            placeholder: 'Digite o seu estado'
+        },
+        {
+            label: 'Cidade',
+            id: 'cidade',
+            type: 'text',
+            placeholder: 'Digite a sua cidade'
+        },
+        {
+            label: 'Endereco',
+            id: 'endereco',
+            type: 'text',
+            placeholder: 'Digite o número e rua'
+        },
+        {
+            label: 'Complemento',
+            id: 'complemento',
+            type: 'text',
+            placeholder: 'Digite o complemento'
+        },
+        {
+            label: 'CEP',
+            id: 'cep',
+            type: 'text',
+            placeholder: 'Digite o CEP'
+        },
+        {
+            label: 'Forma de Envio',
+            id: 'formaDeEnvio',
+            type: 'text',
+            placeholder: 'Escolha a forma de envio'
+        },
+        {
+            label: 'Número do cartão',
+            id: 'numeroDoCartao',
+            type: 'text',
+            placeholder: 'Número do cartão'
+        },
+        {
+            label: 'Data de Validade',
+            id: 'dataDeValidade',
+            type: 'text',
+            placeholder: 'MM/AA'
+        },
+        {
+            label: 'CVV',
+            id: 'cvv',
+            type: 'text',
+            placeholder: 'XXX'
         },
     ]
 }

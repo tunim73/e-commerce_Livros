@@ -1,6 +1,7 @@
 import style from './PagCadastros.module.scss'
 import Formulario from '../../components/Formulario';
 
+
 const PagCadastros = ({infos}) => {
 
     

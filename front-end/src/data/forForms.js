@@ -6,28 +6,34 @@ export const listForFormCadastro = {
             id: 'nome',
             type: 'text',
             placeholder: 'Digite seu nome',
-            required: false
+            required: false,
+            maxlength: 30,
+            minlength: 3,
         },
         {
             label: 'email',
             id: 'email',
             type: 'email',
             placeholder: 'Digite seu email',
-            required: false
+            required: false,
         },
         {
             label: 'senha',
             id: 'senha',
             type: 'password',
             placeholder: 'Digite sua senha',
-            required: false
+            required: false,
+            maxlength: 10,
+            minlength: 6,
         },
         {
             label: 'Confirme sua senha',
-            id: 'confrimaSenha',
+            id: 'confirmaSenha',
             type: 'password',
             placeholder: 'Confirme sua senha novamente',
-            required: false
+            required: false,
+            maxlength: 10,
+            minlength: 6
         }
     ]
 }
@@ -39,7 +45,7 @@ export const listForFormLogin = {
     list: [{
             label: 'email',
             id: 'email',
-            type: 'text',
+            type: 'email',
             placeholder: 'Digite seu e-mail',
             required: false
         },
@@ -61,14 +67,16 @@ export const listForPagCadastroCategoria = {
             label: 'Nome',
             id: 'nome',
             type: 'text',
-            placeholder: 'Digite o nome do livro'
+            placeholder: 'Digite o nome do livro',
+            maxlength: 30,
 
         },
         {
             label: 'Categoria',
             id: 'categoria',
             type: 'text',
-            placeholder: 'Insira as categorias do livro'
+            placeholder: 'Insira as categorias do livro',
+            maxlength: 30,
         },
         {
             label: 'Foto do livro',
@@ -81,30 +89,35 @@ export const listForPagCadastroCategoria = {
             id: 'preco',
             type: 'text',
             placeholder: 'Digite o preço'
+
         },
         {
             label: 'Sinopse',
             id: 'sinopse',
             type: 'text',
-            placeholder: 'Digite a sinopse do livro'
+            placeholder: 'Digite a sinopse do livro',
+            maxlength: 150
         },
         {
             label: 'Autor',
             id: 'autor',
             type: 'text',
-            placeholder: 'Digite o autor'
+            placeholder: 'Digite o autor',
+            maxlength: 30
         },
         {
             label: 'Edição',
             id: 'edicao',
             type: 'text',
-            placeholder: 'Digite a edição'
+            placeholder: 'Digite a edição',
+            maxlength: 15
         },
         {
             label: 'Editora',
             id: 'editora',
             type: 'text',
-            placeholder: 'Digite a editora'
+            placeholder: 'Digite a editora',
+            maxlength: 15,
         },
         {
             label: 'Ano de lançamento',
@@ -122,25 +135,29 @@ export const listForPagCadastroAutor = {
             label: 'Nome',
             id: 'nome',
             type: 'text',
-            placeholder: 'Digite o nome do livro'
+            placeholder: 'Digite o nome do livro',
+            maxlength: 30,
         },
         {
             label: 'Genero',
             id: 'genero',
             type: 'text',
-            placeholder: 'Digite o Genero Literario do autor'
+            placeholder: 'Digite o Genero Literario do autor',
+            maxlength: 15
         },
         {
             label: 'Edição',
             id: 'edicao',
             type: 'text',
-            placeholder: 'Digite a edição'
+            placeholder: 'Digite a edição',
+            maxlength: 15,
         },
         {
             label: 'Editora',
             id: 'editora',
             type: 'text',
-            placeholder: 'Digite a editora'
+            placeholder: 'Digite a editora',
+            maxlength: 15,
         },
         {
             label: 'Ano de lançamento',
@@ -158,31 +175,36 @@ export const listForPagPagamento = {
             label: 'Estado',
             id: 'estado',
             type: 'text',
-            placeholder: 'Digite o seu estado'
+            placeholder: 'Digite o seu estado',
+            maxlength: 15,
         },
         {
             label: 'Cidade',
             id: 'cidade',
             type: 'text',
-            placeholder: 'Digite a sua cidade'
+            placeholder: 'Digite a sua cidade',
+            maxlength: 15,
         },
         {
             label: 'Endereco',
             id: 'endereco',
             type: 'text',
-            placeholder: 'Digite o número e rua'
+            placeholder: 'Digite o número e rua',
+            maxlength: 20,
         },
         {
             label: 'Complemento',
             id: 'complemento',
             type: 'text',
-            placeholder: 'Digite o complemento'
+            placeholder: 'Digite o complemento',
+            maxlength: 20,
         },
         {
             label: 'CEP',
             id: 'cep',
             type: 'text',
-            placeholder: 'Digite o CEP'
+            placeholder: 'Digite o CEP',
+            minlength: 8,
         },
         {
             label: 'Forma de Envio',
@@ -194,19 +216,25 @@ export const listForPagPagamento = {
             label: 'Número do cartão',
             id: 'numeroDoCartao',
             type: 'text',
-            placeholder: 'Número do cartão'
+            placeholder: 'Número do cartão',
+            maxlength: 16,
+            minlength: 16
         },
         {
             label: 'Data de Validade',
             id: 'dataDeValidade',
             type: 'text',
-            placeholder: 'MM/AA'
+            placeholder: 'MM/AA',
+            maxlength: 5,
+            minlength: 5
         },
         {
             label: 'CVV',
             id: 'cvv',
             type: 'text',
-            placeholder: 'XXX'
+            placeholder: 'XXX',
+            maxlength: 3,
+            minlength: 3
         },
     ]
 }

@@ -1,19 +1,19 @@
-import style from './DetalhesLivro.module.scss'
+import style from './Pagamento.module.scss'
 import Formulario from '../../components/Formulario';
+import { CampoTotal } from '../../components/CampoTotal';
 
-const Pagamento = ({infos}) => {
-
-
+const Pagamento = ({ infos }) => {
 
     
     return ( 
-    <div className={style.container}>            
-        <Formulario  titulo = {infos.titulo} list={infos.listForPagPagamento} nomeBotao={infos.nomeBotao}/>
-    </div>
+        
+        <div className={style.container}>
+            <CampoTotal valor ="120,00"/>
+        </div>
     )
 
 
 }
 
 
-export default Pagmento
+export default Pagamento

@@ -5,7 +5,7 @@ import {Botao} from '../../components/Botao'
 import { Carrosel } from '../../components/Carrosel';
 import { NavLink } from 'react-router-dom';
 
-const DetalhesLivro = () => {
+const DetalhesLivro = (item) => {
      
     return ( 
     <>        

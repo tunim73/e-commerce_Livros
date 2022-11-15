@@ -3,8 +3,6 @@ import Formulario from '../../components/Formulario';
 
 
 const PagCadastros = ({infos}) => {
-
-    
     return ( 
         
         <div className={style.container}>

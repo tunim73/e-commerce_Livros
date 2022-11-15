@@ -9,6 +9,7 @@ const Pagamento = ({ infos }) => {
         
         <div className={style.container}>
             <CampoTotal valor ="120,00"/>
+            <Formulario titulo = {infos.titulo} list={infos.list} nomeBotao={infos.nomeBotao}/>
         </div>
     )
 

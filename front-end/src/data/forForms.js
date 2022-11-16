@@ -17,22 +17,22 @@ export const listForFormCadastro = {
     nomeBotao: "Cadastrar",
     titulo: "Cadastra-se",
     schema: yup.object({
-      nome: yup
-        .string().required("O nome é obrigatório"),
-      email: yup
-        .string()
-        .email("Digite um email válido")
-        .required("O email é obrigatório"),
-      senha: yup
-        .string()
-        .min(6, "A senha deve ter pelo menos 6 digitos")
-        .required("A senha é obrigatória"),
-      confirmaSenha: yup
-        .string()
-        .required("Confirmar a senha é obrigatório")
-        .oneOf([yup.ref("senha")], "As senhas devem ser iguais"),
-    })
-    .required(),
+            nome: yup
+                .string().required("O nome é obrigatório"),
+            email: yup
+                .string()
+                .email("Digite um email válido")
+                .required("O email é obrigatório"),
+            senha: yup
+                .string()
+                .min(6, "A senha deve ter pelo menos 6 digitos")
+                .required("A senha é obrigatória"),
+            confirmaSenha: yup
+                .string()
+                .required("Confirmar a senha é obrigatório")
+                .oneOf([yup.ref("senha")], "As senhas devem ser iguais"),
+        })
+        .required(),
 
     list: [{
             label: 'nome',
@@ -73,37 +73,37 @@ export const listForFormCadastro = {
 
 export const listForFormLogin = {
 
-    nomeBotao: "Login",
-    titulo: "Login",
-    schema: yup.object({
-        email: yup.
+        nomeBotao: "Login",
+        titulo: "Login",
+        schema: yup.object({
+            email: yup.
             string().
             email().
             required('campo obrigatório'),
-        senha: yup.
+            senha: yup.
             string().
             min(6).
             max(10).
             required('campo obrigatório'),
-    }),
-    list: [{
-            label: 'email',
-            id: 'email',
-            type: 'email',
-            placeholder: 'Digite seu e-mail',
-            //required: false
-        },
-        {
-            label: 'senha',
-            id: 'senha',
-            type: 'password',
-            placeholder: 'Digite sua senha',
-            //required: false
+        }),
+        list: [{
+                label: 'email',
+                id: 'email',
+                type: 'email',
+                placeholder: 'Digite seu e-mail',
+                //required: false
+            },
+            {
+                label: 'senha',
+                id: 'senha',
+                type: 'password',
+                placeholder: 'Digite sua senha',
+                //required: false
 
-        }
-    ]
-}
-/** Entendi que esse objeto é do cadastroLivro */
+            }
+        ]
+    }
+    /** Entendi que esse objeto é do cadastroLivro */
 export const listForPagCadastroCategoria = {
     titulo: "Cadastro de Categorias",
     nomeBotao: 'Cadastrar',
@@ -172,7 +172,7 @@ export const listForPagCadastroCategoria = {
             placeholder: 'Digite a editora',
             maxlength: 15,
         },
-        
+
         /*{
             label: 'Ano de lançamento',
             id: 'anoLancamento',
@@ -186,33 +186,37 @@ export const listForPagCadastroCategoria = {
 export const listForPagCadastroAutor = {
     titulo: "Cadastro de Autores",
     nomeBotao: 'Cadastrar',
+    schema: yup.object({
+        nome: yup.string().max(126).required("O nome é obrigatório"),
+        genrero: yup.string().max(15).required('campo obrigatório'),
+        biografia: yup.string().min(10).max(256).required('campo obrigatório'),
+        editora: yup.string().max(30).required("campo obrigatório")
+
+    }),
     list: [{
             label: 'Nome',
             id: 'nome',
             type: 'text',
             placeholder: 'Digite o nome do livro',
-            maxlength: 30,
         },
         {
             label: 'Genero',
             id: 'genero',
             type: 'text',
             placeholder: 'Digite o Genero Literario do autor',
-            maxlength: 15
-        },
-        {
-            label: 'Edição',
-            id: 'edicao',
-            type: 'text',
-            placeholder: 'Digite a edição',
-            maxlength: 15,
-        },
-        {
+
+        }, {
             label: 'Editora',
             id: 'editora',
             type: 'text',
             placeholder: 'Digite a editora',
-            maxlength: 15,
+
+        }, {
+            label: 'Biografia',
+            id: 'biografia',
+            type: 'text',
+            placeholder: 'Digite a sinopse do livro',
+
         },
     ]
 }
@@ -220,12 +224,23 @@ export const listForPagCadastroAutor = {
 export const listForPagPagamento = {
     titulo: "Pagamento",
     nomeBotao: 'Pagar',
+    schema: yup.object({
+        estado: yup.string().max(32).required("O nome é obrigatório"),
+        cidade: yup.string().max(32).required('campo obrigatório'),
+        endereco: yup.string().max(126).required('campo obrigatório'),
+        complemento: yup.string().min(10).max(256),
+        cep: yup.number().max(8).required('campo obrigatório'),
+        formaDeEnvio: yup.string().required('campo obrigatório'),
+        numeroDoCartao: yup.string().max(16).required('campo obrigatório'),
+        dataDeValidade: yup.string().max(5).required('campo obrigatorio'),
+        cvv: yup.number().max(3).required('campo obrigatorio'),
+    }),
+
     list: [{
             label: 'Estado',
             id: 'estado',
             type: 'text',
             placeholder: 'Digite o seu estado',
-            maxlength: 15,
         },
         {
             label: 'Cidade',
@@ -239,21 +254,19 @@ export const listForPagPagamento = {
             id: 'endereco',
             type: 'text',
             placeholder: 'Digite o número e rua',
-            maxlength: 20,
         },
         {
             label: 'Complemento',
             id: 'complemento',
             type: 'text',
             placeholder: 'Digite o complemento',
-            maxlength: 20,
         },
         {
             label: 'CEP',
             id: 'cep',
             type: 'text',
-            placeholder: 'Digite o CEP',
-            minlength: 8,
+            placeholder: 'CEP: XXXXXXXX',
+
         },
         {
             label: 'Forma de Envio',
@@ -266,16 +279,12 @@ export const listForPagPagamento = {
             id: 'numeroDoCartao',
             type: 'text',
             placeholder: 'Número do cartão',
-            maxlength: 16,
-            minlength: 16
         },
         {
             label: 'Data de Validade',
             id: 'dataDeValidade',
             type: 'text',
             placeholder: 'MM/AA',
-            maxlength: 5,
-            minlength: 5,
 
         },
         {
@@ -283,8 +292,6 @@ export const listForPagPagamento = {
             id: 'cvv',
             type: 'text',
             placeholder: 'XXX',
-            maxlength: 3,
-            minlength: 3,
             pattern: "[0-9]",
         },
     ]

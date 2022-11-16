@@ -2,19 +2,36 @@ import style from './Carrinho.module.scss'
 import Titulo from '../../components/Titulo'
 import {CampoTotal} from '../../components/CampoTotal'
 import { Botao } from '../../components/Botao'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ItemCarrinho } from '../../components/ItemCarrinho';
 import { useRecoilValue } from 'recoil';
 import { carrinho } from '../../atom/carrinho/carrinho.atom';
 import { somaValoresCarrinho } from '../../atom/carrinho/valorTotalCarrinho.selectors';
+import { usuarioLogado } from '../../atom/usuario/Login/loginselected';
 
 
 const Carrinho = () => {
     
     const total = useRecoilValue(somaValoresCarrinho);
     const list = useRecoilValue(carrinho);
+    const usuario = useRecoilValue(usuarioLogado);
+
+    const navigate = useNavigate();
     
-    
+    const aoFinalizarCompra = () => {
+        
+        if(usuario===true){
+            //config e ir para pagina de finalizar compra navigate()
+            navigate('/pagamento')
+        }
+        else {
+            alert("Necessário fazer Login para continuar !");
+        }
+
+    }
+
+
+
     return ( 
     <>
         <div className={style.container}>
@@ -28,11 +45,13 @@ const Carrinho = () => {
                     <Botao botao="Adicionar outros produtos"/>
                 </div>
             </NavLink>
-            <NavLink to='/'>
+            
                 <div className={style.Botao} >
-                    <Botao className={style.Botao.forBotao} botao="Finalizar Compra"/>
+                    <Botao className={style.Botao.forBotao}
+                    botao="Finalizar Compra"
+                    click={aoFinalizarCompra}/>
                 </div>
-            </NavLink>
+            
         </div>  
        
     </>

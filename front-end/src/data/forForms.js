@@ -190,7 +190,7 @@ export const listForPagCadastroAutor = {
         nome: yup.string().max(126).required("O nome é obrigatório"),
         genrero: yup.string().max(15).required('campo obrigatório'),
         biografia: yup.string().min(10).max(256).required('campo obrigatório'),
-        editora: yup.string().max(30).required("campo obrigatório")
+        anoDeNascimento: yup.string().max(10).required("campo obrigatório"),
 
     }),
     list: [{
@@ -206,16 +206,17 @@ export const listForPagCadastroAutor = {
             placeholder: 'Digite o Genero Literario do autor',
 
         }, {
-            label: 'Editora',
-            id: 'editora',
-            type: 'text',
-            placeholder: 'Digite a editora',
-
-        }, {
             label: 'Biografia',
             id: 'biografia',
             type: 'text',
             placeholder: 'Digite a sinopse do livro',
+
+        },
+        {
+            label: 'Ano de Nascimento',
+            id: 'anoDeNascimento',
+            type: 'text',
+            placeholder: 'DD/MM/AAAA',
 
         },
     ]

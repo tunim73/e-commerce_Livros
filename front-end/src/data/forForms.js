@@ -200,7 +200,7 @@ export const listForPagCadastroAutor = {
             placeholder: 'Digite o nome do livro',
         },
         {
-            label: 'Genero',
+            label: 'Genero Atuante',
             id: 'genero',
             type: 'text',
             placeholder: 'Digite o Genero Literario do autor',

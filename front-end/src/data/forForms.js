@@ -165,6 +165,7 @@ export const listForPagCadastroAutor = {
             type: 'date',
             placeholder: 'Digite o ano de lançamento do livro'
         },
+
     ]
 }
 
@@ -226,7 +227,8 @@ export const listForPagPagamento = {
             type: 'text',
             placeholder: 'MM/AA',
             maxlength: 5,
-            minlength: 5
+            minlength: 5,
+
         },
         {
             label: 'CVV',
@@ -234,7 +236,10 @@ export const listForPagPagamento = {
             type: 'text',
             placeholder: 'XXX',
             maxlength: 3,
-            minlength: 3
+            minlength: 3,
+            pattern: "[0-9]",
+
+
         },
     ]
 }

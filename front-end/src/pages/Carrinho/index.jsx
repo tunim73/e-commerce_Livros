@@ -6,10 +6,12 @@ import { NavLink } from 'react-router-dom';
 import { ItemCarrinho } from '../../components/ItemCarrinho';
 import { useRecoilValue } from 'recoil';
 import { carrinho } from '../../atom/carrinho/carrinho.atom';
+import { somaValoresCarrinho } from '../../atom/carrinho/valorTotalCarrinho.selectors';
+
 
 const Carrinho = () => {
     
-
+    const total = useRecoilValue(somaValoresCarrinho);
     const list = useRecoilValue(carrinho);
     
     
@@ -20,7 +22,7 @@ const Carrinho = () => {
             {list.map(item =>
             <ItemCarrinho key={`${item.id}+${item.nome}+${item.edicao}`} item={item}/>
             )}
-            <CampoTotal valor = "120,00"/>
+            <CampoTotal valor = {total}/>
             <NavLink to='/catalogo'>
                 <div className={style.Botao} >
                     <Botao botao="Adicionar outros produtos"/>
@@ -30,7 +32,7 @@ const Carrinho = () => {
                 <div className={style.Botao} >
                     <Botao className={style.Botao.forBotao} botao="Finalizar Compra"/>
                 </div>
-            </NavLink>    
+            </NavLink>
         </div>  
        
     </>

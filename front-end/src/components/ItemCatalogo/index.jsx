@@ -10,14 +10,15 @@ export const Card = ({item}) => {
 
     const itemAoDetalhesDeLivro = () => {
         setLivroPrincipal(item);
-        navigate('/livro/detalhes')
+        window.scrollTo(0, 0);
+        navigate('/livro/detalhes');
     }
 
 
     return ( 
         <div className={style.container}>
             <hr/>
-            <div className={style.grid1}>
+            <div className={style.grid1} onClick ={itemAoDetalhesDeLivro}>
                 <img className={style.img} src={item.imagem} />
             </div>
             <div className={style.grid2}>

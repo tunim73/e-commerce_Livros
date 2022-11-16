@@ -8,6 +8,6 @@ export const Carrosel = () => {
 
     return ( 
         <div className={style.container}>{itemCarrosel.map(item => 
-        <Card key={`${item.nome}+${item.edicao}`} item={item}/>)}</div>
+        <Card key={`${item.id}+{item.nome}+${item.edicao}`} item={item}/>)}</div>
         )
 }

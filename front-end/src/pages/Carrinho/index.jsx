@@ -12,12 +12,13 @@ const Carrinho = () => {
 
     const list = useRecoilValue(carrinho);
     
+    
     return ( 
     <>
         <div className={style.container}>
             <Titulo forNome = "Carrinho de Compras :"/>
             {list.map(item =>
-            <ItemCarrinho key={`${item.nome}+${item.edicao}`} item={item}/>
+            <ItemCarrinho key={`${item.id}+${item.nome}+${item.edicao}`} item={item}/>
             )}
             <CampoTotal valor = "120,00"/>
             <NavLink to='/catalogo'>

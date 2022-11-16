@@ -3,7 +3,7 @@ import Titulo from '../../components/Titulo'
 import Sinopse from '../../components/Sinopse'
 import { Botao } from '../../components/Botao'
 import { Carrosel } from '../../components/Carrosel';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil';
 import { livroPrincipal } from '../../atom/livroPrincipal/livroPrincipal.atom';
 import { addItemCarrinho } from '../../atom/carrinho/carrinho.selectors';
 import { useNavigate } from 'react-router-dom';
@@ -12,13 +12,12 @@ import { useNavigate } from 'react-router-dom';
 const DetalhesLivro = () => {
      
     const item = useRecoilValue(livroPrincipal);
-    const setItensCarrinho = useSetRecoilState(addItemCarrinho);
-
-    const navigate = useNavigate();
+    const adicionaItensCarrinho = useSetRecoilState(addItemCarrinho);
     
 
     const addAoCarrinho = () => {
-        setItensCarrinho(item);
+
+        adicionaItensCarrinho(item);
         alert(`O Livro "${item.nome}" foi adicionado ao carrinho`);
         //navigate('/carrinho');
     };

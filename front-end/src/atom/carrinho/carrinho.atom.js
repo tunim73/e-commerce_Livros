@@ -4,5 +4,10 @@ import { itemCarrinho } from '../../data/itemCarrinho';
 
 export const carrinho = atom({
     key: 'carrinho',
-    default: []
+    default: itemCarrinho
   });
+
+export const valorTotalCarrinho = atom({
+  key: 'valorTotalCarrinho',
+  default: 0
+}); 

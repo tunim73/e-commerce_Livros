@@ -17,7 +17,7 @@ const AppRouter = () => {
                 <Routes>
                     <Route path='/' element={<DefaultPage/>}>
                         <Route path='/' element={<Home/>}/>
-                        <Route path='detalhesLivro' element={<DetalhesLivro/>}/>
+                        <Route path='livro/detalhes' element={<DetalhesLivro/>}/>
                         <Route path='autor' element={ <PagCadastros infos = {listForPagCadastroAutor}/>}/>
                         <Route path='livro' element={ <PagCadastros infos = {listForPagCadastroCategoria}/>}/>
                         {/*<Route path='detalhesAutor' element={<DetalhesAutor/>}/>*/}

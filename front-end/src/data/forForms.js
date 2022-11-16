@@ -1,6 +1,39 @@
+import * as yup from "yup";
+
+/*
+const schema = yup.object({
+    categoria: yup.string().required('campo obrigatório'),
+    preco: yup.number().positive().integer().required('campo obrigatório'),
+    biografia:yup.string().min(10).max(256).required('campo obrigatório'),
+    sinopse: yup.string().min(10).max(256).required('campo obrigatório'),
+    autor: yup.string().required('campo obrigatório'),
+    edicao: yup.string().required('campo obrigatório'),
+    editora: yup.string().required('campo obrigatório'),
+  });
+*/
+
+
 export const listForFormCadastro = {
     nomeBotao: "Cadastrar",
     titulo: "Cadastra-se",
+    schema: yup.object({
+      nome: yup
+        .string().required("O nome é obrigatório"),
+      email: yup
+        .string()
+        .email("Digite um email válido")
+        .required("O email é obrigatório"),
+      senha: yup
+        .string()
+        .min(6, "A senha deve ter pelo menos 6 digitos")
+        .required("A senha é obrigatória"),
+      confirmaSenha: yup
+        .string()
+        .required("Confirmar a senha é obrigatório")
+        .oneOf([yup.ref("senha")], "As senhas devem ser iguais"),
+    })
+    .required(),
+
     list: [{
             label: 'nome',
             id: 'nome',
@@ -42,27 +75,47 @@ export const listForFormLogin = {
 
     nomeBotao: "Login",
     titulo: "Login",
+    schema: yup.object({
+        email: yup.
+            string().
+            email().
+            required('campo obrigatório'),
+        senha: yup.
+            string().
+            min(6).
+            max(10).
+            required('campo obrigatório'),
+    }),
     list: [{
             label: 'email',
             id: 'email',
             type: 'email',
             placeholder: 'Digite seu e-mail',
-            required: false
+            //required: false
         },
         {
             label: 'senha',
             id: 'senha',
             type: 'password',
             placeholder: 'Digite sua senha',
-            required: false
+            //required: false
 
         }
     ]
 }
-
+/** Entendi que esse objeto é do cadastroLivro */
 export const listForPagCadastroCategoria = {
     titulo: "Cadastro de Categorias",
     nomeBotao: 'Cadastrar',
+    schema: yup.object({
+        nome: yup.string().required("O nome é obrigatório"),
+        categoria: yup.string().required('campo obrigatório'),
+        preco: yup.number().positive().integer().required('campo obrigatório'),
+        sinopse: yup.string().min(10).max(256).required('campo obrigatório'),
+        autor: yup.string().required('campo obrigatório'),
+        edicao: yup.string().required('campo obrigatório'),
+        editora: yup.string().required('campo obrigatório'),
+    }),
     list: [{
             label: 'Nome',
             id: 'nome',
@@ -119,12 +172,14 @@ export const listForPagCadastroCategoria = {
             placeholder: 'Digite a editora',
             maxlength: 15,
         },
-        {
+        
+        /*{
             label: 'Ano de lançamento',
-            id: 'preco',
+            id: 'anoLancamento',
             type: 'date',
             placeholder: 'Digite o ano de lançamento do livro'
-        },
+        },*/
+
     ]
 }
 
@@ -159,13 +214,6 @@ export const listForPagCadastroAutor = {
             placeholder: 'Digite a editora',
             maxlength: 15,
         },
-        {
-            label: 'Ano de lançamento',
-            id: 'preco',
-            type: 'date',
-            placeholder: 'Digite o ano de lançamento do livro'
-        },
-
     ]
 }
 
@@ -238,8 +286,6 @@ export const listForPagPagamento = {
             maxlength: 3,
             minlength: 3,
             pattern: "[0-9]",
-
-
         },
     ]
 }

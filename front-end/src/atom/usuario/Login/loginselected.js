@@ -1,7 +1,7 @@
 import { selector } from "recoil";
 import { login } from './login.atom'
 
-export const usarioLogado = selector({
+export const usuarioLogado = selector({
   key: 'usarioLogado',
   get: ({get}) => {
     const user = get(login);

@@ -3,28 +3,37 @@ import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
 import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms'
-import { usarioLogado } from '../../../../atom/usuario/Login/loginselected'
+import { usuarioLogado } from '../../../../atom/usuario/Login/loginselected'
 import { useRecoilState } from 'recoil'
 
 const Perfil = () =>{   
 
-
-
-    const [logado, setLogado] = useRecoilState(usarioLogado);
+    const [logado, setLogado] = useRecoilState(usuarioLogado);
     
     const [modalLoginAberto, setModalLoginAberto] = useState(false);
     const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
+
 
     const aoAbrirModalLogin = () => {
         setModalCadastroAberto(false);
         setModalLoginAberto(true);
     }
 
-
     const aoAbrirModalCadastro = () => {
         setModalLoginAberto(false);
         setModalCadastroAberto(true);
     }
+
+    const aoSubmitLogin = (data) => {
+        console.log("Data em perfil Login: ", data);
+        setLogado(data);
+    }
+
+    const aoSubmitCadastro = (data) => {
+        console.log("Data em perfil Cadastro: ", data);
+        setModalCadastroAberto(false);
+    }
+
 
 
     
@@ -52,6 +61,7 @@ const Perfil = () =>{
                             aberto= {modalLoginAberto}
                             aoFechar={() => setModalLoginAberto(false)}
                             forForm={listForFormLogin}
+                            aoSubmit={aoSubmitLogin}
                             />
 
                         </li>
@@ -64,6 +74,7 @@ const Perfil = () =>{
                                 aberto= {modalCadastroAberto}
                                 aoFechar={() => setModalCadastroAberto(false)}
                                 forForm={listForFormCadastro}
+                                aoSubmit={aoSubmitCadastro}
                             />
 
                         </li>

@@ -3,12 +3,15 @@ import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
 import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms'
-
+import { usarioLogado } from '../../../../atom/usuario/Login/loginselected'
+import { useRecoilState } from 'recoil'
 
 const Perfil = () =>{   
 
 
-    const [logado, setLogado] = useState(false);
+
+    const [logado, setLogado] = useRecoilState(usarioLogado);
+    
     const [modalLoginAberto, setModalLoginAberto] = useState(false);
     const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
 

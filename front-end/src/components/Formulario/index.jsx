@@ -36,12 +36,14 @@ const Formulario = (props/*,{valido,invalido}*/) => {
         }
       }*/
 
-      const onSubmit = data => console.log(data);
+      const onSubmit = (event) => {
+        event.prevent.default();
+      }
     return ( 
-            <form onSubmit={onSubmit()} className = {style.formulario}> 
+            <form onSubmit={onSubmit} className = {style.formulario}> 
                 <Titulo forNome={props.titulo} />
                 {props.list.map(item => 
-                <CampoTexto /*register={register} onClick={isValido()}*/ key={`#${item.label}#${props.titulo}`} item={item} valido={valido} invalido={invalido}/>
+                <CampoTexto /*register={register} onClick={isValido()}*/ key={`#${item.label}#${props.titulo}`} item={item} /*valido={valido} invalido={invalido}*//>
                 )/*{errors?.item.id?.type && <BotaoError/>}*/}
                 <Botao botao = {props.nomeBotao}/>
             </form> 

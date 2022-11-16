@@ -1,60 +1,71 @@
-        @import '/src/styles/variaveis.scss';
-        .container {
-            width: 100%;
-            height: auto;
-            background: $branco;
-        }
-        
-        .container hr {
-            margin: 0;
-        }
-        
-        .grid1 {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-        
-        .img {
-            width: 30%;
-            margin-left: 35%;
-        }
-        
-        .grid2 {
-            display: block;
-            width: 100%;
-            padding-bottom: 5%;
-        }
-        
-        .info {
-            text-align: center;
-            display: block;
-            font-size: 14px;
-            width: 30%;
-            margin-left: 35%;
-            margin-top: 2%;
-        }
-        
-        .detalhes {
-            margin: 2% 40%;
-        }
-        
-        @media screen and (min-width: 1024px) {
+            @import '/src/styles/variaveis.scss';
             .container {
-                width: 30%;
-                display: inline-block;
-                border: 2px solid $preto;
-                border-radius: 30px;
-                margin: 0% 1% 2% 1%;
+                width: 100%;
+                height: auto;
+                background: $branco;
             }
+            
             .container hr {
-                display: none;
+                margin: 0;
             }
+            
+            .grid1 {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+            
+            .img {
+                width: 30%;
+                margin-left: 35%;
+                margin-top: 2%;
+            }
+            
+            .grid2 {
+                display: block;
+                width: 100%;
+                padding-bottom: 5%;
+            }
+            
             .info {
-                margin-top: 3%;
+                text-align: center;
+                display: block;
+                font-size: 14px;
+                width: 30%;
+                margin-left: 35%;
+                margin-top: 2%;
             }
+            
             .detalhes {
-                margin: 3% 40%;
-                margin-bottom: 0%;
+                margin: 2% 40%;
+                background: $preto;
+                color: $branco;
+                padding: 1%;
+                border-radius: 20px;
             }
-        }
+            
+            @media screen and (min-width: 470px) {
+                .detalhes {
+                    margin: 2% 0% 2% 45%;
+                }
+            }
+            
+            @media screen and (min-width: 1024px) {
+                .container {
+                    width: 30%;
+                    display: inline-block;
+                    border: 2px solid $preto;
+                    border-radius: 30px;
+                    margin: 0% 1% 2% 1%;
+                }
+                .container hr {
+                    display: none;
+                }
+                .info {
+                    margin-top: 3%;
+                }
+                .detalhes {
+                    margin: 3% 40%;
+                    margin-bottom: 0%;
+                }
+            }

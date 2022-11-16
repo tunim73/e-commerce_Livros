@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import style from './MenuHamburguer.module.scss'
 
 
@@ -17,32 +18,26 @@ const MenuHamburguer = () => {
                 <ul className={style.lista_menu}>
                     <li className={style.lista_menu__titulo}>
                         Categorias
-                    </li>
-                    <li className={style.lista_menu__item}>
-                        <a href="#" className={style.lista_menu__link}>
-                            Entrar/Cadastra-se
-                        </a>
-                    </li>
-                    <li className={style.lista_menu__item}>
-                        <a href="#" className={style.lista_menu__link}>
-                            Home
-                        </a>
-                    </li>
-                    <li className={style.lista_menu__item}>                        
-                        <a href="#" className={style.lista_menu__link}>
-                            Categorias
-                        </a>
-                    </li>
-                    <li className={style.lista_menu__item}>
-                        <a href="#" className={style.lista_menu__link}>
-                            Autores de Destaque
-                        </a>
-                    </li>
-                    <li className={style.lista_menu__item}>
-                        <a href="#" className={style.lista_menu__link}>
-                            Carrinho de compras
-                        </a>
-                    </li>
+                    </li> 
+                    <NavLink className={style.lista_menu__link} to="/">
+                        <li className={style.lista_menu__item}>
+                            <span className={style.lista_menu__link}>Home</span>
+                        </li>
+                    </NavLink>
+                    <NavLink className={style.lista_menu__link} to="/catalogo">
+                        <li className={style.lista_menu__item}>                        
+                            <span className={style.lista_menu__link}>
+                                Catalogo
+                            </span>
+                        </li>
+                    </NavLink>
+                    <NavLink className={style.lista_menu__link} to="/">
+                        <li className={style.lista_menu__item}>
+                            <span className={style.lista_menu__link}>
+                                Autores de Destaque
+                            </span>
+                        </li>
+                    </NavLink>
                 </ul>
         
         

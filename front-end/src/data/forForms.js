@@ -1,17 +1,5 @@
 import * as yup from "yup";
 
-/*
-const schema = yup.object({
-    categoria: yup.string().required('campo obrigatório'),
-    preco: yup.number().positive().integer().required('campo obrigatório'),
-    biografia:yup.string().min(10).max(256).required('campo obrigatório'),
-    sinopse: yup.string().min(10).max(256).required('campo obrigatório'),
-    autor: yup.string().required('campo obrigatório'),
-    edicao: yup.string().required('campo obrigatório'),
-    editora: yup.string().required('campo obrigatório'),
-  });
-*/
-
 
 export const listForFormCadastro = {
     nomeBotao: "Cadastrar",
@@ -102,8 +90,8 @@ export const listForFormLogin = {
 
             }
         ]
-    }
-    /** Entendi que esse objeto é do cadastroLivro */
+}
+
 export const listForPagCadastroCategoria = {
     titulo: "Cadastro de Categorias",
     nomeBotao: 'Cadastrar',
@@ -229,11 +217,11 @@ export const listForPagPagamento = {
         cidade: yup.string().max(32).required('campo obrigatório'),
         endereco: yup.string().max(126).required('campo obrigatório'),
         complemento: yup.string().min(10).max(256),
-        cep: yup.number().max(8).required('campo obrigatório'),
+        cep: yup.string().max(9).required('campo obrigatório'),
         formaDeEnvio: yup.string().required('campo obrigatório'),
         numeroDoCartao: yup.string().max(16).required('campo obrigatório'),
         dataDeValidade: yup.string().max(5).required('campo obrigatorio'),
-        cvv: yup.number().max(3).required('campo obrigatorio'),
+        cvv: yup.string().max(3).required('campo obrigatorio'),  
     }),
 
     list: [{
@@ -265,7 +253,7 @@ export const listForPagPagamento = {
             label: 'CEP',
             id: 'cep',
             type: 'text',
-            placeholder: 'CEP: XXXXXXXX',
+            placeholder: 'CEP: XXXXX-XXX',
 
         },
         {

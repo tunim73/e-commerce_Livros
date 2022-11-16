@@ -83,8 +83,11 @@ const Perfil = () =>{
                     :
                     <>
                         <li className={style.perfil__opções__item}>
-                            <NavLink className={style.perfil__opções__link} to= '/livro'>Meus Pedidos</NavLink>
-                        </li>
+                            <NavLink className={style.perfil__opções__link} to= '/livro'>Cadastrar Livros</NavLink>
+                        </li>   
+                        <li className={style.perfil__opções__item}>
+                            <NavLink className={style.perfil__opções__link} to= '/autor'>Cadastrar Autores</NavLink>
+                        </li>   
                         <li className={style.perfil__opções__item}>
                             <NavLink className={style.perfil__opções__link} to= '/livro'>Minhas configurações</NavLink>
                         </li>

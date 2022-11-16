@@ -9,12 +9,22 @@ const Pagamento = () => {
 
     const valor = useRecoilValue(somaValoresCarrinho);
     
+    const aoPagar = (data) => {
+        console.log("Dados de Pagamento: ", data)
+    }
+
+
     return ( 
         <>
             <CampoTotal valor ={valor} />
             <div className={style.container}>
-                <Formulario titulo = {listForPagPagamento.titulo} list={listForPagPagamento.list} 
-                nomeBotao={listForPagPagamento.nomeBotao}/>
+                <Formulario 
+                titulo = {listForPagPagamento.titulo} 
+                list={listForPagPagamento.list} 
+                nomeBotao={listForPagPagamento.nomeBotao}
+                schema={listForPagPagamento.schema}
+                aoSubmit={aoPagar} 
+                />
             </div>
         </>
         

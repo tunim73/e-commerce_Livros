@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import style from './MenuHamburguer.module.scss'
-
+import { listAutores, listCategoria } from '../../../../data/DataNavigation'
 
 
 const MenuHamburguer = () => {
@@ -16,14 +16,6 @@ const MenuHamburguer = () => {
                 </label>
                             
                 <ul className={style.lista_menu}>
-                    <li className={style.lista_menu__titulo}>
-                        Categorias
-                    </li> 
-                    <NavLink className={style.lista_menu__link} to="/">
-                        <li className={style.lista_menu__item}>
-                            <span className={style.lista_menu__link}>Home</span>
-                        </li>
-                    </NavLink>
                     <NavLink className={style.lista_menu__link} to="/catalogo">
                         <li className={style.lista_menu__item}>                        
                             <span className={style.lista_menu__link}>
@@ -31,6 +23,33 @@ const MenuHamburguer = () => {
                             </span>
                         </li>
                     </NavLink>
+                    <hr />
+                    <li className={style.lista_menu__titulo}>
+                        Categorias
+                    </li> 
+                    {listCategoria.map(item => 
+                    <NavLink className={style.lista_menu__link} to={item.link}>
+                        <li className={style.lista_menu__item}>
+                            <span className={style.lista_menu__link}>{item.nome}</span>
+                        </li>
+                    </NavLink>)
+                    }
+                    <hr />
+                    <li className={style.lista_menu__titulo}>
+                        Autores de Destaque
+                    </li> 
+                    {listAutores.map(item => 
+                    <NavLink className={style.lista_menu__link} to={item.link}>
+                        <li className={style.lista_menu__item}>
+                            <span className={style.lista_menu__link}>{item.nome}</span>
+                        </li>
+                    </NavLink>)
+                    }
+                    
+                
+
+        
+                    
                     <NavLink className={style.lista_menu__link} to="/">
                         <li className={style.lista_menu__item}>
                             <span className={style.lista_menu__link}>

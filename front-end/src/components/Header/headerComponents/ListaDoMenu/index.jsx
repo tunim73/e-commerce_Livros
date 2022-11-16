@@ -1,5 +1,5 @@
 import style from './ListaDoMenu.module.scss'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import { listAutores, listCategoria } from '../../../../data/DataNavigation'
 import { useSetRecoilState } from 'recoil'
 import { autorPrincipal } from '../../../../atom/autor/autor.selectors'
@@ -13,6 +13,11 @@ const ListaDoMenu = () =>{
 
     return (
         <>
+            <ul className={style.opções} onClick={()=>navigate('/catalogo')}>
+                <label  htmlFor="listCategoria" className={style.opcões__rotulo}>
+                    <li className={style.opções__item}>Catalogo</li>
+                </label>
+            </ul>
             <ul className={style.opções}>
                 <label  htmlFor="listCategoria" className={style.opcões__rotulo}>
                     <li className={style.opções__item}>Categoria</li>

@@ -1,9 +1,15 @@
 import style from './ListaDoMenu.module.scss'
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { listAutores, listCategoria } from '../../../../data/DataNavigation'
+import { useSetRecoilState } from 'recoil'
+import { autorPrincipal } from '../../../../atom/autor/autor.selectors'
 
 
 const ListaDoMenu = () =>{
+    
+    const navigate = useNavigate();
+
+    const autor = useSetRecoilState(autorPrincipal)
 
     return (
         <>
@@ -14,8 +20,13 @@ const ListaDoMenu = () =>{
 
                 <ul className={style.lista_menu}> 
                     {listCategoria.map(item => 
-                        <li className={style.lista_menu__item} key = {item.nome}>
-                            <NavLink className={style.lista_menu__link} to= {item.link}>{item.nome}</NavLink>
+                        <li className={style.lista_menu__item} key = {`${item.id}+${item.nome}`}>
+                            <div className={style.lista_menu__link} 
+                            onClick={(event =>{
+                                navigate('/catalogo')
+                            })}
+                            >{item.nome}
+                            </div>
                         </li>
                     )}
                 </ul>
@@ -29,8 +40,15 @@ const ListaDoMenu = () =>{
 
                 <ul className={style.lista_menu}> 
                     {listAutores.map(item => 
-                        <li className={style.lista_menu__item} key = {item.nome}>
-                            <NavLink className={style.lista_menu__link} to= {item.link}>{item.nome}</NavLink>
+                        <li className={style.lista_menu__item} key = {`${item.id}+${item.nome}`}>
+                            <div className={style.lista_menu__link}
+                            onClick={(event =>{
+                                autor(item);
+                                navigate('/autor/detalhes')
+                            })}
+                            >{item.nome}
+                            
+                            </div>
                         </li>
                     )}
                 </ul>

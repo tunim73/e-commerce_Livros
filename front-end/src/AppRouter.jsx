@@ -20,7 +20,7 @@ const AppRouter = () => {
                         <Route path='livro/detalhes' element={<DetalhesLivro/>}/>
                         <Route path='autor' element={ <PagCadastros infos = {listForPagCadastroAutor}/>}/>
                         <Route path='livro' element={ <PagCadastros infos = {listForPagCadastroCategoria}/>}/>
-                        {/*<Route path='detalhesAutor' element={<DetalhesAutor/>}/>*/}
+                        {<Route path='autor/detalhes' element={<DetalhesAutor/>}/>}
                         <Route path='carrinho' element={<Carrinho/>}/>
                         <Route path='catalogo' element={<Catalogo/>}/>
                         <Route path='pagamento' element={<Pagamento infos ={listForPagPagamento}/>}/>

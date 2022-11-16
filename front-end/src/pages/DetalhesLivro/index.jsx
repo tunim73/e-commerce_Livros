@@ -3,10 +3,11 @@ import Titulo from '../../components/Titulo'
 import Sinopse from '../../components/Sinopse'
 import { Botao } from '../../components/Botao'
 import { Carrosel } from '../../components/Carrosel';
-import { useRecoilValue, useSetRecoilState, useRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { livroPrincipal } from '../../atom/livroPrincipal/livroPrincipal.atom';
 import { addItemCarrinho } from '../../atom/carrinho/carrinho.selectors';
 import { useNavigate } from 'react-router-dom';
+import { itemCarrosel } from '../../data/itemCarrosel';
 
 
 const DetalhesLivro = () => {
@@ -34,7 +35,7 @@ const DetalhesLivro = () => {
             <Titulo forNome = "Outros Livros"/>
                  
         </div>
-        <Carrosel/>
+        <Carrosel list={itemCarrosel}/>
     </>
     )
 

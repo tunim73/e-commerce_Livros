@@ -24,11 +24,11 @@
 .invalidoCampo {
     background-color: $branco;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.016);
+    border: 2px solid red;
     width: 80%;
     font-size: 16px;
     padding: 8px;
     box-sizing: border-box;
-    border: 2px solid red;
 }
 
 .container span {

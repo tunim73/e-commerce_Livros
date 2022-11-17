@@ -7,7 +7,10 @@ const PagCadastros = ({infos}) => {
         
         <div className={style.container}>
             <div className={style.container_forForm}>
-                <Formulario titulo = {infos.titulo} list={infos.list} nomeBotao={infos.nomeBotao}/>
+                <Formulario titulo = {infos.titulo} 
+                list={infos.list}
+                nomeBotao={infos.nomeBotao}
+                schema={infos.schema}/>
             </div>
         </div>
     )

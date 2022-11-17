@@ -13,12 +13,11 @@ const Formulario = (props) => {
   });
 
 
-    console.log(errors);
-
     return ( 
             <form onSubmit={handleSubmit(props.aoSubmit)} className = {style.formulario}> 
                 <Titulo forNome={props.titulo} />
                 {props.list.map(item => 
+                  
                   <CampoTexto  key={`#${item.label}#${props.titulo}`} 
                   item={item} 
                   register={register}

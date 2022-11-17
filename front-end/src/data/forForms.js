@@ -70,14 +70,14 @@ export const listForFormLogin = {
             required('campo obrigatório'),
             senha: yup.
             string().
-            min(6).
+            min(6,'No Minimo 6 caracteres').
             max(10).
             required('campo obrigatório'),
         }),
         list: [{
                 label: 'email',
                 id: 'email',
-                type: 'email',
+                type: 'text',
                 placeholder: 'Digite seu e-mail',
                 //required: false
             },
@@ -92,8 +92,8 @@ export const listForFormLogin = {
         ]
 }
 
-export const listForPagCadastroCategoria = {
-    titulo: "Cadastro de Categorias",
+export const listForPagCadastroLivro = {
+    titulo: "Cadastro de Livros",
     nomeBotao: 'Cadastrar',
     schema: yup.object({
         nome: yup.string().required("O nome é obrigatório"),
@@ -109,15 +109,12 @@ export const listForPagCadastroCategoria = {
             id: 'nome',
             type: 'text',
             placeholder: 'Digite o nome do livro',
-            maxlength: 30,
-
         },
         {
             label: 'Categoria',
             id: 'categoria',
             type: 'text',
             placeholder: 'Insira as categorias do livro',
-            maxlength: 30,
         },
         {
             label: 'Foto do livro',
@@ -137,28 +134,24 @@ export const listForPagCadastroCategoria = {
             id: 'sinopse',
             type: 'text',
             placeholder: 'Digite a sinopse do livro',
-            maxlength: 150
         },
         {
             label: 'Autor',
             id: 'autor',
             type: 'text',
             placeholder: 'Digite o autor',
-            maxlength: 30
         },
         {
             label: 'Edição',
             id: 'edicao',
             type: 'text',
             placeholder: 'Digite a edição',
-            maxlength: 15
         },
         {
             label: 'Editora',
             id: 'editora',
             type: 'text',
             placeholder: 'Digite a editora',
-            maxlength: 15,
         },
 
         /*{
@@ -198,14 +191,12 @@ export const listForPagCadastroAutor = {
             id: 'biografia',
             type: 'text',
             placeholder: 'Digite a sinopse do livro',
-
         },
         {
             label: 'Ano de Nascimento',
             id: 'anoDeNascimento',
             type: 'text',
             placeholder: 'DD/MM/AAAA',
-
         },
     ]
 }

@@ -28,35 +28,29 @@ const MenuHamburguer = () => {
                         Categorias
                     </li> 
                     {listCategoria.map(item => 
-                    <NavLink className={style.lista_menu__link} to={item.link}>
-                        <li className={style.lista_menu__item}>
-                            <span className={style.lista_menu__link}>{item.nome}</span>
-                        </li>
-                    </NavLink>)
+                    <NavLink className={style.lista_menu__link} 
+                        key={`${item.nome}+${item.link}`}
+                        to={item.link}>
+                            <li className={style.lista_menu__item}>
+                                <span className={style.lista_menu__link}>{item.nome}</span>
+                            </li>
+                        </NavLink>)
                     }
                     <hr />
                     <li className={style.lista_menu__titulo}>
                         Autores de Destaque
                     </li> 
                     {listAutores.map(item => 
-                    <NavLink className={style.lista_menu__link} to={item.link}>
-                        <li className={style.lista_menu__item}>
-                            <span className={style.lista_menu__link}>{item.nome}</span>
-                        </li>
-                    </NavLink>)
-                    }
+                        <NavLink className={style.lista_menu__link} 
+                            key={`${item.nome}+${item.id}`} 
+                            to={item.link}
+                        >
+                            <li className={style.lista_menu__item}>
+                                <span className={style.lista_menu__link}>{item.nome}</span>
+                            </li>
+                        </NavLink>
+                    ) }
                     
-                
-
-        
-                    
-                    <NavLink className={style.lista_menu__link} to="/">
-                        <li className={style.lista_menu__item}>
-                            <span className={style.lista_menu__link}>
-                                Autores de Destaque
-                            </span>
-                        </li>
-                    </NavLink>
                 </ul>
         
         

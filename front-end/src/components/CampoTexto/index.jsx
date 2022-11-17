@@ -3,9 +3,8 @@ import style from './CampoTexto.module.scss'
 
 export const CampoTexto = ({item,register,errors}) => {
         
-    const id = item.id;    
     return ( 
-
+        (!errors[item.id])?
         <div className={style.container}>
                 <label className={style.label}>{item.label}</label> 
                 <input 
@@ -13,12 +12,18 @@ export const CampoTexto = ({item,register,errors}) => {
                 type = {item.type} name = {item.id} 
                 placeholder = {item.placeholder}
                 {...register(item.id)}
-                /> 
-                {/*(errors.id)? <span>xuxa</span>:""*/}
-
+                />
+        </div>
+        :
+        <div className={style.container}>
+                <label className={style.label}>{item.label}</label> 
+                <input 
+                className={style.invalidoCampo} 
+                type = {item.type} name = {item.id} 
+                placeholder = {errors[item.id]?.message}
+                {...register(item.id)}
+                />
         </div>
 
         )
 }
-
-

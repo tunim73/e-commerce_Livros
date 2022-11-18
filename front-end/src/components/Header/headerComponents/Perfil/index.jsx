@@ -6,7 +6,7 @@ import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms
 import { usuarioLogado } from '../../../../atom/usuario/Login/loginselected'
 import { useRecoilState } from 'recoil'
 
-const Perfil = () =>{   
+const Perfil = () =>{
 
     const [logado, setLogado] = useRecoilState(usuarioLogado);
     
@@ -27,6 +27,7 @@ const Perfil = () =>{
     const aoSubmitLogin = (data) => {
         console.log("Data em perfil Login: ", data);
         setLogado(data);
+        setModalLoginAberto(false);
     }
 
     const aoSubmitCadastro = (data) => {
@@ -90,6 +91,10 @@ const Perfil = () =>{
                         </li>   
                         <li className={style.perfil__opções__item}>
                             <NavLink className={style.perfil__opções__link} to= '/livro'>Minhas configurações</NavLink>
+                        </li>
+                        <li className={style.perfil__opções__item}>
+                            <NavLink className={style.perfil__opções__link} to= '/' 
+                            onClick={()=>setLogado({})}>Sair</NavLink>
                         </li>
                     </>
                 }

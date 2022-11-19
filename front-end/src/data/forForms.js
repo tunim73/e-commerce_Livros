@@ -95,14 +95,16 @@ export const listForFormLogin = {
 export const listForPagCadastroLivro = {
     titulo: "Cadastro de Livros",
     nomeBotao: 'Cadastrar',
+    referencia:"forLivro",
     schema: yup.object({
         nome: yup.string().required("O nome é obrigatório"),
         categoria: yup.string().required('campo obrigatório'),
+        imagem:yup.string(),
         preco: yup.number().positive().integer().required('campo obrigatório'),
         sinopse: yup.string().min(10).max(256).required('campo obrigatório'),
-        autor: yup.string().required('campo obrigatório'),
+        /*autor: yup.string().required('campo obrigatório'),
         edicao: yup.string().required('campo obrigatório'),
-        editora: yup.string().required('campo obrigatório'),
+        editora: yup.string().required('campo obrigatório'),*/
     }),
     list: [{
             label: 'Nome',
@@ -118,9 +120,9 @@ export const listForPagCadastroLivro = {
         },
         {
             label: 'Foto do livro',
-            id: 'fotoLivro',
-            type: 'file',
-            placeholder: 'Insira a imagem do livro'
+            id: 'imagem',
+            type: 'text',
+            placeholder: 'Digite a url da imagem do livro'
         },
         {
             label: 'Preço',
@@ -135,7 +137,7 @@ export const listForPagCadastroLivro = {
             type: 'text',
             placeholder: 'Digite a sinopse do livro',
         },
-        {
+       /* {
             label: 'Autor',
             id: 'autor',
             type: 'text',
@@ -152,7 +154,7 @@ export const listForPagCadastroLivro = {
             id: 'editora',
             type: 'text',
             placeholder: 'Digite a editora',
-        },
+        },*/
 
         /*{
             label: 'Ano de lançamento',
@@ -167,9 +169,10 @@ export const listForPagCadastroLivro = {
 export const listForPagCadastroAutor = {
     titulo: "Cadastro de Autores",
     nomeBotao: 'Cadastrar',
+    referencia:"forAutor",
     schema: yup.object({
         nome: yup.string().max(126).required("O nome é obrigatório"),
-        genrero: yup.string().max(15).required('campo obrigatório'),
+        genero: yup.string().max(15).required('campo obrigatório'),
         biografia: yup.string().min(10).max(256).required('campo obrigatório'),
         anoDeNascimento: yup.string().max(10).required("campo obrigatório"),
 

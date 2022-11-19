@@ -4,12 +4,13 @@ import Sinopse from '../../components/Sinopse'
 import { Carrosel } from '../../components/Carrosel'
 import { useRecoilValue } from 'recoil'
 import { autorPrincipal } from '../../atom/autor/autor.selectors'
-import { itemCarrosel } from '../../data/itemCarrosel'
+import { todosOsLivros } from '../../atom/livroPrincipal/lirvo.selectors'
 
 
 const DetalhesAutor = () => {
 
     const autor = useRecoilValue(autorPrincipal);
+    const listaCarrosel = useRecoilValue(todosOsLivros);
 
     return ( 
     <>
@@ -18,7 +19,7 @@ const DetalhesAutor = () => {
             <img className={style.img} src={autor.img} />
             <Sinopse forNome = "Biografia" forResumo = {autor.biografia}/>
             <Titulo forNome = "Outras Obras :"/>
-            <Carrosel list={itemCarrosel} />
+            <Carrosel list={listaCarrosel} />
         </div>
         
     </>

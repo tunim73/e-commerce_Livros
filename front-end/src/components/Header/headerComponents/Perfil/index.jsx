@@ -4,7 +4,8 @@ import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
 import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms'
 import { usuarioLogado } from '../../../../atom/usuario/Login/loginselected'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState } from 'recoil'
+import { autores } from '../../../../atom/autor/autor.atom'
 
 const Perfil = () =>{
 
@@ -12,7 +13,7 @@ const Perfil = () =>{
     
     const [modalLoginAberto, setModalLoginAberto] = useState(false);
     const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
-
+    const reset = useResetRecoilState(autores);
 
     const aoAbrirModalLogin = () => {
         setModalCadastroAberto(false);
@@ -51,7 +52,7 @@ const Perfil = () =>{
                 </label>
                 <ul className={style.perfil__opções}> 
                 
-                { (logado === false) ? 
+                { (logado === true) ? 
                     <>
                         <li className={style.perfil__opções__item}>
                             <label type ='text'className={style.perfil__opções__link}
@@ -90,7 +91,7 @@ const Perfil = () =>{
                             <NavLink className={style.perfil__opções__link} to= '/autor'>Cadastrar Autores</NavLink>
                         </li>   
                         <li className={style.perfil__opções__item}>
-                            <NavLink className={style.perfil__opções__link} to= '/livro'>Minhas configurações</NavLink>
+                            <div className={style.perfil__opções__link} onClick ={reset}>Minhas configurações</div>
                         </li>
                         <li className={style.perfil__opções__item}>
                             <NavLink className={style.perfil__opções__link} to= '/' 

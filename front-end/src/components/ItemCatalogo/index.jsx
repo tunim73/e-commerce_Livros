@@ -1,15 +1,15 @@
 import style from './ItemCatalogo.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { useSetRecoilState } from 'recoil'
-import { livroPrincipal } from '../../atom/livroPrincipal/livroPrincipal.atom'
+import { listLivros } from '../../atom/livro/livro.selectors'
 
 export const Card = ({item}) => {
 
-    const setLivroPrincipal = useSetRecoilState(livroPrincipal);
+    const setLivroDestaque = useSetRecoilState(listLivros);
     const navigate = useNavigate();
 
     const itemAoDetalhesDeLivro = () => {
-        setLivroPrincipal(item);
+        setLivroDestaque(item);
         window.scrollTo(0, 0);
         navigate('/livro/detalhes');
     }

@@ -2,13 +2,14 @@ import style from './ListaDoMenu.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { listCategoria } from '../../../../data/DataNavigation'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
-import { autorPrincipal, autoresDestaques } from '../../../../atom/autor/autor.selectors'
+import { autorDestaquePag, listAutores} from '../../../../atom/autor/autor.selectors'
 
 const ListaDoMenu = () =>{
     
     const navigate = useNavigate();
-    const listAutores = useRecoilValue(autoresDestaques);
-    const AutorDestaque = useSetRecoilState(autorPrincipal);
+    const _listAutores = useRecoilValue(listAutores);
+    const AutorDestaque = useSetRecoilState(autorDestaquePag);
+
 
     return (
         <>
@@ -43,7 +44,7 @@ const ListaDoMenu = () =>{
                 </label>
 
                 <ul className={style.lista_menu}> 
-                    {listAutores.map(item => 
+                    {_listAutores.map(item => 
                         <li className={style.lista_menu__item} key = {`${item.id}+${item.nome}`}>
                             <div className={style.lista_menu__link}
                             onClick={(event =>{

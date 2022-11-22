@@ -3,17 +3,16 @@ import Titulo from '../../components/Titulo'
 import Sinopse from '../../components/Sinopse'
 import { Botao } from '../../components/Botao'
 import { Carrosel } from '../../components/Carrosel';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { livroPrincipal } from '../../atom/livroPrincipal/livroPrincipal.atom';
 import { addItemCarrinho } from '../../atom/carrinho/carrinho.selectors';
 import { useNavigate } from 'react-router-dom';
-import { todosOsLivros } from '../../atom/livroPrincipal/lirvo.selectors';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { listLivros, livroDestaquePag } from '../../atom/livro/livro.selectors';
 
 const DetalhesLivro = () => {
      
-    const item = useRecoilValue(livroPrincipal);
+    const item = useRecoilValue(livroDestaquePag);
     const adicionaItensCarrinho = useSetRecoilState(addItemCarrinho);
-    const listaCarrosel = useRecoilValue(todosOsLivros);
+    const listaCarrosel = useRecoilValue(listLivros);
     
 
     const addAoCarrinho = () => {

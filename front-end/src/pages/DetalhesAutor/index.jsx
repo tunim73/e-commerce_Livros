@@ -3,14 +3,14 @@ import Titulo from '../../components/Titulo'
 import Sinopse from '../../components/Sinopse'
 import { Carrosel } from '../../components/Carrosel'
 import { useRecoilValue } from 'recoil'
-import { autorPrincipal } from '../../atom/autor/autor.selectors'
-import { todosOsLivros } from '../../atom/livroPrincipal/lirvo.selectors'
+import { autorDestaquePag } from '../../atom/autor/autor.selectors'
+import { listLivros } from '../../atom/livro/livro.selectors'
 
 
 const DetalhesAutor = () => {
 
-    const autor = useRecoilValue(autorPrincipal);
-    const listaCarrosel = useRecoilValue(todosOsLivros);
+    const autor = useRecoilValue(autorDestaquePag);
+    const listaCarrosel = useRecoilValue(listLivros);
 
     return ( 
     <>

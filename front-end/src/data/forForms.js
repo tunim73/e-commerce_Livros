@@ -98,7 +98,7 @@ export const listForPagCadastroLivro = {
     referencia:"forLivro",
     schema: yup.object({
         nome: yup.string().required("O nome é obrigatório"),
-        categoria: yup.string().required('campo obrigatório'),
+        /*categoria: yup.string().required('campo obrigatório'),
         imagem:yup.string(),
         preco: yup.number().positive().integer().required('campo obrigatório'),
         sinopse: yup.string().min(10).max(256).required('campo obrigatório'),
@@ -112,7 +112,7 @@ export const listForPagCadastroLivro = {
             type: 'text',
             placeholder: 'Digite o nome do livro',
         },
-        {
+       /* {
             label: 'Categoria',
             id: 'categoria',
             type: 'text',
@@ -172,9 +172,9 @@ export const listForPagCadastroAutor = {
     referencia:"forAutor",
     schema: yup.object({
         nome: yup.string().max(126).required("O nome é obrigatório"),
-        genero: yup.string().max(15).required('campo obrigatório'),
+        /*genero: yup.string().max(15).required('campo obrigatório'),
         biografia: yup.string().min(10).max(256).required('campo obrigatório'),
-        anoDeNascimento: yup.string().max(10).required("campo obrigatório"),
+        anoDeNascimento: yup.string().max(10).required("campo obrigatório"),*/
 
     }),
     list: [{
@@ -183,7 +183,7 @@ export const listForPagCadastroAutor = {
             type: 'text',
             placeholder: 'Digite o nome do livro',
         },
-        {
+        /*{
             label: 'Genero Atuante',
             id: 'genero',
             type: 'text',
@@ -200,7 +200,7 @@ export const listForPagCadastroAutor = {
             id: 'anoDeNascimento',
             type: 'text',
             placeholder: 'DD/MM/AAAA',
-        },
+        },*/
     ]
 }
 

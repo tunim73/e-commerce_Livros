@@ -3,14 +3,12 @@ import Banner from '../../components/Banner'
 import Titulo from '../../components/Titulo'
 import {Carrosel} from '../../components/Carrosel'
 import { useRecoilValue } from 'recoil'
-//import { itemCarrosel } from '../../data/itemCarrosel'
-import { todosOsLivros } from '../../atom/livroPrincipal/lirvo.selectors'
+import { listLivros } from '../../atom/livro/livro.selectors'
+
 const Home = () => {
 
-    const listaCarrosel = useRecoilValue(todosOsLivros);
-
-
-
+    const listaCarrosel = useRecoilValue(listLivros);
+    
     return (
         <div className={style.container}>
             <Banner/>

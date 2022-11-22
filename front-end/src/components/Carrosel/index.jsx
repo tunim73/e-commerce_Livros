@@ -1,5 +1,5 @@
 import style from './Carrosel.module.scss'
-import {Card} from '../../components/ItemCatalogo'
+import {Card} from '../ItemCatalogo'
 
 
 export const Carrosel = ({list}) => {

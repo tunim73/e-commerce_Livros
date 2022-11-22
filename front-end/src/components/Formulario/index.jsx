@@ -12,7 +12,7 @@ const Formulario = (props) => {
     resolver: yupResolver(props.schema)
   });
 
-    console.log(errors)
+    console.log("errors: ",errors);
     return ( 
             <form onSubmit={handleSubmit(props.aoSubmit)} className = {style.formulario}> 
                 <Titulo forNome={props.titulo} />

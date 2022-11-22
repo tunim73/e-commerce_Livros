@@ -11,6 +11,7 @@ const ListaDoMenu = () =>{
     const AutorDestaque = useSetRecoilState(autorDestaquePag);
 
 
+
     return (
         <>
             <ul className={style.opções} onClick={()=>navigate('/catalogo')}>
@@ -47,9 +48,10 @@ const ListaDoMenu = () =>{
                     {_listAutores.map(item => 
                         <li className={style.lista_menu__item} key = {`${item.id}+${item.nome}`}>
                             <div className={style.lista_menu__link}
-                            onClick={(event =>{
+                            onClick={(() =>{
                                 AutorDestaque(item);
-                                navigate('/autor/detalhes')
+                                window.scrollTo(0, 0);
+                                navigate('/autor/detalhes');
                             })}
                             >{item.nome}
                             

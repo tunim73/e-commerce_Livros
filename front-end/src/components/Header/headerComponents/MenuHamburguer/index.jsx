@@ -1,9 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import style from './MenuHamburguer.module.scss'
-import { listAutores, listCategoria } from '../../../../data/DataNavigation'
-
+import { listCategoria } from '../../../../data/DataNavigation'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { autorDestaquePag, listAutores} from '../../../../atom/autor/autor.selectors'
 
 const MenuHamburguer = () => {
+
+    const navigate = useNavigate();
+    const _listAutores = useRecoilValue(listAutores);
+    const AutorDestaque = useSetRecoilState(autorDestaquePag);
 
 
     return(
@@ -40,15 +45,19 @@ const MenuHamburguer = () => {
                     <li className={style.lista_menu__titulo}>
                         Autores de Destaque
                     </li> 
-                    {listAutores.map(item => 
-                        <NavLink className={style.lista_menu__link} 
+                    {_listAutores.map(item => 
+                        <div className={style.lista_menu__link} 
                             key={`${item.nome}+${item.id}`} 
-                            to={item.link}
+                            onClick={()=>{
+                                AutorDestaque(item);
+                                window.scrollTo(0, 0);
+                                navigate('/autor/detalhes')
+                            }}
                         >
                             <li className={style.lista_menu__item}>
                                 <span className={style.lista_menu__link}>{item.nome}</span>
                             </li>
-                        </NavLink>
+                        </div>
                     ) }
                     
                 </ul>

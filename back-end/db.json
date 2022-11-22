@@ -80,6 +80,11 @@
       "preco": 29,
       "qtd": 1,
       "id": 9
+    },
+    {
+      "nome": "Harry Potter e a Pedra Filosofal",
+      "qtd": 1,
+      "id": 10
     }
   ],
   "autor": [
@@ -119,6 +124,11 @@
       "nome": "Verônica Ruth",
       "link": "autor/detalhes",
       "id": 5
+    },
+    {
+      "nome": "Harry Potter ",
+      "link": "autor/detalhes",
+      "id": 6
     }
   ],
   "categorias": [

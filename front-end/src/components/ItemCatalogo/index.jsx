@@ -1,11 +1,11 @@
 import style from './ItemCatalogo.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { useSetRecoilState } from 'recoil'
-import { listLivros } from '../../atom/livro/livro.selectors'
+import { livroDestaquePag } from '../../atom/livro/livro.selectors'
 
 export const Card = ({item}) => {
 
-    const setLivroDestaque = useSetRecoilState(listLivros);
+    const setLivroDestaque = useSetRecoilState(livroDestaquePag);
     const navigate = useNavigate();
 
     const itemAoDetalhesDeLivro = () => {

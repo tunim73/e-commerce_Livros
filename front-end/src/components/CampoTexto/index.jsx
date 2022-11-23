@@ -23,6 +23,7 @@ export const CampoTexto = ({item,register,errors}) => {
                 placeholder = {errors[item.id]?.message}
                 {...register(item.id)}
                 />
+                <span>{errors[item.id]?.message}</span>
         </div>
 
         )

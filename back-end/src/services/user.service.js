@@ -1,9 +1,10 @@
 const User = require("../models/User");
 
 const criar = (body) => User.create(body)
-const atualizar = (body) => User.update(body)
-const consultar = (body) => User.find(body)
-const deletar = (body) => User.delete(body)
+const atualizar = () => User.update()
+const consultarTudo = () => User.find()
+const consultar = (id) => User.findById(id)
+const deletar = () => User.delete()
 
 
 
@@ -12,6 +13,7 @@ const deletar = (body) => User.delete(body)
 module.exports = {
     criar,
     atualizar,
+    consultarTudo,
     consultar,
     deletar,
 }

@@ -6,6 +6,6 @@ router
     .post('/cadastro', UserController.createUser)
     .get('/consulta', UserController.readUser)
     .get('/consultaAll', UserController.readUserAll)
-    .put('/atualiza', UserController.updateUser)
+    .patchd('/atualiza', UserController.updateUser)
     .delete('/deleta', UserController.deleteUser)
 module.exports = router;

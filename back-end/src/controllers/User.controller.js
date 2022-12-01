@@ -25,15 +25,26 @@ class UserController {
 
         try {
             const { nome, senha, email } = req.body;
+            const id = req.parms.id
+            if (!nome && !email && !senha)
+                return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
-            if (!nome || !email || !senha)
-                return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
+            const user = await userService.findByIdUserService(id);
 
-            const newUser = await userService.atualizar({ nome, senha, email })
+            if (user._id != req.userId) {
+                return res.status(400).json({ msg: "Você não conseguiu atualizar a conta!", status: false });
+            }
+
+            await userService.updateUserService(
+                id,
+                nome,
+                senha,
+                email
+            );
 
             return res.status(201).json({
                 status: true,
-                newUser
+                user
             });
         } catch (error) {
             return res.status(500).json(error.message);

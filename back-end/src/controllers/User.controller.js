@@ -72,7 +72,7 @@ class UserController {
 
             if (Users.length === 0) {
                 return res.status(400).json({
-                    message: "There are no registered users",
+                    message: "Não há registros",
                 });
             }
 
@@ -86,16 +86,19 @@ class UserController {
     static async deleteUser(req, res) {
 
         try {
-            const { nome, senha, email } = req.body;
+            const id = req.parms.id
+            const user = await userService.findByIdUserService(id);
 
-            if (!nome || !email || !senha)
-                return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
+            if (user._id != req.userId) {
+                return res.status(400).json({ msg: "Você não conseguiu apagar a conta!", status: false });
+            }
 
-            const newUser = await userService.deletar({ nome, senha, email })
+            await userService.deletar(id)
 
             return res.status(201).json({
                 status: true,
-                newUser
+                msg: "Usuario apagado com sucesso"
+
             });
         } catch (error) {
             return res.status(500).json(error.message);

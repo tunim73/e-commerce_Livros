@@ -12,7 +12,7 @@ const atualizar = (
     email,
 })
 const consultarTudo = () => User.find()
-const consultar = (id) => User.findById(id)
+const consultar = (id) => User.findById({ _id: id })
 const deletar = (id) => User.findOneAndDelete({ _id: id })
 
 

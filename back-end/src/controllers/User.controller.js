@@ -25,17 +25,11 @@ class UserController {
 
         try {
             const { nome, senha, email } = req.body;
-            const id = req.parms.id
+            const id = req.params.id
             if (!nome && !email && !senha)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
-            const user = await userService.findByIdUserService(id);
-
-            if (user._id != req.userId) {
-                return res.status(400).json({ msg: "Você não conseguiu atualizar a conta!", status: false });
-            }
-
-            await userService.updateUserService(
+            const user = await userService.atualizar(
                 id,
                 nome,
                 senha,
@@ -52,9 +46,8 @@ class UserController {
     }
 
     static async readUser(req, res) {
-        const id = req.parms.id
-
-        const User = userService.consultar(id)
+        const { id } = req.params
+        const User = await userService.consultar(id)
         if (!User) {
             return res.status(400).send({ message: "User não encontrado" })
         }
@@ -86,11 +79,10 @@ class UserController {
     static async deleteUser(req, res) {
 
         try {
-            const id = req.parms.id
-            const user = await userService.findByIdUserService(id);
+            const id = req.params.id
 
-            if (user._id != req.userId) {
-                return res.status(400).json({ msg: "Você não conseguiu apagar a conta!", status: false });
+            if (!id) {
+                return res.status(400).json({ msg: "Id não encontrado!", status: false });
             }
 
             await userService.deletar(id)

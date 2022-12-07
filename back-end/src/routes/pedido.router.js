@@ -3,9 +3,9 @@ const PedidoController = require('../controllers/Pedido.controller');
 const router = Router();
 
 router
-    .post('/livro', PedidoController.createLivro)
-    .get('/livro/:id', PedidoController.readLivro)
-    .get('/livros', PedidoController.readLivroAll)
-    .patch('/livro/:id', PedidoController.updateLivro)
-    .delete('/livro/:id', PedidoController.deleteLivro)
+    .post('/pedido', PedidoController.createLivro)
+    .get('/pedido/:id', PedidoController.readLivro)
+    .get('/pedidos', PedidoController.readLivroAll)
+    .patch('/pedido/:id', PedidoController.updateLivro)
+    .delete('/pedido/:id', PedidoController.deleteLivro)
 module.exports = router;

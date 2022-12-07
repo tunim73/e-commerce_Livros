@@ -4,12 +4,9 @@ const criar = (body) => Pedido.create(body)
 const atualizar = (
     id,
     nome,
-    carrinho,
     total
-
 ) => Pedido.findOneAndUpdate({ _id: id, }, {
     nome,
-    carrinho,
     total
 })
 const consultarTudo = () => Pedido.find()

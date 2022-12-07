@@ -6,18 +6,13 @@ const PedidoSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    carrinho: {
-        type: Object,
-        required: true
-    },
-    Total: {
+    total: {
         type: String,
         required: true,
-
     }
 });
 
 
-const Pedido = mongoose.model("Pedido", LivroSchema);
+const Pedido = mongoose.model("Pedido", PedidoSchema);
 
 module.exports = Pedido

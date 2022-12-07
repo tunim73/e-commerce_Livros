@@ -7,16 +7,14 @@ class PedidoController {
         try {
             const {
                 nome,
-                carrinho,
                 total
             } = req.body;
 
-            if (!nome || !carrinho || !total)
+            if (!nome || !total)
                 return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
 
             const newPedido = await pedidoService.criar({
                 nome,
-                carrinho,
                 total
             })
 
@@ -34,17 +32,15 @@ class PedidoController {
         try {
             const {
                 nome,
-                carrinho,
                 total
             } = req.body;
             const id = req.params.id;
-            if (!nome && !carrinho && !total)
+            if (!nome && !total)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
             const pedido = await pedidoService.atualizar(
                 id,
                 nome,
-                carrinho,
                 total
             );
 

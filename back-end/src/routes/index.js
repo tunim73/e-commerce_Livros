@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const user = require("./user.router")
 const livro = require("./livro.router")
+const pedido = require("./pedido.router")
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
@@ -12,5 +13,6 @@ module.exports = (app) => {
             cors(),
             user,
             livro,
+            pedido,
         )
 }

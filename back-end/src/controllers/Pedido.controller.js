@@ -57,7 +57,7 @@ class PedidoController {
         const { id } = req.params;
         const Pedido = await pedidoService.consultar(id)
         if (!Pedido) {
-            return res.status(400).send({ message: "User não encontrado" })
+            return res.status(400).send({ message: "Pedido não encontrado" })
         }
         return res.status(201).json({
             status: true,
@@ -77,7 +77,7 @@ class PedidoController {
                 });
             }
 
-            res.status(200).json(Users);
+            res.status(200).json(Pedido);
 
         } catch (error) {
             return res.status(500).json(error.message);

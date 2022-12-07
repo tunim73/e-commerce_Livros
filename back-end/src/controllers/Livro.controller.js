@@ -69,7 +69,7 @@ class LivroController {
         const { id } = req.params;
         const Livro = await livroService.consultar(id)
         if (!Livro) {
-            return res.status(400).send({ message: "User não encontrado" })
+            return res.status(400).send({ message: "Livro não encontrado" })
         }
         return res.status(201).json({
             status: true,
@@ -81,15 +81,15 @@ class LivroController {
     static async readLivroAll(req, res) {
 
         try {
-            const Users = await livroService.consultarTudo();
+            const Livro = await livroService.consultarTudo();
 
-            if (Users.length === 0) {
+            if (Livro.length === 0) {
                 return res.status(400).json({
                     message: "Não há registros",
                 });
             }
 
-            res.status(200).json(Users);
+            res.status(200).json(Livro);
 
         } catch (error) {
             return res.status(500).json(error.message);

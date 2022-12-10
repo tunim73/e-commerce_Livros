@@ -1,106 +1,99 @@
-const livroService = require("../services/livro.service")
+const autorService = require("../services/autor.service")
 
-class LivroController {
+class AutorController {
 
-    static async createLivro(req, res) {
+    static async createAutor(req, res) {
 
         try {
             const {
                 nome,
-                preco,
-                descricao,
-                autor,
-                edicao,
-                numSerial
+                genero,
+                biografia,
+                anoDeNascimento,
             } = req.body;
 
-            if (!nome || !preco || !descricao || !autor || !edicao || !numSerial)
+            if (!nome || !genero || !biografia || !anoDeNascimento)
                 return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
 
-            const newLivro = await livroService.criar({
+            const newAutor = await autorService.criar({
                 nome,
-                preco,
-                descricao,
-                autor,
-                edicao,
-                numSerial
+                genero,
+                biografia,
+                anoDeNascimento,
             })
 
             return res.status(201).json({
                 status: true,
-                newLivro
+                newAutor
             });
         } catch (error) {
             return res.status(500).json(error.message);
         }
     }
 
-    static async updateLivro(req, res) {
+    static async updateAutor(req, res) {
 
         try {
             const {
                 nome,
-                preco,
-                descricao,
-                autor,
-                edicao,
-                numSerial
+                genero,
+                biografia,
+                anoDeNascimento
+
             } = req.body;
             const id = req.params.id;
-            if (!nome && !preco && !descricao && !autor && !edicao && !numSerial)
+            if (!nome || !genero || !biografia || !anoDeNascimento)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
-            const livro = await livroService.atualizar(
+            const autor = await autorService.atualizar(
                 id,
                 nome,
-                preco,
-                descricao,
-                autor,
-                edicao,
-                numSerial
+                genero,
+                biografia,
+                anoDeNascimento,
             );
 
             return res.status(201).json({
                 status: true,
-                livro
+                autor
             });
         } catch (error) {
             return res.status(500).json(error.message);
         }
     }
 
-    static async readLivro(req, res) {
+    static async readAutor(req, res) {
         const { id } = req.params;
-        const Livro = await livroService.consultar(id)
-        if (!Livro) {
-            return res.status(400).send({ message: "Livro não encontrado" })
+        const Autor = await autorService.consultar(id)
+        if (!Autor) {
+            return res.status(400).send({ message: "Autor não encontrado" })
         }
         return res.status(201).json({
             status: true,
-            Livro
+            Autor
         });
 
     }
 
-    static async readLivroAll(req, res) {
+    static async readAutorAll(req, res) {
 
         try {
-            const Livro = await livroService.consultarTudo();
+            const Autor = await autorService.consultarTudo();
 
-            if (Livro.length === 0) {
+            if (Autor.length === 0) {
                 return res.status(400).json({
                     message: "Não há registros",
                 });
             }
 
-            res.status(200).json(Livro);
+            res.status(200).json(Autor);
 
         } catch (error) {
             return res.status(500).json(error.message);
         }
     }
 
-    static async deleteLivro(req, res) {
+    static async deleteAutor(req, res) {
 
         try {
             const id = req.params.id;
@@ -109,11 +102,11 @@ class LivroController {
                 return res.status(400).json({ msg: "Id não encontrado!", status: false });
             }
 
-            await livroService.deletar(id)
+            await autorService.deletar(id)
 
             return res.status(201).json({
                 status: true,
-                msg: "Livro apagado com sucesso"
+                msg: "Autor apagado com sucesso"
 
             });
         } catch (error) {
@@ -122,4 +115,4 @@ class LivroController {
     }
 
 }
-module.exports = LivroController
+module.exports = AutorController

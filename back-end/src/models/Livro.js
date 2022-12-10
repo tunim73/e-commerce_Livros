@@ -18,7 +18,11 @@ const LivroSchema = new mongoose.Schema({
         required: true
     },
     edicao: {
-        type: String,
+        type: Number,
+        required: true
+    },
+    numSerial: {
+        type: Number,
         required: true,
         unique: true
     }

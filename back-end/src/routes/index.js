@@ -3,6 +3,7 @@ const cors = require('cors')
 const user = require("./user.router")
 const livro = require("./livro.router")
 const pedido = require("./pedido.router")
+const autor = require("./autor.router")
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
@@ -14,5 +15,6 @@ module.exports = (app) => {
             user,
             livro,
             pedido,
+            autor,
         )
 }

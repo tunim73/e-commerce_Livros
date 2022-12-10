@@ -6,9 +6,12 @@ const PedidoSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    carrinho: {
+        type: Object
+    },
     total: {
-        type: String,
-        required: true,
+        type: Number,
+        required: true
     }
 });
 

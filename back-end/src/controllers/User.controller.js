@@ -1,4 +1,8 @@
 const userService = require("../services/user.service")
+const bcrypt = require("bcrypt");
+
+
+
 
 class UserController {
 
@@ -10,8 +14,10 @@ class UserController {
             if (!nome || !email || !senha)
                 return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
 
-            const newUser = await userService.criar({ nome, senha, email })
+            const senhaHash = UserController.hashDaSenha(senha);
 
+            const newUser = await userService.criar({ nome, senha: senhaHash, email })
+            
             return res.status(201).json({
                 status: true,
                 newUser
@@ -19,6 +25,11 @@ class UserController {
         } catch (error) {
             return res.status(500).json(error.message);
         }
+
+
+
+
+
     }
 
     static async updateUser(req, res) {
@@ -95,6 +106,16 @@ class UserController {
         } catch (error) {
             return res.status(500).json(error.message);
         }
+    }
+
+
+    static hashDaSenha(pass){
+        if(!pass)
+            return;
+             
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(pass, salt);
+        return hash;
     }
 
 }

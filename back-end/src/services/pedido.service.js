@@ -11,9 +11,23 @@ const atualizar = (
     carrinho,
     total
 })
-const consultarTudo = () => Pedido.find()
+const consultarTudo = () => Pedido.find().populate("user_id");
+
 const consultar = (id) => Pedido.findById({ _id: id })
 const deletar = (id) => Pedido.findOneAndDelete({ _id: id })
+
+const novoItemCarrinho = (id,body) => Pedido.findOneAndUpdate(
+        {_id:id},
+        {
+            $push: { "carrinho.itens": body}
+})
+
+
+
+
+
+
+
 
 module.exports = {
     criar,
@@ -21,4 +35,5 @@ module.exports = {
     consultarTudo,
     consultar,
     deletar,
+    novoItemCarrinho
 }

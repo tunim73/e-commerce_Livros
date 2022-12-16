@@ -1,18 +1,42 @@
 const mongoose = require('mongoose');
 
 const PedidoSchema = new mongoose.Schema({
-    nome: {
-        type: String,
-        required: true,
-        unique: true
+
+
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
     },
     carrinho: {
-        type: Object
+
+        itens: {
+            type:Array
+        },
+
+        total: {
+            type:Number,
+            default:0
+        }
     },
-    total: {
-        type: Number,
-        required: true
-    }
+    historico: [
+        {   
+            carrinho: {
+                itens: {
+                    type:Array
+                },
+            
+                total: {
+                    type:Number,
+                    default:0
+                },
+                createdAt: {
+                    type: Date,
+                    default: Date.now(),
+                }
+            }
+        }
+    ]
+
 });
 
 

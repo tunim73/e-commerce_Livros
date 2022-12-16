@@ -8,4 +8,8 @@ router
     .get('/pedidos', PedidoController.readPedidoAll)
     .patch('/pedido/:id', PedidoController.updatePedido)
     .delete('/pedido/:id', PedidoController.deletePedido)
+
+    .post('/testePedido', PedidoController.testePedido)
+    .put('/carrinho/:id', PedidoController.atualizarItemCarrinho)
+
 module.exports = router;

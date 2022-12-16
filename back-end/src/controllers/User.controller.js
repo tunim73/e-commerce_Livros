@@ -1,6 +1,6 @@
 const userService = require("../services/user.service")
 const bcrypt = require("bcrypt");
-
+const pedidoService = require("../services/pedido.service")
 
 
 
@@ -16,17 +16,16 @@ class UserController {
 
             const senhaHash = UserController.hashDaSenha(senha);
 
-            const newUser = await userService.criar({ nome, senha: senhaHash, email })
+            const newUser = await userService.criar({ nome, senha: senhaHash, email });            
+            const newCar = await pedidoService.criar({user_id:newUser._id})
+            const userWithIdnewCar = await userService.atualizar(newUser._id, {pedido_id:newCar._id})
             
             return res.status(201).json({
                 status: true,
-                newUser
             });
         } catch (error) {
             return res.status(500).json(error.message);
         }
-
-
 
 
 
@@ -42,9 +41,11 @@ class UserController {
 
             const user = await userService.atualizar(
                 id,
-                nome,
-                senha,
-                email
+                {
+                    nome,
+                    senha,
+                    email,
+                }
             );
 
             return res.status(201).json({
@@ -58,7 +59,7 @@ class UserController {
 
     static async readUser(req, res) {
         const { id } = req.params
-        const User = await userService.consultar(id)
+        const User = await userService.consultarPorId(id)
         if (!User) {
             return res.status(400).send({ message: "User não encontrado" })
         }
@@ -107,7 +108,6 @@ class UserController {
             return res.status(500).json(error.message);
         }
     }
-
 
     static hashDaSenha(pass){
         if(!pass)

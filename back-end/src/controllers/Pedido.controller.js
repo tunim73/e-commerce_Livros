@@ -109,5 +109,93 @@ class PedidoController {
         }
     }
 
+    static async testePedido(req,res) {
+
+        
+        try {
+            const {
+                nu
+            } = req.body;
+
+            if (!nu)
+                return res.status(203).json({ msg: "Chegou nulo ", status: false });
+
+
+
+/*
+                const body = {
+                    carrinho: {
+
+                        itens: [],
+                        total: 0
+                    },
+                
+                    historico: [
+                        {
+                            pedidos:[
+                                {
+                                    carrinho: {
+
+                                        itens: [],
+                                        total: 0
+                                    },
+                                    
+                                }
+                            ],
+                        }
+                    ]
+                }
+*/
+
+            const newPedido = await pedidoService.criar({
+                    nu
+            })
+
+            return res.status(201).json({
+                status: true,
+                newPedido
+            });
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
+    }
+
+    static async atualizarItemCarrinho(req,res) {
+
+        const {
+            pedido
+        } = req.body;
+
+        const {id} = req.params;
+        
+        try {
+            
+
+            if (!pedido || !id )
+                return res.status(203).json({ msg: "Chegou nulo ", status: false });
+
+            const newPedido = await pedidoService.novoItemCarrinho(id,pedido)
+
+            return res.status(201).json({
+                status: true,
+                newPedido
+            });
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
 module.exports = PedidoController

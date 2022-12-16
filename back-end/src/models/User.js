@@ -13,7 +13,15 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true,
         unique:true
-    }
+    },    
+    pedido_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Pedido",
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now(),
+    },
 });
 
 

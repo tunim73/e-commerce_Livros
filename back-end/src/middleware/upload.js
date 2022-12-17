@@ -18,9 +18,11 @@ let upload = multer({
         storage: storage,
         fileFilter: function filter(req, file, cb) {
             if (file.mimetype == "image/png" || file.mimetype == "image/jpeg") {
+
                 cb(null, true)
 
             } else {
+
                 cb(null, false)
             }
         },

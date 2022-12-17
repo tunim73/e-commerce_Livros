@@ -6,6 +6,6 @@ router
     .post('/livro', upload.single('image'), LivroController.createLivro)
     .get('/livro/:id', LivroController.readLivro)
     .get('/livros', LivroController.readLivroAll)
-    .patch('/livro/:id', LivroController.updateLivro)
+    .patch('/livro/:id', upload.single('image'), LivroController.updateLivro)
     .delete('/livro/:id', LivroController.deleteLivro)
 module.exports = router;

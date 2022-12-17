@@ -1,11 +1,11 @@
 const autorService = require("../services/autor.service")
-
+const fs = require("fs")
 class AutorController {
 
     static async createAutor(req, res) {
 
         try {
-            const {
+            let {
                 nome,
                 genero,
                 biografia,
@@ -40,9 +40,8 @@ class AutorController {
     }
 
     static async updateAutor(req, res) {
-
         try {
-            const {
+            let {
                 nome,
                 genero,
                 biografia,
@@ -50,12 +49,12 @@ class AutorController {
                 image
             } = req.body;
             const id = req.params.id;
-
-            if (req.file) {
-                image = req.file.path
+            const file = req.file
+            if (file) {
+                image = file.path
             }
 
-            if (!nome || !genero || !biografia || !anoDeNascimento)
+            if (!nome && !genero && !biografia && !anoDeNascimento && !file)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
             const autor = await autorService.atualizar(
@@ -66,6 +65,22 @@ class AutorController {
                 anoDeNascimento,
                 image
             );
+            if (autor.image != "src/assets/padrao.jpg") {
+                const pathAntigo = autor.image
+                fs.unlink(pathAntigo, (err) => {
+                    if (err)
+                        console.log("Deu erro ao apagar imagem antiga: ", err);
+                })
+            }
+
+
+
+
+
+
+
+
+
 
             return res.status(201).json({
                 status: true,

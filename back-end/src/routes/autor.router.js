@@ -7,6 +7,6 @@ router
     .post('/autor', upload.single('image'), AutorController.createAutor)
     .get('/autor/:id', AutorController.readAutor)
     .get('/autores', AutorController.readAutorAll)
-    .patch('/autor/:id', AutorController.updateAutor)
+    .patch('/autor/:id', upload.single('image'), AutorController.updateAutor)
     .delete('/autor/:id', AutorController.deleteAutor)
 module.exports = router;

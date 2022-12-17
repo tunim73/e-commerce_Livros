@@ -1,4 +1,5 @@
 const livroService = require("../services/livro.service")
+const fs = require("fs")
 
 class LivroController {
 
@@ -48,7 +49,7 @@ class LivroController {
     static async updateLivro(req, res) {
 
         try {
-            const {
+            let {
                 nome,
                 preco,
                 descricao,
@@ -58,10 +59,11 @@ class LivroController {
                 image
             } = req.body;
             const id = req.params.id;
-            if (req.file) {
-                image = req.file.path
+            const file = req.file
+            if (file) {
+                image = file.path
             }
-            if (!nome && !preco && !descricao && !autor && !edicao && !numSerial)
+            if (!nome && !preco && !descricao && !autor && !edicao && !numSerial && !file)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
             const livro = await livroService.atualizar(
@@ -74,6 +76,13 @@ class LivroController {
                 numSerial,
                 image
             );
+            if (livro.image !== "src/assets/padrao.jpg ") {
+                const pathAntigo = livro.image
+                fs.unlink(pathAntigo, (err) => {
+                    if (err)
+                        console.log("Deu erro ao apagar imagem antiga: ", err);
+                })
+            }
 
             return res.status(201).json({
                 status: true,

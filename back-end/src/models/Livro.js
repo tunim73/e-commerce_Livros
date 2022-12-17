@@ -25,7 +25,11 @@ const LivroSchema = new mongoose.Schema({
         type: Number,
         required: true,
         unique: true
+    },
+    image: {
+        type: String
     }
+
 });
 
 

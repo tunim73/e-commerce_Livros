@@ -7,12 +7,14 @@ const atualizar = (
     genero,
     biografia,
     anoDeNascimento,
+    image
 
 ) => Autor.findOneAndUpdate({ _id: id, }, {
     nome,
     genero,
     biografia,
     anoDeNascimento,
+    image
 
 })
 const consultarTudo = () => Autor.find()

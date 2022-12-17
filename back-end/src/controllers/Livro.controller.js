@@ -5,14 +5,23 @@ class LivroController {
     static async createLivro(req, res) {
 
         try {
-            const {
+
+            let {
                 nome,
                 preco,
                 descricao,
                 autor,
                 edicao,
-                numSerial
+                numSerial,
+                image
             } = req.body;
+
+            if (req.file) {
+                image = req.file.path
+            } else if (req.file === undefined) {
+                image = "src/assets/padrao.jpg"
+            }
+
 
             if (!nome || !preco || !descricao || !autor || !edicao || !numSerial)
                 return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
@@ -23,7 +32,8 @@ class LivroController {
                 descricao,
                 autor,
                 edicao,
-                numSerial
+                numSerial,
+                image
             })
 
             return res.status(201).json({
@@ -44,9 +54,13 @@ class LivroController {
                 descricao,
                 autor,
                 edicao,
-                numSerial
+                numSerial,
+                image
             } = req.body;
             const id = req.params.id;
+            if (req.file) {
+                image = req.file.path
+            }
             if (!nome && !preco && !descricao && !autor && !edicao && !numSerial)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
@@ -57,7 +71,8 @@ class LivroController {
                 descricao,
                 autor,
                 edicao,
-                numSerial
+                numSerial,
+                image
             );
 
             return res.status(201).json({

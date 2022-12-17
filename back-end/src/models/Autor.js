@@ -18,6 +18,9 @@ const AutorSchema = new mongoose.Schema({
     anoDeNascimento: {
         type: String,
         required: true
+    },
+    image: {
+        type: String
     }
 });
 

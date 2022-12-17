@@ -10,7 +10,14 @@ class AutorController {
                 genero,
                 biografia,
                 anoDeNascimento,
+                image
             } = req.body;
+
+            if (req.file) {
+                image = req.file.path
+            } else if (req.file === undefined) {
+                image = "src/assets/padrao.jpg"
+            }
 
             if (!nome || !genero || !biografia || !anoDeNascimento)
                 return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
@@ -20,6 +27,7 @@ class AutorController {
                 genero,
                 biografia,
                 anoDeNascimento,
+                image
             })
 
             return res.status(201).json({
@@ -38,10 +46,15 @@ class AutorController {
                 nome,
                 genero,
                 biografia,
-                anoDeNascimento
-
+                anoDeNascimento,
+                image
             } = req.body;
             const id = req.params.id;
+
+            if (req.file) {
+                image = req.file.path
+            }
+
             if (!nome || !genero || !biografia || !anoDeNascimento)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
 
@@ -51,6 +64,7 @@ class AutorController {
                 genero,
                 biografia,
                 anoDeNascimento,
+                image
             );
 
             return res.status(201).json({

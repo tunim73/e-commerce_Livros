@@ -4,7 +4,7 @@ const user = require("./user.router")
 const livro = require("./livro.router")
 const pedido = require("./pedido.router")
 const autor = require("./autor.router")
-const upload = require("./upload.router")
+
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
@@ -16,7 +16,6 @@ module.exports = (app) => {
             user,
             livro,
             pedido,
-            autor,
-            upload
+            autor
         )
 }

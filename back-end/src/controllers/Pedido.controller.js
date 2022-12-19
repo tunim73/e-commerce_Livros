@@ -2,60 +2,7 @@ const pedidoService = require("../services/pedido.service")
 
 class PedidoController {
 
-    static async createPedido(req, res) {
-
-        try {
-            const {
-                nome,
-                carrinho,
-                total
-            } = req.body;
-
-            if (!nome || !carrinho || !total)
-                return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
-
-            const newPedido = await pedidoService.criar({
-                    nome,
-                    carrinho,
-                    total
-                })
-                //Arrumar uma forma de calcular o preço total dos itens dentro do carrinho
-            return res.status(201).json({
-                status: true,
-                newPedido
-            });
-        } catch (error) {
-            return res.status(500).json(error.message);
-        }
-    }
-
-    static async updatePedido(req, res) {
-
-        try {
-            const {
-                nome,
-                carrinho,
-                total
-            } = req.body;
-            const id = req.params.id;
-            if (!nome && !carrinho && !total)
-                return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
-
-            const pedido = await pedidoService.atualizar(
-                id,
-                nome,
-                carrinho,
-                total
-            );
-
-            return res.status(201).json({
-                status: true,
-                pedido
-            });
-        } catch (error) {
-            return res.status(500).json(error.message);
-        }
-    }
+    
 
     static async readPedido(req, res) {
         const { id } = req.params;
@@ -88,102 +35,60 @@ class PedidoController {
         }
     }
 
-    static async deletePedido(req, res) {
+    /*
+    Ações no carrinho
+    Adicionar item - caso o item já exista, aumentar sua quantidade no carrinho
+    retirar item - caso tenha mais de um intem, retirar da sua quandtidade no carrinho,
+    se chegar a zero retirar elemento do carrinho
+    */
 
-        try {
-            const id = req.params.id;
-
-            if (!id) {
-                return res.status(400).json({ msg: "Id não encontrado!", status: false });
-            }
-
-            await pedidoService.deletar(id)
-
-            return res.status(201).json({
-                status: true,
-                msg: "Pedido apagado com sucesso"
-
-            });
-        } catch (error) {
-            return res.status(500).json(error.message);
-        }
-    }
-
-    static async testePedido(req,res) {
-
+    static async updatedCarrinho (req, res) {
         
-        try {
-            const {
-                nu
-            } = req.body;
-
-            if (!nu)
-                return res.status(203).json({ msg: "Chegou nulo ", status: false });
-
-
-
-/*
-                const body = {
-                    carrinho: {
-
-                        itens: [],
-                        total: 0
-                    },
-                
-                    historico: [
-                        {
-                            pedidos:[
-                                {
-                                    carrinho: {
-
-                                        itens: [],
-                                        total: 0
-                                    },
-                                    
-                                }
-                            ],
-                        }
-                    ]
-                }
-*/
-
-            const newPedido = await pedidoService.criar({
-                    nu
-            })
-
-            return res.status(201).json({
-                status: true,
-                newPedido
-            });
-        } catch (error) {
-            return res.status(500).json(error.message);
-        }
-    }
-
-    static async atualizarItemCarrinho(req,res) {
-
-        const {
-            pedido
-        } = req.body;
-
-        const {id} = req.params;
         
         try {
             
+            const {id} = req.params;
+            const {livro_id, action} = req.body;
 
-            if (!pedido || !id )
+            if (!livro_id || !id )
                 return res.status(203).json({ msg: "Chegou nulo ", status: false });
 
-            const newPedido = await pedidoService.novoItemCarrinho(id,pedido)
+            const livro = { livro_id }
+
+            let updatedItem = await pedidoService.localizaItemCarrinho(id, livro_id);
+
+            if(updatedItem === null)
+                updatedItem = await pedidoService.novoItemCarrinho(id, livro);          
+            else {
+                let newQtd;
+                
+                if(action === "positivo"){
+                    newQtd = (updatedItem.carrinho.itens[0].qtd)+1;
+                    updatedItem = await pedidoService.atualizaQuantidadeItemCarrinho(id,livro_id,newQtd);
+                }
+                else if(action === "negativo"){
+                    newQtd = (updatedItem.carrinho.itens[0].qtd)-1;
+                    if(newQtd === 0)
+                        updatedItem = await pedidoService.removeItemCarrinho(id,livro);
+                    else 
+                        updatedItem = await pedidoService.atualizaQuantidadeItemCarrinho(id,livro_id,newQtd);
+                }
+
+            }
 
             return res.status(201).json({
                 status: true,
-                newPedido
+                action,
+                updatedItem
             });
         } catch (error) {
             return res.status(500).json(error.message);
         }
+
     }
+
+    
+
 
 
 }

@@ -1,0 +1,12 @@
+Cadastrar Livro
+Consultar Livro
+Atualizar Livro
+Excluir Livro
+Cadastrar Autor
+Consultar Autor
+Atualizar Autor
+Excluir Autor
+Adicionar pedido ao Carrinho
+Remover pedido ao Carrinho 
+Consultar pedidos no Carrinho
+Histórico de Pedidos    

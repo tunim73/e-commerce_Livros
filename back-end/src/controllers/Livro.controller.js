@@ -65,7 +65,7 @@ class LivroController {
             }
             if (!nome && !preco && !descricao && !autor && !edicao && !numSerial && !file)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
-
+            
             const livro = await livroService.atualizar(
                 id,
                 nome,

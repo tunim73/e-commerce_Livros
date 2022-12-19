@@ -9,9 +9,22 @@ const PedidoSchema = new mongoose.Schema({
     },
     carrinho: {
 
-        itens: {
-            type:Array
-        },
+        itens: [
+            {
+                livro_id:
+                {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "Livro",
+                },
+                qtd:{
+                    type:Number,
+                    default:1
+                },
+                teste:{
+                    type:Number
+                }
+            }   
+        ],
 
         total: {
             type:Number,

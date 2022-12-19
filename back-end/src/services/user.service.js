@@ -4,7 +4,7 @@ const criar = (body) => User.create(body);
 const atualizar = (id,body) => User.findOneAndUpdate({ _id: id, }, body);
 
 
-const consultarTudo = () => User.find();
+const consultarTudo = () => User.find().populate("pedido_id");
 const consultarPorId = (id) => User.findById({ _id: id }).populate("pedido_id");
 
 const consultarPorEmail = (email) => User.findOne({email:email});

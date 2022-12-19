@@ -17,12 +17,13 @@ class UserController {
             const senhaHash = UserController.hashDaSenha(senha);
 
             const newUser = await userService.criar({ nome, senha: senhaHash, email });            
-            const newCar = await pedidoService.criar({user_id:newUser._id})
-            const userWithIdnewCar = await userService.atualizar(newUser._id, {pedido_id:newCar._id})
+            const newRequest = await pedidoService.criar({user_id:newUser._id});
+            await userService.atualizar(newUser._id, {pedido_id:newRequest._id});
             
             return res.status(201).json({
                 status: true,
             });
+            
         } catch (error) {
             return res.status(500).json(error.message);
         }
@@ -97,7 +98,8 @@ class UserController {
                 return res.status(400).json({ msg: "Id não encontrado!", status: false });
             }
 
-            await userService.deletar(id)
+            await userService.deletar(id);
+            await pedidoService.deletar(id);
 
             return res.status(201).json({
                 status: true,

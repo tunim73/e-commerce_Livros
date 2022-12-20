@@ -8,7 +8,7 @@ import Pagamento from "./pages/Pagamento"
 import DefaultPage from './components/DefaultPage';
 import { listForPagCadastroAutor, listForPagCadastroLivro } from './data/forForms';
 import Catalogo from "./pages/Catalogo"
-
+import Historico from "./pages/HistoricoPedido"
 const AppRouter = () => {
 
     return (
@@ -24,6 +24,7 @@ const AppRouter = () => {
                         <Route path='carrinho' element={<Carrinho/>}/>
                         <Route path='catalogo' element={<Catalogo/>}/>
                         <Route path='pagamento' element={<Pagamento/>}/>
+                        <Route path='historico' element={<Historico/>}/>
                     </Route>
                 </Routes>   
             </Router>

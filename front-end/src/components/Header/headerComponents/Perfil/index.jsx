@@ -94,6 +94,10 @@ const Perfil = () =>{
                             <div className={style.perfil__opções__link} onClick ={reset}>Minhas configurações</div>
                         </li>
                         <li className={style.perfil__opções__item}>
+                            <NavLink className={style.perfil__opções__link} to= '/historico' 
+                            onClick={()=>setLogado({})}>Histórico de Pedidos</NavLink>
+                        </li>
+                        <li className={style.perfil__opções__item}>
                             <NavLink className={style.perfil__opções__link} to= '/' 
                             onClick={()=>setLogado({})}>Sair</NavLink>
                         </li>

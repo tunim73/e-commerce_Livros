@@ -18,6 +18,10 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Pedido",
     },
+    tipo:{
+        type:String,
+        required:false //colocar true depois !
+    },
     createdAt: {
         type: Date,
         default: Date.now(),

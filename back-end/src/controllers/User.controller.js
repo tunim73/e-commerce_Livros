@@ -32,32 +32,6 @@ class UserController {
 
     }
 
-    static async updateUser(req, res) {
-
-        try {
-            const { nome, senha, email } = req.body;
-            const id = req.params.id
-            if (!nome && !email && !senha)
-                return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
-
-            const user = await userService.atualizar(
-                id,
-                {
-                    nome,
-                    senha,
-                    email,
-                }
-            );
-
-            return res.status(201).json({
-                status: true,
-                user
-            });
-        } catch (error) {
-            return res.status(500).json(error.message);
-        }
-    }
-
     static async readUser(req, res) {
         const { id } = req.params
         const User = await userService.consultarPorId(id)

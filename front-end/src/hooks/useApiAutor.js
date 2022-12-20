@@ -25,6 +25,10 @@ export const useApiAutor = () => ({
         const resposta = await api.get('/autor');
         return resposta.data   
 
+    },
+    todosAutores: async () => {
+        const resposta = await api.get("/autores");
+        return resposta.data;
     }
 
 })

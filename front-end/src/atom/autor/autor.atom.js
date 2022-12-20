@@ -4,7 +4,7 @@ import { useApiAutor } from "../../hooks/useApiAutor";
 const apiAutor = useApiAutor();
 
 const stateInicialAutores = async () => {
-  const list  = await apiAutor.autoresDestaque()
+  const list  = await apiAutor.todosAutores();
   //fazer verificaçõs adequadas, caso nao tenha lista da api à ser entregue
   return list 
 }

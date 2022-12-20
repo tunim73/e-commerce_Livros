@@ -2,8 +2,6 @@ const pedidoService = require("../services/pedido.service")
 
 class PedidoController {
 
-    
-
     static async readPedido(req, res) {
         const { id } = req.params;
         const Pedido = await pedidoService.consultar(id)
@@ -35,15 +33,7 @@ class PedidoController {
         }
     }
 
-    /*
-    Ações no carrinho
-    Adicionar item - caso o item já exista, aumentar sua quantidade no carrinho
-    retirar item - caso tenha mais de um intem, retirar da sua quandtidade no carrinho,
-    se chegar a zero retirar elemento do carrinho
-    */
-
     static async updatedCarrinho (req, res) {
-        
         
         try {
             
@@ -51,7 +41,7 @@ class PedidoController {
             const {livro_id, action} = req.body;
 
             if (!livro_id || !id )
-                return res.status(203).json({ msg: "Chegou nulo ", status: false });
+                return res.status(203).json({ msg: "Os Campos chegaram Nulo, verifique e tente novamente", status: false });
 
             const livro = { livro_id }
 
@@ -87,10 +77,42 @@ class PedidoController {
 
     }
 
+    static async addPedidoAoHistorico(req, res){
+
+        try {
+            const {id} = req.params;
+            const {itens, total} = req.body;
+
+            if (!id || !itens || !total)
+            return res.status(203).json({ msg: "Os Campos chegaram Nulo, verifique e tente novamente", status: false });
+            
+            const pedido = { itens, total }
+
+            const newHistorico = pedidoService.adicionaAoHistorico(id, pedido);
+
+            res.status(201).json({msg:"historico atualizado", status: true}, newHistorico);
+
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
+    }
+
+    static async readAllHistorico (req, res){
+        try {
+
+            if (historico.length === 0) {
+                return res.status(400).json({
+                    message: "Não há registros",
+                });
+            }
+
+            res.status(200).json({status: true}, historico);
+
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
+    }
     
-
-
-
 }
 
 

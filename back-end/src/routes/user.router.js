@@ -10,7 +10,6 @@ router
     .post('/user', UserController.createUser)
     .get('/user/:id', UserController.readUser)
     .get('/users', auth, UserController.readUserAll)
-    .patch('/user/:id', UserController.updateUser)
     .delete('/user/:id', UserController.deleteUser)
     .post('/login', LoginController.login)
 

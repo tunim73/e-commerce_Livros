@@ -33,7 +33,7 @@ const PedidoSchema = new mongoose.Schema({
     },
     historico: [
         {   
-            carrinho: {
+            pedido: {
                 itens: {
                     type:Array
                 },

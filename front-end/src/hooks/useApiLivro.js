@@ -24,7 +24,7 @@ export const useApiLivro = () => ({
     },
     todosLivros: async () => {
 
-        const resposta = await api.get('/carrosel');
+        const resposta = await api.get('/livros');
         return resposta.data   
 
     }

@@ -1,10 +1,11 @@
+const { findOneAndUpdate, findOne } = require("../models/Pedido");
 const Pedido = require("../models/Pedido");
 
-const criar = (body) => Pedido.create(body)
-const deletar = (id) => Pedido.findOneAndDelete({ user_id: id })
+const criar = (body) => Pedido.create(body);
+const deletar = (id) => Pedido.findOneAndDelete({ user_id: id });
 
 const consultarTudo = () => Pedido.find().populate("carrinho.itens.livro_id");
-const consultar = (id) => Pedido.findById({ _id: id })
+const consultar = (id) => Pedido.findById({ _id: id });
 
 
 /* No Carrinho */
@@ -42,6 +43,26 @@ const removeItemCarrinho = (pedido_id, livro) => Pedido.findOneAndUpdate(
         }
 )
 
+const adicionaAoHistorico = (pedido_id, pedido) => findOneAndUpdate({_id:pedido_id}, 
+    {
+
+        $push: { 
+            historico: pedido
+        }   
+    
+    }
+)
+
+const readAllHistorico = (pedido_id) => findOne({_id:pedido_id},
+    {
+        "historico":1
+    }
+)
+
+
+
+
+
 
 
 
@@ -57,5 +78,7 @@ module.exports = {
     novoItemCarrinho,
     atualizaQuantidadeItemCarrinho,
     localizaItemCarrinho,
-    removeItemCarrinho
+    removeItemCarrinho,
+    adicionaAoHistorico,
+    readAllHistorico
 }

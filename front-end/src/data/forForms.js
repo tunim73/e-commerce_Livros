@@ -98,13 +98,11 @@ export const listForPagCadastroLivro = {
     referencia:"forLivro",
     schema: yup.object({
         nome: yup.string().required("O nome é obrigatório"),
-        /*categoria: yup.string().required('campo obrigatório'),
-        imagem:yup.string(),
+        genero: yup.string().required('campo obrigatório'),
+        image:yup.string(),
         preco: yup.number().positive().integer().required('campo obrigatório'),
-        sinopse: yup.string().min(10).max(256).required('campo obrigatório'),
-        /*autor: yup.string().required('campo obrigatório'),
-        edicao: yup.string().required('campo obrigatório'),
-        editora: yup.string().required('campo obrigatório'),*/
+        descricao: yup.string().min(1).max(256).required('campo obrigatório'),
+        autor: yup.string().required('campo obrigatório')
     }),
     list: [{
             label: 'Nome',
@@ -112,56 +110,39 @@ export const listForPagCadastroLivro = {
             type: 'text',
             placeholder: 'Digite o nome do livro',
         },
-       /* {
-            label: 'Categoria',
-            id: 'categoria',
+        {
+            label: 'Gênero',
+            id: 'genero',
             type: 'text',
-            placeholder: 'Insira as categorias do livro',
+            placeholder: 'Insira o genero do livro',
         },
         {
             label: 'Foto do livro',
-            id: 'imagem',
-            type: 'text',
+            id: 'image',
+            type: 'file',
             placeholder: 'Digite a url da imagem do livro'
         },
         {
             label: 'Preço',
             id: 'preco',
-            type: 'text',
+            type: 'number',
             placeholder: 'Digite o preço'
 
         },
         {
-            label: 'Sinopse',
-            id: 'sinopse',
+            label: 'Descrição',
+            id: 'descricao',
             type: 'text',
             placeholder: 'Digite a sinopse do livro',
         },
-       /* {
+        {
             label: 'Autor',
             id: 'autor',
             type: 'text',
             placeholder: 'Digite o autor',
-        },
-        {
-            label: 'Edição',
-            id: 'edicao',
-            type: 'text',
-            placeholder: 'Digite a edição',
-        },
-        {
-            label: 'Editora',
-            id: 'editora',
-            type: 'text',
-            placeholder: 'Digite a editora',
-        },*/
+        }
 
-        /*{
-            label: 'Ano de lançamento',
-            id: 'anoLancamento',
-            type: 'date',
-            placeholder: 'Digite o ano de lançamento do livro'
-        },*/
+
 
     ]
 }
@@ -172,10 +153,7 @@ export const listForPagCadastroAutor = {
     referencia:"forAutor",
     schema: yup.object({
         nome: yup.string().max(126).required("O nome é obrigatório"),
-        /*genero: yup.string().max(15).required('campo obrigatório'),
-        biografia: yup.string().min(10).max(256).required('campo obrigatório'),
-        anoDeNascimento: yup.string().max(10).required("campo obrigatório"),*/
-
+        biografia: yup.string().min(2).max(256).required('campo obrigatório')
     }),
     list: [{
             label: 'Nome',
@@ -183,24 +161,18 @@ export const listForPagCadastroAutor = {
             type: 'text',
             placeholder: 'Digite o nome do livro',
         },
-        /*{
-            label: 'Genero Atuante',
-            id: 'genero',
+        {
+            label: 'Foto do Autor',
+            id: 'image',
             type: 'text',
-            placeholder: 'Digite o Genero Literario do autor',
-
-        }, {
+            placeholder: 'Digite a url da imagem do Autor'
+        },
+        {
             label: 'Biografia',
             id: 'biografia',
             type: 'text',
-            placeholder: 'Digite a sinopse do livro',
-        },
-        {
-            label: 'Ano de Nascimento',
-            id: 'anoDeNascimento',
-            type: 'text',
-            placeholder: 'DD/MM/AAAA',
-        },*/
+            placeholder: 'Digite a biografia do autor',
+        }
     ]
 }
 
@@ -212,7 +184,7 @@ export const listForPagPagamento = {
         cidade: yup.string().max(32).required('campo obrigatório'),
         endereco: yup.string().max(126).required('campo obrigatório'),
         complemento: yup.string().min(10).max(256),
-        cep: yup.string().max(9).required('campo obrigatório'),
+        cep: yup.string().max(2).required('campo obrigatório'),
         formaDeEnvio: yup.string().required('campo obrigatório'),
         numeroDoCartao: yup.string().max(16).required('campo obrigatório'),
         dataDeValidade: yup.string().max(5).required('campo obrigatorio'),

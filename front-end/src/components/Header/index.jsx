@@ -38,7 +38,7 @@ const Header = () => {
                 </div>
 
                 <div className={style.container}>
-                    <IconeDeNavegar icon ={listIconesDeNavegar[0]}/>
+                    <IconeDeNavegar />
                     <Perfil/>
                 </div>
                 

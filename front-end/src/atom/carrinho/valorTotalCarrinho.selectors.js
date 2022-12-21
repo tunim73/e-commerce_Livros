@@ -7,11 +7,10 @@ export const somaValoresCarrinho = selector({
     get: ({get}) => {
       const list = get(carrinho);
       let total = get(valorTotalCarrinho);
-
       list.map(element => {
-        total = (element.preco*element.qtd)+total;
+        
+        total = (element.livro_id.preco*element.qtd)+total;
       })
-
       return total
     }
 

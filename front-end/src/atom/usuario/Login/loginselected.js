@@ -13,10 +13,15 @@ export const usuarioLogado = selector({
 },
   set: ({set}, newUser) => {
     
-    if(newUser.user.id === "false")
+    if(newUser.user.id === "false"){
       localStorage.removeItem('authToken');
-    else 
-      localStorage.setItem('authToken', newUser.token);
+      localStorage.removeItem('log');
+    }
+    else {
+      localStorage.setItem('authToken', newUser.token);     
+      const text = JSON.stringify(newUser.user);
+      localStorage.setItem('log', text)
+    }
 
     set(login, newUser.user)
   }

@@ -23,16 +23,16 @@ const PagCadastros = ({infos}) => {
                 alert("Autor cadastrado com sucesso");
             }
             else{
-                console.log("deu ruim em autor")
+                alert("Deu probelma !");
             }
         } else if (infos.referencia === "forLivro"){
             const newLivro = await apiLivro.novoLivro(data)
-            if(newLivro){
-                atualizarLivros(newLivro);
+            if(newLivro.status===true){
+                atualizarLivros(newLivro.livro);
                 alert("Livro cadastrado com sucesso");
             }
             else{
-                console.log("deu ruim em livro")
+                alert("Deu probelma !");
             }
         }
     }

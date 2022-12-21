@@ -16,7 +16,9 @@ const Carrinho = () => {
     const list = useRecoilValue(carrinho);
     const usuario = useRecoilValue(usuarioLogado);
 
+    
     const navigate = useNavigate();
+    
     
     const aoFinalizarCompra = () => {
         
@@ -37,7 +39,7 @@ const Carrinho = () => {
         <div className={style.container}>
             <Titulo forNome = "Carrinho de Compras :"/>
             {list.map(item =>
-            <ItemCarrinho key={`${item.id}+${item.nome}+${item.edicao}`} item={item}/>
+            <ItemCarrinho key={`${item._id}+carrinho`} item={item.livro_id} qtd ={item.qtd}/>
             )}
             <CampoTotal valor = {total}/>
             <NavLink to='/catalogo'>
@@ -51,7 +53,6 @@ const Carrinho = () => {
                     botao="Finalizar Compra"
                     click={aoFinalizarCompra}/>
                 </div>
-            
         </div>  
        
     </>

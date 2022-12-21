@@ -7,14 +7,12 @@ const atualizar = (
     preco,
     descricao,
     autor,
-    edicao,
     image
 ) => Livro.findOneAndUpdate({ _id: id, }, {
     nome,
     preco,
     descricao,
     autor,
-    edicao,
     image
 })
 const consultarTudo = () => Livro.find()

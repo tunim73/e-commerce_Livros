@@ -30,7 +30,7 @@
     {
       "id": 4,
       "nome": "Clean Code",
-      "genero": "educação,programação",
+      "genero": "programação",
       "preco": 20.95,
       "qtd": 1,
       "imagem": "https://m.media-amazon.com/images/I/41xShlnTZTL.jpg",
@@ -38,7 +38,7 @@
     },
     {
       "id": 5,
-      "nome": "Viagem ao centro da terra",
+      "nome": " ",
       "genero": "drama,coach",
       "preco": 20.95,
       "qtd": 1,

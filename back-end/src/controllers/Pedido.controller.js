@@ -33,6 +33,30 @@ class PedidoController {
         }
     }
 
+    static async readCarrinho (req, res){
+        try {
+            const {id} = req.params;
+            
+            if (!id)
+                return res.status(203).json({ msg: "Os Campos chegaram Nulo, verifique e tente novamente", status: false });
+
+            let pedidos = await pedidoService.consultaCarrinho(id);
+            
+            const total = await PedidoController.calculoTotal(pedidos);
+            
+
+            
+            res.status(200).json({ 
+                status: true, 
+                itens: pedidos.carrinho.itens,
+                total
+            });
+
+        } catch (error) {
+            return res.status(500).json(error.message);
+        }
+    }
+    
     static async updatedCarrinho (req, res) {
         
         try {
@@ -66,10 +90,15 @@ class PedidoController {
 
             }
 
+            let pedidos = await pedidoService.consultaCarrinho(id);
+            const total = await PedidoController.calculoTotal(pedidos);
+
+
             return res.status(201).json({
                 status: true,
                 action,
-                updatedItem
+                itens: pedidos.carrinho.itens,
+                total
             });
         } catch (error) {
             return res.status(500).json(error.message);
@@ -116,6 +145,16 @@ class PedidoController {
         } catch (error) {
             return res.status(500).json(error.message);
         }
+    }
+
+
+
+    static async calculoTotal (pedidos) {
+        let total = 0;
+        pedidos.carrinho.itens.map( e => {
+           total = (e.qtd*e.livro_id.preco)+total;
+        })
+        return total
     }
     
 }

@@ -19,17 +19,9 @@ const PedidoSchema = new mongoose.Schema({
                 qtd:{
                     type:Number,
                     default:1
-                },
-                teste:{
-                    type:Number
                 }
             }   
         ],
-
-        total: {
-            type:Number,
-            default:0
-        }
     },
     historico: [
         {   

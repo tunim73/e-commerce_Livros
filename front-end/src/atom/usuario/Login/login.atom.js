@@ -11,7 +11,7 @@ const stateInicialLogin = async () => {
           return data.user          
         else {
           localStorage.removeItem('authToken');
-
+          sessionStorage.removeItem('log');
           return {
             id:"false",
             nome:"false",

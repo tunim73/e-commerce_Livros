@@ -9,6 +9,7 @@ const consultar = (id) => Pedido.findById({ _id: id });
 
 
 /* No Carrinho */
+const consultaCarrinho =(id) => Pedido.findById({ _id: id },{"carrinho":1}).populate("carrinho.itens.livro_id")
 
 const localizaItemCarrinho = (pedido_id, livro_id) => Pedido.findOne(
     {
@@ -74,6 +75,7 @@ module.exports = {
     consultarTudo,
     consultar,
     deletar,
+    consultaCarrinho,
     novoItemCarrinho,
     atualizaQuantidadeItemCarrinho,
     localizaItemCarrinho,

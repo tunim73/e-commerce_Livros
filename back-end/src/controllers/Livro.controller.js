@@ -6,40 +6,39 @@ class LivroController {
     static async createLivro(req, res) {
 
         try {
-
-            let {
-                nome,
-                preco,
-                descricao,
-                autor,
-                edicao,
-                numSerial,
-                image
-            } = req.body;
+            
+            let body = req.body;
 
             if (req.file) {
                 image = req.file.path
             } else if (req.file === undefined) {
-                image = "src/assets/padrao.jpg"
+                body.image = "src/assets/padrao.jpg"
             }
-
-
-            if (!nome || !preco || !descricao || !autor || !edicao || !numSerial)
+        
+            if (!body.nome || !body.preco || !body.descricao || !body.autor)
                 return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
 
-            const newLivro = await livroService.criar({
+            const {
+                _id,
                 nome,
                 preco,
                 descricao,
+                genero,
                 autor,
-                edicao,
-                numSerial,
-                image
-            })
+                image 
+            } = await livroService.criar(body)
 
             return res.status(201).json({
                 status: true,
-                newLivro
+                livro: {
+                    id:_id,
+                    nome,
+                    preco,
+                    descricao,
+                    genero,
+                    autor,
+                    image
+                }
             });
         } catch (error) {
             return res.status(500).json(error.message);
@@ -54,8 +53,7 @@ class LivroController {
                 preco,
                 descricao,
                 autor,
-                edicao,
-                numSerial,
+                genero,
                 image
             } = req.body;
             const id = req.params.id;
@@ -72,8 +70,7 @@ class LivroController {
                 preco,
                 descricao,
                 autor,
-                edicao,
-                numSerial,
+                genero,
                 image
             );
             if (livro.image !== "src/assets/padrao.jpg ") {

@@ -3,28 +3,24 @@ const mongoose = require('mongoose');
 const LivroSchema = new mongoose.Schema({
     nome: {
         type: String,
+        unique:true,
         required: true
     },
     preco: {
-        type: String,
+        type: Number,
         required: true
     },
     descricao: {
         type: String,
-        required: true
+        required: false
+    },
+    genero: {
+        type: String,
+        required: false
     },
     autor: {
         type: String,
-        required: true
-    },
-    edicao: {
-        type: Number,
-        required: true
-    },
-    numSerial: {
-        type: Number,
-        required: true,
-        unique: true
+        required: false
     },
     image: {
         type: String

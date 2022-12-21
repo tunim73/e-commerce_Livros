@@ -22,6 +22,7 @@ const Formulario = (props) => {
                   register={register}
                   errors={errors}
                   />
+                  
                 )}
                 <Botao botao = {props.nomeBotao}/>
             </form> 

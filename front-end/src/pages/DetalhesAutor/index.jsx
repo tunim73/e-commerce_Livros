@@ -16,7 +16,7 @@ const DetalhesAutor = () => {
     <>
         <div className={style.container}>
             <Titulo forNome = {autor.nome} />
-            <img className={style.img} src={autor.img} />
+            <img className={style.img} src={autor.image} />
             <Sinopse forNome = "Biografia" forResumo = {autor.biografia}/>
             <Titulo forNome = "Outras Obras :"/>
             <Carrosel list={listaCarrosel} />

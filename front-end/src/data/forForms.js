@@ -119,7 +119,7 @@ export const listForPagCadastroLivro = {
         {
             label: 'Foto do livro',
             id: 'image',
-            type: 'file',
+            type: 'text',
             placeholder: 'Digite a url da imagem do livro'
         },
         {

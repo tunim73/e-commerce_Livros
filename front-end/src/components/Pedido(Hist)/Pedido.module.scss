@@ -1,0 +1,16 @@
+@import '/src/styles/variaveis.scss';
+.container {
+    background: $branco;
+    padding: 2%;
+}
+
+.SID {
+    width: 33%;
+    display: inline;
+    color: blue;
+}
+
+.Stexto {
+    width: 33%;
+    display: inline-block;
+}

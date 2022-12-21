@@ -1,5 +1,6 @@
 import style from './Carrinho.module.scss'
 import Titulo from '../../components/Titulo'
+import {Carrosel} from '../../components/Carrosel'
 import {CampoTotal} from '../../components/CampoTotal'
 import { Botao } from '../../components/Botao'
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -8,10 +9,11 @@ import { useRecoilValue } from 'recoil';
 import { carrinho } from '../../atom/carrinho/carrinho.atom';
 import { somaValoresCarrinho } from '../../atom/carrinho/valorTotalCarrinho.selectors';
 import { usuarioLogado } from '../../atom/usuario/Login/loginselected';
-
+import { listLivros } from '../../atom/livro/livro.selectors'
 
 const Carrinho = () => {
-    
+    const listaCarrosel = useRecoilValue(listLivros);
+
     const total = useRecoilValue(somaValoresCarrinho);
     const list = useRecoilValue(carrinho);
     const usuario = useRecoilValue(usuarioLogado);
@@ -53,6 +55,8 @@ const Carrinho = () => {
                     botao="Finalizar Compra"
                     click={aoFinalizarCompra}/>
                 </div>
+                <Titulo forNome="Mais recomendações:"/>
+                <Carrosel list={listaCarrosel}/>
         </div>  
        
     </>

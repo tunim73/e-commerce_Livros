@@ -6,7 +6,6 @@ const ItemHistorico = (props , item) => {
 
     return ( 
         <div className = { style.container }>
-            <hr/>
                 <div className={style.grid1}>
                     <img className={style.img} src={props.imagem} />
                 </div>

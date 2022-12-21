@@ -5,11 +5,19 @@ export const usuarioLogado = selector({
   key: 'usarioLogado',
   get: ({get}) => {
     const user = get(login);
+    if(user.id === "false")
+      return false
+    else 
+      return true
     
-    if(Object.keys(user).length === 0)
-        return false
-    else
-        return true  
 },
-  set: ({set}, newUser) => set(login, newUser)
+  set: ({set}, newUser) => {
+    
+    if(newUser.user.id === "false")
+      localStorage.removeItem('authToken');
+    else 
+      localStorage.setItem('authToken', newUser.token);
+
+    set(login, newUser.user)
+  }
 });

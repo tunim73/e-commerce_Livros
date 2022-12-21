@@ -21,11 +21,17 @@ class UserController {
             await userService.atualizar(newUser._id, {pedido_id:newRequest._id});
             
             return res.status(201).json({
-                status: true,
+                status: true, msg:"Cadastro Realizado com sucesso !"
             });
             
         } catch (error) {
-            return res.status(500).json(error.message);
+            const msgErro = error.message.split(' ');
+
+            if(msgErro[0] == 'E11000' && msgErro[1] == 'duplicate' && msgErro[2] == 'key' ){
+               return res.status(200).json({status: false, msg: "Falha: email já existente"});
+            }
+            
+            return res.status(500).json({msg: error.message});
         }
 
 

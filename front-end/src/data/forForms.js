@@ -13,7 +13,7 @@ export const listForFormCadastro = {
                 .required("O email é obrigatório"),
             senha: yup
                 .string()
-                .min(6, "A senha deve ter pelo menos 6 digitos")
+                .min(3, "A senha deve ter pelo menos 3 digitos")
                 .required("A senha é obrigatória"),
             confirmaSenha: yup
                 .string()
@@ -45,7 +45,7 @@ export const listForFormCadastro = {
             placeholder: 'Digite sua senha',
             required: false,
             maxlength: 10,
-            minlength: 6,
+            minlength: 3,
         },
         {
             label: 'Confirme sua senha',
@@ -54,7 +54,7 @@ export const listForFormCadastro = {
             placeholder: 'Confirme sua senha novamente',
             required: false,
             maxlength: 10,
-            minlength: 6
+            minlength: 3
         }
     ]
 }
@@ -70,7 +70,7 @@ export const listForFormLogin = {
             required('campo obrigatório'),
             senha: yup.
             string().
-            min(6,'No Minimo 6 caracteres').
+            min(3,'No Minimo 3 caracteres').
             max(10).
             required('campo obrigatório'),
         }),

@@ -33,19 +33,17 @@ const PedidoSchema = new mongoose.Schema({
     },
     historico: [
         {   
-            pedido: {
-                itens: {
-                    type:Array
-                },
-            
-                total: {
-                    type:Number,
-                    default:0
-                },
-                createdAt: {
-                    type: Date,
-                    default: Date.now(),
-                }
+            itens: {
+                type:Array
+            },
+        
+            total: {
+                type:Number,
+                default:0
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now(),
             }
         }
     ]

@@ -11,8 +11,6 @@ export const useApiLivro = () => ({
             genero: novoLivro.categoria,
             sinopse: novoLivro.sinopse,
             preco: novoLivro.preco,
-            qtd:1,
-
         },
         {
             validateStatus: (status) => {
@@ -22,6 +20,7 @@ export const useApiLivro = () => ({
         )
         return resposta.data   
     },
+
     todosLivros: async () => {
 
         const resposta = await api.get('/livros');

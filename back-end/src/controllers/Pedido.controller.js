@@ -85,20 +85,25 @@ class PedidoController {
 
             if (!id || !itens || !total)
             return res.status(203).json({ msg: "Os Campos chegaram Nulo, verifique e tente novamente", status: false });
-            
-            const pedido = { itens, total }
 
-            const newHistorico = pedidoService.adicionaAoHistorico(id, pedido);
+            const newHistorico = await pedidoService.adicionaAoHistorico(id, itens, total);
 
-            res.status(201).json({msg:"historico atualizado", status: true}, newHistorico);
+            res.status(201).json({msg:"historico atualizado", status: true, newHistorico});
 
         } catch (error) {
             return res.status(500).json(error.message);
         }
     }
 
-    static async readAllHistorico (req, res){
+    static async historicoDePedidosDoUsuario (req, res){
         try {
+            const {id} = req.params;
+            
+            if (!id )
+                return res.status(203).json({ msg: "Os Campos chegaram Nulo, verifique e tente novamente", status: false });
+
+            const historico = await pedidoService.historicoDoUsuario(id);
+
 
             if (historico.length === 0) {
                 return res.status(400).json({
@@ -106,7 +111,7 @@ class PedidoController {
                 });
             }
 
-            res.status(200).json({status: true}, historico);
+            res.status(200).json({status: true, historico});
 
         } catch (error) {
             return res.status(500).json(error.message);

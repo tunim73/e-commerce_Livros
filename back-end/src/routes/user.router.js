@@ -13,6 +13,6 @@ router
     .delete('/user/:id', UserController.deleteUser)
     .post('/login', LoginController.login)
 
-
+    .post('/validateToken', LoginController.validateToken)
     
 module.exports = router;

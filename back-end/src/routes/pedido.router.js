@@ -7,5 +7,8 @@ router
     .get('/pedidos', PedidoController.readPedidoAll)
     .patch('/pedido/:id', PedidoController.updatedCarrinho)
     
+    .get('/pedido/historico/:id', PedidoController.historicoDePedidosDoUsuario)
+    .patch('/pedido/historico/:id', PedidoController.addPedidoAoHistorico)
+
 module.exports = router;
 

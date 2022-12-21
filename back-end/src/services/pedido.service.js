@@ -43,17 +43,16 @@ const removeItemCarrinho = (pedido_id, livro) => Pedido.findOneAndUpdate(
         }
 )
 
-const adicionaAoHistorico = (pedido_id, pedido) => findOneAndUpdate({_id:pedido_id}, 
+const adicionaAoHistorico = (pedido_id, itens, total) => Pedido.findByIdAndUpdate(
+    {_id:pedido_id}, 
     {
-
         $push: { 
-            historico: pedido
+            "historico": {itens, total}
         }   
-    
     }
 )
 
-const readAllHistorico = (pedido_id) => findOne({_id:pedido_id},
+const historicoDoUsuario = (pedido_id) => Pedido.findById({_id:pedido_id},
     {
         "historico":1
     }
@@ -80,5 +79,5 @@ module.exports = {
     localizaItemCarrinho,
     removeItemCarrinho,
     adicionaAoHistorico,
-    readAllHistorico
+    historicoDoUsuario
 }

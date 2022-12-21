@@ -4,16 +4,23 @@ import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
 import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms'
 import { usuarioLogado } from '../../../../atom/usuario/Login/loginselected'
-import { useRecoilState, useResetRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
 import { autores } from '../../../../atom/autor/autor.atom'
+import { useApiUsuario } from '../../../../hooks/useApiUsuario'
+
+
+
 
 const Perfil = () =>{
 
     const [logado, setLogado] = useRecoilState(usuarioLogado);
-    
+
     const [modalLoginAberto, setModalLoginAberto] = useState(false);
     const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
     const reset = useResetRecoilState(autores);
+
+    const apiUsuario = useApiUsuario();
+    
 
     const aoAbrirModalLogin = () => {
         setModalCadastroAberto(false);
@@ -25,17 +32,50 @@ const Perfil = () =>{
         setModalCadastroAberto(true);
     }
 
-    const aoSubmitLogin = (data) => {
+    const aoSubmitLogin = async (data) => {
         console.log("Data em perfil Login: ", data);
-        setLogado(data);
-        setModalLoginAberto(false);
+        const usuarioAoLogar = await apiUsuario.login({
+            senha:data.senha,
+            email:data.email
+        })
+
+        if(usuarioAoLogar.status===true){
+            console.log("Usuario Vai logar: ", usuarioAoLogar);
+            setLogado(usuarioAoLogar);
+            setModalLoginAberto(false);
+        } else {
+            alert(usuarioAoLogar.msg);
+        }
+        
     }
 
-    const aoSubmitCadastro = (data) => {
-        console.log("Data em perfil Cadastro: ", data);
-        setModalCadastroAberto(false);
+    const aoSubmitCadastro = async (data) => {
+        const novoUsuario = await apiUsuario.cadastroDeUsuario({
+            nome:data.nome,
+            senha:data.senha,
+            email:data.email
+        }
+        )
+
+        if(novoUsuario.status === true){
+            alert("Cadastro Realizado com sucesso!");
+            setModalCadastroAberto(false);
+        }
+        else {
+            alert(novoUsuario.msg);
+        }
     }
 
+    const  aoSair = async () => {
+        const newUserFalse = {
+            user:{
+                id:"false",
+                nome:"false",
+                pedido_id:"false"
+            }
+          }
+        setLogado(newUserFalse);
+    }
 
 
     
@@ -52,7 +92,7 @@ const Perfil = () =>{
                 </label>
                 <ul className={style.perfil__opções}> 
                 
-                { (logado === true) ? 
+                { (logado === false) ? 
                     <>
                         <li className={style.perfil__opções__item}>
                             <label type ='text'className={style.perfil__opções__link}
@@ -95,7 +135,7 @@ const Perfil = () =>{
                         </li>
                         <li className={style.perfil__opções__item}>
                             <NavLink className={style.perfil__opções__link} to= '/' 
-                            onClick={()=>setLogado({})}>Sair</NavLink>
+                            onClick={aoSair}>Sair</NavLink>
                         </li>
                     </>
                 }

@@ -5,7 +5,7 @@ const jwt = require ('jsonwebtoken');
 
 class LoginController {
 
-     static async login(req,res)
+    static async login(req,res)
     {
         const {email, senha} = req.body;
 
@@ -24,13 +24,13 @@ class LoginController {
             if(!verificaPassword) 
                 return res.status(300).json({msg:"Senha incorreta", status:false});
 
-            const {_id, nome} = user;
+            const {_id, nome, pedido_id} = user;
                 
-            const token  = jwt.sign({id: _id, nome, email}, env.chave );
+            const token  = jwt.sign({id: _id, nome, pedido_id}, env.chave );
             
             return res.status(202).json(
             { 
-                user: {id : _id, nome}, 
+                user: {id : _id, nome, pedido_id}, 
                 token, 
                 status: true 
             }
@@ -39,6 +39,36 @@ class LoginController {
         } catch(error)
         { 
             res.status(500).json({msg:error.message})
+        }
+    }
+
+    static validateToken (req,res) {
+        const { token } = req.body;
+
+        try{  
+
+            if(token === undefined)
+                return res.status(203).json({msg: "Token não identificado!", status:false});
+            
+                
+            jwt.verify(token, env.chave , (err,data) => {
+        
+                if(err)
+                    return res.status(203).json({err:"Falha na autenticação do token!", status:false});
+
+                return res.status(200).json({
+                    status:true,
+                    user:{
+                        id:data.id,
+                        nome:data.nome,
+                        pedido_id:data.pedido_id
+                    }
+                });
+
+            });                    
+
+        }catch(error){
+            return res.status(500).json(error.message);
         }
     }
 }

@@ -10,6 +10,11 @@ function auth (req, res, next){
         
     const [,token] = authToken.split(" ");
 
+    console.log(`
+        authToken = ${authToken},
+        token = ${token}XXuxa
+    `)
+
     jwt.verify(token, env.chave, (error,data) => {
 
         if(error){

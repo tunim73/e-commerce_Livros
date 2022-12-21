@@ -8,13 +8,14 @@ import { listLivros, livroDestaquePag } from '../../atom/livro/livro.selectors';
 import { useEffect, useState } from 'react';
 import { useApiPedido } from '../../hooks/useApiPedido';
 import { login } from '../../atom/usuario/Login/login.atom';
+import { usuarioLogado } from '../../atom/usuario/Login/loginselected';
 
 const HistoricoPedido = () => {
      
     const navigate = useNavigate();
     const [list, setList] = useState([])
     const usuario = useRecoilValue(login)
-
+    const logado = useRecoilValue(usuarioLogado);
     const integra = async () => {
         const his = await useApiPedido().todosItensHistorico(usuario.pedido_id);
         if(his.status === true){
@@ -28,28 +29,36 @@ const HistoricoPedido = () => {
         integra()
 
     }, [])
-
-
     /*{list, forId, dorDate, forPagamento, forEnd, forTotal }*/
-    return ( 
-    <>                
-        <div className={style.wrap}>
-            <Titulo forNome = "Histórico de Pedidos"/>   
-            {list.map(e => <Pedido 
-            forId={e._id}
-            forPagamento ={e.dadosUsuario.finalCartao}
-            forEnd={e.dadosUsuario.endereco}
-            forDate={e.createdAt} 
-            forTotal={e.total}
-            forList={e.itens}
-            />
-            )} 
-            
-   
-        </div>
 
-    </>
-    )
+    if(logado===true){
+
+        return ( 
+        <>                
+            <div className={style.wrap}>
+                <Titulo forNome = "Histórico de Pedidos"/>   
+                {list.map(e => <Pedido 
+                forId={e._id}
+                forPagamento ={e.dadosUsuario.finalCartao}
+                forEnd={e.dadosUsuario.endereco}
+                forDate={e.createdAt} 
+                forTotal={e.total}
+                forList={e.itens}
+                />
+                )} 
+                
+       
+            </div>
+    
+        </>
+        )
+
+    }
+    else {
+        <>
+            <h1>Não autorizado</h1>
+        </>
+    }
 
 
 }

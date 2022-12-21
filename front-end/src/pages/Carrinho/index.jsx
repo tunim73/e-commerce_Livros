@@ -13,7 +13,7 @@ import { listLivros } from '../../atom/livro/livro.selectors'
 
 const Carrinho = () => {
     const listaCarrosel = useRecoilValue(listLivros);
-
+    const logado = useRecoilValue(usuarioLogado);
     const total = useRecoilValue(somaValoresCarrinho);
     const list = useRecoilValue(carrinho);
     const usuario = useRecoilValue(usuarioLogado);
@@ -34,33 +34,35 @@ const Carrinho = () => {
 
     }
 
+        return ( 
+            <>
+                <div className={style.container}>
+                    <Titulo forNome = "Carrinho de Compras :"/>
+                    {list.map(item =>
+                    <ItemCarrinho key={`${item._id}+carrinho`} item={item.livro_id} qtd ={item.qtd}/>
+                    )}
+                    <CampoTotal valor = {total}/>
+                    <NavLink to='/catalogo'>
+                        <div className={style.Botao} >
+                            <Botao botao="Adicionar outros produtos"/>
+                        </div>
+                    </NavLink>
+                    
+                        <div className={style.Botao} >
+                            <Botao className={style.Botao.forBotao}
+                            botao="Finalizar Compra"
+                            click={aoFinalizarCompra}/>
+                        </div>
+                        <hr></hr>
+                        <Titulo forNome="Mais recomendações:"/>
+                        <Carrosel list={listaCarrosel}/>
+                </div>  
+               
+            </>
+            )
 
+    
 
-    return ( 
-    <>
-        <div className={style.container}>
-            <Titulo forNome = "Carrinho de Compras :"/>
-            {list.map(item =>
-            <ItemCarrinho key={`${item._id}+carrinho`} item={item.livro_id} qtd ={item.qtd}/>
-            )}
-            <CampoTotal valor = {total}/>
-            <NavLink to='/catalogo'>
-                <div className={style.Botao} >
-                    <Botao botao="Adicionar outros produtos"/>
-                </div>
-            </NavLink>
-            
-                <div className={style.Botao} >
-                    <Botao className={style.Botao.forBotao}
-                    botao="Finalizar Compra"
-                    click={aoFinalizarCompra}/>
-                </div>
-                <hr></hr>
-                <Titulo forNome="Mais recomendações:"/>
-                <Carrosel list={listaCarrosel}/>
-        </div>  
-       
-    </>
-    )
+    
 }
 export default Carrinho

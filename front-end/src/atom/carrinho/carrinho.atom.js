@@ -3,13 +3,11 @@ import { useApiPedido } from '../../hooks/useApiPedido';
 
 export const stateIncialCarrinho = async() => {
     const text = localStorage.getItem('log');
-    console.log("Text: ", text)
     if(!text) 
       return []
     
     const user = JSON.parse(text);
     const list  = await useApiPedido().todosItensCarrinho(user.pedido_id)
-    console.log("Xuxa: ", user, list)
     if(list){
       return list.itens 
     }

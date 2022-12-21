@@ -110,12 +110,21 @@ class PedidoController {
 
         try {
             const {id} = req.params;
-            const {itens, total} = req.body;
+            let {dadosUsuario, itens, total} = req.body;
+
+            const cartao = dadosUsuario.numeroDoCartao.trim().split(" ");
+            const finalCartao = cartao[3]
+            
+
+            const data = {
+                endereco:`CEP: ${dadosUsuario.cep}, Endereço: ${dadosUsuario.endereco}`,
+                finalCartao:`**** **** **** **** ${finalCartao}`,
+            }
 
             if (!id || !itens || !total)
             return res.status(203).json({ msg: "Os Campos chegaram Nulo, verifique e tente novamente", status: false });
 
-            const newHistorico = await pedidoService.adicionaAoHistorico(id, itens, total);
+            const newHistorico = await pedidoService.adicionaAoHistorico(id, itens, total, data);
 
             res.status(201).json({msg:"historico atualizado", status: true, newHistorico});
 
@@ -140,7 +149,10 @@ class PedidoController {
                 });
             }
 
-            res.status(200).json({status: true, historico});
+            res.status(200).json({status: true, 
+                historico
+                
+                });
 
         } catch (error) {
             return res.status(500).json(error.message);

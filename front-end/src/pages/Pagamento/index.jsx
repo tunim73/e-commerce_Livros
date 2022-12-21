@@ -4,13 +4,32 @@ import { listForPagPagamento } from '../../data/forForms';
 import { CampoTotal } from '../../components/CampoTotal';
 import { useRecoilValue } from 'recoil';
 import { somaValoresCarrinho } from '../../atom/carrinho/valorTotalCarrinho.selectors';
+import { useApiPedido } from '../../hooks/useApiPedido';
+import { carrinho } from '../../atom/carrinho/carrinho.atom';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../../atom/usuario/Login/login.atom';
 
 const Pagamento = () => {
 
     const valor = useRecoilValue(somaValoresCarrinho);
-    
-    const aoPagar = (data) => {
-        console.log("Dados de Pagamento: ", data)
+    const itens = useRecoilValue(carrinho);
+    const usuario = useRecoilValue(login)
+    const navigate = useNavigate();
+
+
+    const aoPagar = async (data) => {
+        
+
+        const newPagamento = await useApiPedido().addItemHistorico(usuario.pedido_id, itens, valor, data);
+
+        if(newPagamento.status === true ){
+            alert("Pagamento realizado com sucesso ! ");
+            navigate("/")
+        }
+        else {
+            alert(newPagamento.msg)
+        }
+
     }
 
 
@@ -36,3 +55,4 @@ const Pagamento = () => {
 
 
 export default Pagamento
+

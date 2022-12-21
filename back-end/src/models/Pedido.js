@@ -36,6 +36,14 @@ const PedidoSchema = new mongoose.Schema({
             createdAt: {
                 type: Date,
                 default: Date.now(),
+            },
+            dadosUsuario: {
+                endereco: {
+                    type:String,
+                },
+                finalCartao:{
+                    type:String,
+                },
             }
         }
     ]

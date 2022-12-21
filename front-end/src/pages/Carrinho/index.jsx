@@ -55,6 +55,7 @@ const Carrinho = () => {
                     botao="Finalizar Compra"
                     click={aoFinalizarCompra}/>
                 </div>
+                <hr></hr>
                 <Titulo forNome="Mais recomendações:"/>
                 <Carrosel list={listaCarrosel}/>
         </div>  

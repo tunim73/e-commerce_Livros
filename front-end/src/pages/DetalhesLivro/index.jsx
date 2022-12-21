@@ -16,8 +16,6 @@ const DetalhesLivro = () => {
     
 
     const addAoCarrinho = async () => {
-        console.log("item para o carrinho: ", item)
-
         const newList = await auxAddItemCarrinho(item, "positivo");
         adicionaItensCarrinho(newList);
         alert(`O Livro "${item.nome}" foi adicionado ao carrinho`);

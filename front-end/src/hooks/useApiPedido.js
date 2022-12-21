@@ -9,7 +9,7 @@ export const useApiPedido = () => ({
         },
         {
             validateStatus: (status) => {
-              return status < 600; // Resolve somente se o código de status for menor que 500
+              return status < 600; 
             }
         }
         )
@@ -22,12 +22,35 @@ export const useApiPedido = () => ({
         const resposta = await api.get(`/pedido/carrinho/${pedido_id}`,
         {
             validateStatus: (status) => {
-              return status < 600; // Resolve somente se o código de status for menor que 500
+              return status < 600; 
             }
         });
-        console.log("Data itens carrinho: ",resposta.data)
         return resposta.data   
 
-    }
+    },
+    addItemHistorico: async (pedido_id, itens, total, dadosUsuario) => {
+        const resposta = await api.patch(`/pedido/historico/${pedido_id}`, {
+            dadosUsuario,
+            itens,
+            total
+        },
+        {
+            validateStatus: (status) => {
+              return status < 600; // Resolve somente se o código de status for menor que 500
+            }
+        }
+        )
+        return resposta.data   
+    },
+    todosItensHistorico: async (pedido_id) => {
 
+        const resposta = await api.get(`/pedido/historico/${pedido_id}`,
+        {
+            validateStatus: (status) => {
+              return status < 600; 
+            }
+        });
+        return resposta.data   
+
+    },
 })

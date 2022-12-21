@@ -44,11 +44,11 @@ const removeItemCarrinho = (pedido_id, livro) => Pedido.findOneAndUpdate(
         }
 )
 
-const adicionaAoHistorico = (pedido_id, itens, total) => Pedido.findByIdAndUpdate(
+const adicionaAoHistorico = (pedido_id, itens, total, dadosUsuario) => Pedido.findByIdAndUpdate(
     {_id:pedido_id}, 
     {
         $push: { 
-            "historico": {itens, total}
+            "historico": {itens, total, dadosUsuario}
         }   
     }
 )

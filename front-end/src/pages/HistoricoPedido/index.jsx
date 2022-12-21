@@ -14,8 +14,8 @@ const HistoricoPedido = () => {
     <>                
         <div className={style.wrap}>
             <Titulo forNome = "Histórico de Pedidos"/>    
-            <Pedido forId="wkbewjbjebkwqnçlkwnien12432134" forDate="20/12/2022" forTotal="200,00" />
-            <Pedido forId="wkbewjbjebkwqnçlkwnien12432134" forDate="20/12/2022" forTotal="200,00" />
+            <Pedido forId="wkbewjbjebkwqnçlkwnien12432134" forPagamento ="PIX" forEnd="37 E. Victoria St	Santa Barbara	93101" forDate="20/12/2022" forTotal="200,00" />
+            <Pedido forId="wkbewjbjebkwqnçlkwnien12432134" forPagamento ="Cartão/crédito" forEnd="Rua " forDate="20/12/2022" forTotal="200,00" />
             <NavLink to= '/historico'>
                 <Botao botao="Atualizar Historico" /*click = { ()=>navigate('/historico') }*//>
             </NavLink>

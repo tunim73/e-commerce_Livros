@@ -8,6 +8,7 @@ import { useApiPedido } from '../../hooks/useApiPedido';
 import { carrinho } from '../../atom/carrinho/carrinho.atom';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../atom/usuario/Login/login.atom';
+import { usuarioLogado } from '../../atom/usuario/Login/loginselected';
 
 const Pagamento = () => {
 
@@ -15,7 +16,7 @@ const Pagamento = () => {
     const itens = useRecoilValue(carrinho);
     const usuario = useRecoilValue(login)
     const navigate = useNavigate();
-
+    const logado = useRecoilValue(usuarioLogado);
 
     const aoPagar = async (data) => {
         
@@ -32,22 +33,32 @@ const Pagamento = () => {
 
     }
 
+    if(logado === true){
 
-    return ( 
+        return ( 
+            <>
+                <CampoTotal valor ={valor} />
+                <div className={style.container}>
+                    <Formulario 
+                    titulo = {listForPagPagamento.titulo} 
+                    list={listForPagPagamento.list} 
+                    nomeBotao={listForPagPagamento.nomeBotao}
+                    schema={listForPagPagamento.schema}
+                    aoSubmit={aoPagar} 
+                    />
+                </div>
+            </>
+            
+        )
+
+    }
+    else {
+        return(
         <>
-            <CampoTotal valor ={valor} />
-            <div className={style.container}>
-                <Formulario 
-                titulo = {listForPagPagamento.titulo} 
-                list={listForPagPagamento.list} 
-                nomeBotao={listForPagPagamento.nomeBotao}
-                schema={listForPagPagamento.schema}
-                aoSubmit={aoPagar} 
-                />
-            </div>
-        </>
-        
-    )
+            <h1>Não autorizado</h1>
+        </>)
+    }
+
         
 
 

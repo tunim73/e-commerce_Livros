@@ -10,7 +10,7 @@ router
     .post('/user', UserController.createUser)
     .get('/user/:id', UserController.readUser)
     .get('/users', auth, UserController.readUserAll)
-    .delete('/user/:id', UserController.deleteUser)
+    .delete('/user/:id', auth,UserController.deleteUser)
     .post('/login', LoginController.login)
 
     .post('/validateToken', LoginController.validateToken)

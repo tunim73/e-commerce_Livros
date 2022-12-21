@@ -2,15 +2,16 @@ import style from './PagCadastros.module.scss'
 import Formulario from '../../components/Formulario';
 import { useApiAutor } from '../../hooks/useApiAutor';
 import { useApiLivro } from '../../hooks/useApiLivro'
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { listAutores } from '../../atom/autor/autor.selectors';
 import { listLivros } from '../../atom/livro/livro.selectors';
+import { usuarioLogado } from '../../atom/usuario/Login/loginselected';
 
 const PagCadastros = ({infos}) => {
 
     const apiAutor = useApiAutor();
     const atualizarAutores = useSetRecoilState(listAutores);
-    
+    const logado = useRecoilValue(usuarioLogado);
     const apiLivro = useApiLivro();
     const atualizarLivros = useSetRecoilState(listLivros)
 
@@ -38,21 +39,29 @@ const PagCadastros = ({infos}) => {
     }
 
 
-
-
-    return ( 
+    if(logado === true) {
+        return ( 
         
-        <div className={style.container}>
-            <div className={style.container_forForm}>
-                <Formulario titulo = {infos.titulo} 
-                list={infos.list}
-                nomeBotao={infos.nomeBotao}
-                schema={infos.schema}
-                aoSubmit={aoSubmit}
-                />
+            <div className={style.container}>
+                <div className={style.container_forForm}>
+                    <Formulario titulo = {infos.titulo} 
+                    list={infos.list}
+                    nomeBotao={infos.nomeBotao}
+                    schema={infos.schema}
+                    aoSubmit={aoSubmit}
+                    />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+    else {
+        return(
+        <>
+            <h1>Não autorizado</h1>
+        </>)
+    }
+
+    
 
 
 }

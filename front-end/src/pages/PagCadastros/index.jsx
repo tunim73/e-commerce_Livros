@@ -22,7 +22,7 @@ const PagCadastros = ({infos}) => {
         if(infos.referencia === "forAutor"){
             const newAutor = await apiAutor.novoAutor(data)
             if(newAutor){
-                //atualizarAutores(newAutor.newAutor);
+                atualizarAutores(newAutor.newAutor);
                 alert("Autor cadastrado com sucesso");
                 navigate('/');
             }

@@ -10,7 +10,7 @@ class LivroController {
             let body = req.body;
 
             if (req.file) {
-                image = req.file.path
+                body.image = req.file.path
             } else if (req.file === undefined) {
                 body.image = "src/assets/padrao.jpg"
             }
@@ -61,7 +61,7 @@ class LivroController {
             if (file) {
                 image = file.path
             }
-            if (!nome && !preco && !descricao && !autor && !edicao && !numSerial && !file)
+            if (!nome && !preco && !descricao && !autor && !file)
                 return res.status(203).json({ msg: "Preencha pelo menos um campo!", status: false });
             
             const livro = await livroService.atualizar(

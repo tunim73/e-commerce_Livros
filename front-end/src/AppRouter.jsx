@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import DetalhesLivro from './pages/DetalhesLivro'
 import DetalhesAutor from './pages/DetalhesAutor'
 import PagCadastros from './pages/PagCadastros'

@@ -1,10 +1,8 @@
 import style from './HistoricoPedido.module.scss'
 import Titulo from '../../components/Titulo'
 import Pedido from '../../components/Pedido(Hist)'
-import { Botao } from '../../components/Botao'
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { listLivros, livroDestaquePag } from '../../atom/livro/livro.selectors';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import { useEffect, useState } from 'react';
 import { useApiPedido } from '../../hooks/useApiPedido';
 import { login } from '../../atom/usuario/Login/login.atom';

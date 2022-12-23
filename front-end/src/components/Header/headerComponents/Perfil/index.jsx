@@ -4,12 +4,10 @@ import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
 import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms'
 import { usuarioLogado } from '../../../../atom/usuario/Login/loginselected'
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
-import { autores } from '../../../../atom/autor/autor.atom'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 import { useApiUsuario } from '../../../../hooks/useApiUsuario'
-import { stateIncialCarrinho, carrinho } from '../../../../atom/carrinho/carrinho.atom'
+import { stateIncialCarrinho } from '../../../../atom/carrinho/carrinho.atom'
 import { addItemCarrinho } from '../../../../atom/carrinho/carrinho.selectors'
-import { resetAutores } from '../../../../atom/autor/autor.selectors'
 
 
 

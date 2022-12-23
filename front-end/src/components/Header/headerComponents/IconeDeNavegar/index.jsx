@@ -19,7 +19,6 @@ const IconeDeNavegar = () => {
 
 
     const aoClickCarrinho = () => {
-        console.log("aqui")
         if(usuario===true){
             navigate('/carrinho')
         }

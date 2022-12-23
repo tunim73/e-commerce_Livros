@@ -1,14 +1,13 @@
-import { api } from "../services/api";
+import { api, authHeaders } from "../services/api";
 
 
 export const useApiAutor = () => ({
 
     novoAutor: async (novoAutor) => {
-        
+        authHeaders();
         const resposta = await api.post('/autor', {
             nome:novoAutor.nome,
-            img:novoAutor.img,
-            generos: novoAutor.generos,
+            image:novoAutor.image,
             biografia: novoAutor.biografia,
             link:"autor/detalhes"
         },
@@ -21,7 +20,6 @@ export const useApiAutor = () => ({
         return resposta.data   
     },
     autoresDestaque: async () => {
-
         const resposta = await api.get('/autor');
         return resposta.data   
 

@@ -1,10 +1,10 @@
-import { api } from "../services/api";
+import { api, authHeaders } from "../services/api";
 
 
 export const useApiLivro = () => ({
 
     novoLivro: async (novoLivro) => {
-        
+        authHeaders();
         const resposta = await api.post('/livro', {
             nome:novoLivro.nome,
             image:novoLivro.image,
@@ -19,7 +19,6 @@ export const useApiLivro = () => ({
             }
         }
         )
-        console.log("resposta Livro create: ", resposta.data);
         return resposta.data   
     },
 

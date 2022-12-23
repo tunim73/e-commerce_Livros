@@ -4,11 +4,12 @@ import { useState } from 'react'
 import ModalLogin from '../../../ModalLogin'
 import { listForFormLogin, listForFormCadastro } from '../../../../data/forForms'
 import { usuarioLogado } from '../../../../atom/usuario/Login/loginselected'
-import { useRecoilRefresher_UNSTABLE, useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
 import { autores } from '../../../../atom/autor/autor.atom'
 import { useApiUsuario } from '../../../../hooks/useApiUsuario'
 import { stateIncialCarrinho, carrinho } from '../../../../atom/carrinho/carrinho.atom'
 import { addItemCarrinho } from '../../../../atom/carrinho/carrinho.selectors'
+import { resetAutores } from '../../../../atom/autor/autor.selectors'
 
 
 
@@ -16,11 +17,9 @@ const Perfil = () =>{
 
     const [logado, setLogado] = useRecoilState(usuarioLogado);
     const adiciona = useSetRecoilState(addItemCarrinho);
-    //const resetCarrinho = useResetRecoilState(carrinho);
     
     const [modalLoginAberto, setModalLoginAberto] = useState(false);
     const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
-    const reset = useResetRecoilState(autores);
     const apiUsuario = useApiUsuario();
     
 
@@ -43,7 +42,6 @@ const Perfil = () =>{
         if(usuarioAoLogar.status===true){
             setLogado(usuarioAoLogar);
             const newList = await stateIncialCarrinho();
-            console.log("New list ", newList )
             const gambi = {
                 itens:newList
             }
@@ -139,7 +137,7 @@ const Perfil = () =>{
                             <NavLink className={style.perfil__opções__link} to= '/autor'>Cadastrar Autores</NavLink>
                         </li>   
                         <li className={style.perfil__opções__item}>
-                            <div className={style.perfil__opções__link} onClick ={reset}>Minhas configurações</div>
+                            <div className={style.perfil__opções__link}>Minhas configurações</div>
                         </li>
                         <li className={style.perfil__opções__item}>
                             <NavLink className={style.perfil__opções__link} to= '/historico' 

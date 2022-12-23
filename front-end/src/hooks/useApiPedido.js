@@ -1,9 +1,10 @@
-import { api } from "../services/api";
+import { api, authHeaders } from "../services/api";
 
 
 export const useApiPedido = () => ({
 
     addItemCarrinho: async (pedido_id, livro_id, action) => {
+        authHeaders();
         const resposta = await api.patch(`/pedido/carrinho/${pedido_id}`, {
             livro_id, action
         },
@@ -18,7 +19,7 @@ export const useApiPedido = () => ({
 
 
     todosItensCarrinho: async (pedido_id) => {
-
+        authHeaders();
         const resposta = await api.get(`/pedido/carrinho/${pedido_id}`,
         {
             validateStatus: (status) => {
@@ -29,6 +30,7 @@ export const useApiPedido = () => ({
 
     },
     addItemHistorico: async (pedido_id, itens, total, dadosUsuario) => {
+        authHeaders();
         const resposta = await api.patch(`/pedido/historico/${pedido_id}`, {
             dadosUsuario,
             itens,
@@ -43,7 +45,7 @@ export const useApiPedido = () => ({
         return resposta.data   
     },
     todosItensHistorico: async (pedido_id) => {
-
+        authHeaders();
         const resposta = await api.get(`/pedido/historico/${pedido_id}`,
         {
             validateStatus: (status) => {

@@ -12,19 +12,9 @@ export const listAutores = selector({
   }
 });
 
-export const resetAutores = selector({
-  key: "resetAutoresList",
-  get: ({get}) => get(autores),
-  set: ({reset}) => {
-    reset(autores)
-  }
-})
-
 
 export const autorDestaquePag = selector({
   key: 'autorDestaquePag',
   get: ({get}) => get(autorDestaque),
   set: ({set}, newAutor) => set(autorDestaque, newAutor)
 });
-
-

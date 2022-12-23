@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import style from './PagCadastros.module.scss'
 import Formulario from '../../components/Formulario';
 import { useApiAutor } from '../../hooks/useApiAutor';
@@ -10,9 +11,10 @@ import { usuarioLogado } from '../../atom/usuario/Login/loginselected';
 const PagCadastros = ({infos}) => {
 
     const apiAutor = useApiAutor();
-    const atualizarAutores = useSetRecoilState(listAutores);
-    const logado = useRecoilValue(usuarioLogado);
     const apiLivro = useApiLivro();
+    const navigate = useNavigate();
+    const logado = useRecoilValue(usuarioLogado);
+    const atualizarAutores = useSetRecoilState(listAutores);
     const atualizarLivros = useSetRecoilState(listLivros)
 
     const aoSubmit = async (data) => {
@@ -20,8 +22,9 @@ const PagCadastros = ({infos}) => {
         if(infos.referencia === "forAutor"){
             const newAutor = await apiAutor.novoAutor(data)
             if(newAutor){
-                atualizarAutores(newAutor);
+                //atualizarAutores(newAutor.newAutor);
                 alert("Autor cadastrado com sucesso");
+                navigate('/');
             }
             else{
                 alert("Deu probelma !");
@@ -31,6 +34,7 @@ const PagCadastros = ({infos}) => {
             if(newLivro.status===true){
                 atualizarLivros(newLivro.livro);
                 alert("Livro cadastrado com sucesso");
+                navigate('/');
             }
             else{
                 alert("Deu probelma !");

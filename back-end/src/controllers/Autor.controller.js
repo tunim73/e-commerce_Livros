@@ -7,7 +7,6 @@ class AutorController {
         try {
             let {
                 nome,
-                genero,
                 biografia,
                 image
             } = req.body;
@@ -18,14 +17,14 @@ class AutorController {
                 image = "src/assets/padrao.jpg"
             }
 
-            if (!nome || !genero || !biografia)
+            if (!nome || !biografia)
                 return res.status(203).json({ msg: "Preencha todos os campos!", status: false });
+
+            nome = nome.trim();
 
             const newAutor = await autorService.criar({
                 nome,
-                genero,
                 biografia,
-                //anoDeNascimento,
                 image
             })
 

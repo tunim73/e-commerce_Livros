@@ -10,15 +10,6 @@ const AutorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    genero: {
-        type: String,
-        required: true
-
-    },
-    anoDeNascimento: {
-        type: String,
-        required: false
-    },
     image: {
         type: String
     }

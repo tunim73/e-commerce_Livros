@@ -1,6 +1,6 @@
 # Crônicas de papel - e-commerce de Livros 
 
-Este projeto foi contruído como parte da disciplina de PSW - Programação de Software para Web - para aprendizado das tecnologias,
+Este projeto foi construído como parte da disciplina de PSW - Programação de Software para Web - para aprendizado das tecnologias,
 entendimento melhor ao trabalhar com git, requisitos e cronogramas.
 
 
